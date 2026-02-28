@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Playfair Display', 'serif'],
+        display: ['Montserrat', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       colors: {
@@ -52,14 +52,14 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
-          dark: "hsl(var(--gold-dark))",
+          DEFAULT: "hsl(var(--petrol))",
+          light: "hsl(var(--petrol-light))",
+          dark: "hsl(var(--petrol-dark))",
         },
         navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-          medium: "hsl(var(--navy-medium))",
+          DEFAULT: "hsl(var(--petrol-dark))",
+          light: "hsl(var(--petrol-light))",
+          medium: "hsl(var(--petrol))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
