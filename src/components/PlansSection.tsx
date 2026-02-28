@@ -103,7 +103,7 @@ const PlansSection = () => {
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-secondary-foreground">{feature}</span>
+                    <span className="text-sm text-black">{feature}</span>
                   </li>
                 ))}
               </ul>

@@ -52,7 +52,7 @@ const AboutSection = () => {
               {values.map((value) => (
                 <div key={value} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                  <span className="text-secondary-foreground">{value}</span>
+                  <span className="text-black">{value}</span>
                 </div>
               ))}
             </div>

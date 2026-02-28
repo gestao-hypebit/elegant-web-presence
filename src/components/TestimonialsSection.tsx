@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
               className="relative p-8 rounded-2xl bg-card border border-border shadow-card"
             >
               <Quote className="w-8 h-8 text-gold/20 mb-4" />
-              <p className="text-secondary-foreground leading-relaxed mb-6 text-sm">{t.text}</p>
+              <p className="text-black leading-relaxed mb-6 text-sm">{t.text}</p>
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="w-4 h-4 fill-gold text-gold" />

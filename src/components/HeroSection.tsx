@@ -64,7 +64,7 @@ const HeroSection = () => {
             </a>
             <a
               href="#servicos"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-border text-foreground font-semibold hover:border-gold/50 hover:text-gold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-border text-foreground font-semibold hover:border-gold/50 border-gold/50 text-gold transition-colors"
             >
               Nossos Serviços
             </a>
@@ -79,7 +79,7 @@ const HeroSection = () => {
             {stats.map((stat) => (
               <div key={stat.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-                  <stat.icon className="w-5 h-5 text-gold" />
+                  <stat.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-foreground">{stat.value}</div>
