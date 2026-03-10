@@ -18,6 +18,7 @@ const testimonials = [
     role: "Diretor - Indústria MetalSP",
     text: "Desde que contratamos o serviço recorrente da Luminous, nossos custos com manutenção caíram significativamente. Recomendo fortemente.",
   },
+
 ];
 
 const TestimonialsSection = () => {

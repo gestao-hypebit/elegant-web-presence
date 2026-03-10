@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2 } from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
+import aboutBg from "@/assets/hero-image.jpg";
 
 const values = [
   "Foco estratégico em manutenção preventiva",

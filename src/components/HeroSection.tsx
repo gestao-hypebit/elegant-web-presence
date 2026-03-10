@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-image.jpg";
 
 const stats = [
   { icon: Shield, label: "Segurança", value: "100%" },
@@ -14,7 +14,7 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroBg} alt="Edifício comercial moderno" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/40" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pt-24">
