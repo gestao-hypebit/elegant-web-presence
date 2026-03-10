@@ -10,15 +10,15 @@ const stats = [
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Edifício comercial moderno" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/40" />
+        <img src={heroBg} alt="Edifício comercial moderno" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/75 to-background/40 md:from-background/70 md:via-background/60 md:to-background/30" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 pt-24">
-        <div className="max-w-2xl">
+      <div className="container mx-auto px-6 relative z-10 pt-20 md:pt-24">
+        <div className="max-w-xl sm:max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6"
           >
             Excelência em{" "}
             <span className="text-gradient-gold">Manutenção</span>{" "}
@@ -44,7 +44,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl"
+            className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl"
           >
             Soluções preventivas e corretivas para condomínios, empresas e indústrias em todo o estado de São Paulo. Segurança, eficiência e redução de custos operacionais.
           </motion.p>
@@ -53,18 +53,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
+            className="flex flex-col sm:flex-row gap-4 mb-12"
           >
             <a
               href="#contato"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-gold text-primary-foreground font-semibold hover:opacity-90 transition-opacity shadow-gold"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-gold text-primary-foreground font-semibold hover:opacity-90 transition-opacity shadow-gold"
             >
               Solicitar Orçamento
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#servicos"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-border text-foreground font-semibold hover:border-gold/50 border-gold/50 text-gold transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg border border-border text-foreground font-semibold hover:border-gold/50 border-gold/50 text-gold transition-colors"
             >
               Nossos Serviços
             </a>
@@ -74,7 +74,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex gap-8 md:gap-12"
+            className="flex flex-col sm:flex-row gap-6 md:gap-12"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="flex items-center gap-3">
