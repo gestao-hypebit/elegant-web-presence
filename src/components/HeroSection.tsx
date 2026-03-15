@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
-import heroBg from "@/assets/hero-image.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const stats = [
   { icon: Shield, label: "Segurança", value: "100%" },
