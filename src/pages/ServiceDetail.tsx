@@ -35,7 +35,7 @@ const ServiceDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-6 pt-28 pb-20">
+      <main className="container mx-auto px-6 pt-28 lg:pt-36 pb-20">
         <motion.header
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const ServiceDetail = () => {
           <nav className="text-sm text-muted-foreground mb-3">
             <Link to="/" className="hover:underline">Início</Link>
             <span className="mx-2">/</span>
-            <Link to="/" className="hover:underline">Serviços</Link>
+            <Link to="/servicos" className="hover:underline">Serviços</Link>
             <span className="mx-2">/</span>
             <span className="font-semibold">{service.title}</span>
           </nav>
@@ -117,8 +117,8 @@ const ServiceDetail = () => {
               <div className="bg-card border border-border rounded-xl p-6">
                 <h4 className="font-semibold mb-3">Solicitar orçamento</h4>
                 <p className="text-sm text-muted-foreground mb-4">Entre em contato para um orçamento detalhado e personalizado.</p>
-                <a href="#contato" className="block w-full text-center py-3 rounded-full bg-gradient-gold text-primary-foreground font-semibold">Solicitar</a>
-                <Link to="/" className="block text-center mt-3 text-sm text-muted-foreground hover:underline">Voltar aos serviços</Link>
+                <a href="/#contato" className="block w-full text-center py-3 rounded-full bg-gradient-gold text-primary-foreground font-semibold">Solicitar</a>
+                <Link to="/servicos" className="block text-center mt-3 text-sm text-muted-foreground hover:underline">Voltar aos serviços</Link>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-4">

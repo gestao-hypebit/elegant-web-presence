@@ -48,8 +48,8 @@ const DifferentialsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-gold uppercase tracking-widest">Diferenciais</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mt-3">
+          <span className="text-lg font-semibold text-gold uppercase tracking-widest">Diferenciais</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3">
             Por que escolher a{" "}
             <span className="text-gradient-gold">Luminous</span>?
           </h2>

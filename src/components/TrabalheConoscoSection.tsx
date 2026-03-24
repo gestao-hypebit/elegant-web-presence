@@ -30,7 +30,7 @@ const TrabalheConoscoSection = () => {
             transition={{ duration: 0.7 }}
             className="flex-1 text-white"
           >
-            <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">
+            <p className="text-white/70 text-lg font-semibold uppercase tracking-widest mb-3">
               Faça parte do time
             </p>
             <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">

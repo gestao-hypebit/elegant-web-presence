@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Clock, Award, MessageCircle, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/imghero.jpeg";
 
 const stats = [
   { icon: Shield, label: "Segurança", value: "100%" },
@@ -19,6 +20,8 @@ const servicos = [
 ];
 
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [servico, setServico] = useState("");
@@ -29,19 +32,32 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="Edifício comercial moderno" className="w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-black/70" />
+    <>
+      {/* Fundo fixo na viewport: ao rolar, Sobre e as demais seções sobem por cima (parallax clássico) */}
+      <div
+        className="fixed inset-0 z-0 h-[100dvh] w-full pointer-events-none"
+        aria-hidden
+      >
+        <img
+          src={heroBg}
+          alt=""
+          className="h-full w-full object-cover object-center select-none"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 pt-20 md:pt-24 pb-12">
+      <section
+        ref={sectionRef}
+        id="inicio"
+        className="relative z-0 flex min-h-[80vh] items-center bg-transparent"
+      >
+        <div className="container relative z-10 mx-auto px-6 pt-20 md:pt-24 lg:pt-36 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — copy */}
           <div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -49,16 +65,16 @@ const HeroSection = () => {
             >
               <span className="w-2 h-2 rounded-full bg-gradient-gold" />
               <span className="text-sm text-white/90 font-medium">Referência em manutenção predial em SP</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-6 text-white uppercase"
             >
               Excelência em{" "}
-              <span className="text-gradient-gold">Manutenção</span>{" "}
+              <span className="">Manutenção</span>{" "}
               Elétrica e Hidráulica
             </motion.h1>
 
@@ -66,7 +82,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-base sm:text-lg text-white/70 mb-8 leading-relaxed"
+              className="text-base sm:text-lg text-white mb-8 leading-relaxed"
             >
               Soluções preventivas e corretivas para condomínios, empresas e indústrias em todo o estado de São Paulo. Segurança, eficiência e redução de custos operacionais.
             </motion.p>
@@ -84,15 +100,15 @@ const HeroSection = () => {
                 Solicitar Orçamento
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="#servicos"
+              <Link
+                to="/servicos"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm"
               >
                 Nossos Serviços
-              </a>
+              </Link>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -109,7 +125,7 @@ const HeroSection = () => {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Right — quick quote card */}
@@ -197,7 +213,8 @@ const HeroSection = () => {
 
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 

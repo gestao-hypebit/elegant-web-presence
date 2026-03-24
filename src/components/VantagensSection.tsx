@@ -34,7 +34,7 @@ const VantagensSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
             Vantagens de ser um cliente{" "}
             <span className="text-white/80">Luminous</span>
           </h2>

@@ -72,12 +72,12 @@ const PlansSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-gold uppercase tracking-widest">Planos</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mt-3">
+          <span className="text-lg font-semibold text-gold uppercase tracking-widest">Planos</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3">
             Contratos sob medida para sua{" "}
             <span className="text-gradient-gold">necessidade</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
+          <p className=" mt-4 max-w-lg mx-auto">
             Escolha o plano ideal e garanta manutenção contínua com previsibilidade de custos e máxima eficiência.
           </p>
         </motion.div>
@@ -104,9 +104,7 @@ const PlansSection = () => {
 
               <div className="mb-6">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <span className={`inline-block w-3 h-3 rounded-full ${plan.id === 'essencial' ? 'bg-green-500' : plan.id === 'profissional' ? 'bg-blue-500' : 'bg-purple-500'}`} />
-                  </div>
+                
                   <div>
                     <h3 className="text-2xl font-display font-bold text-foreground">{plan.name}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{plan.tagline}</p>

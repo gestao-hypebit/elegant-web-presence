@@ -12,11 +12,12 @@ const Footer = () => {
             <span className="font-display font-bold text-foreground">Luminous</span>
           </div>
 
-          <div className="flex gap-8 text-sm text-muted-foreground">
-            <a href="#inicio" className="hover:text-gold transition-colors">Início</a>
-            <a href="#sobre" className="hover:text-gold transition-colors">Sobre</a>
-            <a href="#servicos" className="hover:text-gold transition-colors">Serviços</a>
-            <a href="#contato" className="hover:text-gold transition-colors">Contato</a>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-muted-foreground">
+            <a href="/#inicio" className="hover:text-gold transition-colors">Início</a>
+            <a href="/sobre" className="hover:text-gold transition-colors">Sobre</a>
+            <a href="/servicos" className="hover:text-gold transition-colors">Serviços</a>
+            <a href="/duvidas" className="hover:text-gold transition-colors">Dúvidas</a>
+            <a href="/#contato" className="hover:text-gold transition-colors">Contato</a>
           </div>
 
           <p className="text-sm text-muted-foreground">
