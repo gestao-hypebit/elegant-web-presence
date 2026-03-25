@@ -5,14 +5,14 @@ const DestaqueInfraSection = () => {
   return (
     <section
       id="destaque-infraestrutura"
-      className="relative flex items-center justify-center bg-transparent px-6 py-12 md:py-24"
+      className="relative flex items-center justify-center bg-transparent px-4 sm:px-6 py-10 sm:py-12 md:py-24"
     >
       <div className="max-w-2xl text-center">
    
-        <h2 className="mt-3 font-display text-xl font-bold text-white drop-shadow-md sm:text-2xl md:text-5xl">
+        <h2 className="mt-3 font-display text-lg font-bold leading-tight text-white drop-shadow-md sm:text-xl md:text-3xl lg:text-5xl px-1">
           Sua operação não pode depender de improviso
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white drop-shadow md:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/95 drop-shadow md:text-lg px-1">
           Engenharia de instalações, manutenção preventiva e contratos recorrentes para condomínios,
           empresas e indústrias em São Paulo — com foco em segurança, conformidade e previsibilidade
           de custos.

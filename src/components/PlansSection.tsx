@@ -64,34 +64,34 @@ const PlansSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="planos" className="py-24 bg-background" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="planos" className="py-12 sm:py-16 md:py-24 bg-background" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <span className="text-lg font-semibold text-gold uppercase tracking-widest">Planos</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3">
+          <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Planos</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 px-1">
             Contratos sob medida para sua{" "}
             <span className="text-gradient-gold">necessidade</span>
           </h2>
-          <p className=" mt-4 max-w-lg mx-auto">
+          <p className="mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed text-muted-foreground px-2">
             Escolha o plano ideal e garanta manutenção contínua com previsibilidade de custos e máxima eficiência.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-stretch">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              className={`relative flex flex-col rounded-2xl p-8 border transition-all duration-500 ${
+              className={`relative flex flex-col rounded-2xl p-5 sm:p-8 border transition-all duration-500 ${
                 plan.featured
-                  ? "border-gold/40 bg-gradient-to-b from-card to-card/95 shadow-lg scale-[1.02]"
+                  ? "border-gold/40 bg-gradient-to-b from-card to-card/95 shadow-lg md:scale-[1.02]"
                   : "border-border bg-card shadow-card hover:border-gold/20"
               }`}
             >
@@ -106,7 +106,9 @@ const PlansSection = () => {
                 <div className="flex items-start gap-4">
                 
                   <div>
-                    <h3 className="text-2xl font-display font-bold text-foreground">{plan.name}</h3>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-foreground leading-snug">
+                      {plan.name}
+                    </h3>
                     <p className="text-sm text-muted-foreground mt-1">{plan.tagline}</p>
                     <div className="text-xs text-muted-foreground mt-2">{plan.note}</div>
                   </div>

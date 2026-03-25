@@ -40,29 +40,29 @@ const DifferentialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="diferenciais" className="py-24 bg-card" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="diferenciais" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <span className="text-lg font-semibold text-gold uppercase tracking-widest">Diferenciais</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3">
+          <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Diferenciais</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 px-1">
             Por que escolher a{" "}
             <span className="text-gradient-gold">Luminous</span>?
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {differentials.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group text-center p-8 rounded-2xl border border-border hover:border-gold/30 bg-background/50 transition-all duration-500"
+              className="group text-center p-5 sm:p-8 rounded-2xl border border-border hover:border-gold/30 bg-background/50 transition-all duration-500"
             >
               <div className="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
                 <item.icon className="w-7 h-7 text-gold" />

@@ -22,7 +22,7 @@ const ServiceDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-6 py-20 text-center">
+        <main className="container mx-auto py-16 sm:py-20 text-center px-2">
           <h2 className="text-2xl font-bold mb-4">Serviço não encontrado</h2>
           <Link to="/" className="text-gold font-semibold">Voltar à página inicial</Link>
         </main>
@@ -35,7 +35,7 @@ const ServiceDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-6 pt-28 lg:pt-36 pb-20">
+      <main className="container mx-auto pt-24 sm:pt-28 lg:pt-36 pb-12 sm:pb-20">
         <motion.header
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ const ServiceDetail = () => {
             <span className="font-semibold">{service.title}</span>
           </nav>
 
-          <h1 className="text-4xl md:text-5xl font-display font-bold">{service.title}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight">{service.title}</h1>
           {service.shortDescription && <p className="text-muted-foreground mt-3 max-w-3xl">{service.shortDescription}</p>}
         </motion.header>
 

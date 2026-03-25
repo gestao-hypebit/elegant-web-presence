@@ -20,8 +20,8 @@ const TrabalheConoscoSection = () => {
 
   return (
     <section id="trabalhe-conosco" className="bg-gradient-gold overflow-hidden" ref={ref}>
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between min-h-[260px] gap-8 py-16 md:py-24">
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between min-h-[220px] sm:min-h-[260px] gap-6 sm:gap-8 py-12 sm:py-16 md:py-24">
 
           {/* Left — text + CTA */}
           <motion.div
@@ -30,10 +30,10 @@ const TrabalheConoscoSection = () => {
             transition={{ duration: 0.7 }}
             className="flex-1 text-white"
           >
-            <p className="text-white/70 text-lg font-semibold uppercase tracking-widest mb-3">
+            <p className="text-white/70 text-sm sm:text-lg font-semibold uppercase tracking-widest mb-2 sm:mb-3">
               Faça parte do time
             </p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6 sm:mb-8 text-center md:text-left">
               Quero trabalhar<br />
               <span className="text-white/80">na Luminous</span>
             </h2>

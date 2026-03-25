@@ -17,16 +17,16 @@ const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="servicos" className="scroll-mt-24 bg-background py-24" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="servicos" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-24" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-12 max-w-3xl text-center md:mb-16"
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 md:mb-16"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-gold">Serviços</span>
-          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+          <span className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gold">Serviços</span>
+          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl md:text-4xl px-1">
             Engenharia completa para a{" "}
             <span className="text-gradient-gold">sua infraestrutura</span>
           </h2>
@@ -38,7 +38,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="mb-6 grid gap-6 md:grid-cols-2">
+        <div className="mb-6 grid gap-4 sm:gap-6 md:grid-cols-2">
           {services.slice(0, 2).map((service, i) => {
             const Icon = iconMap[service.slug];
             const hideHomeImage = [
@@ -68,11 +68,11 @@ const ServicesSection = () => {
                       />
                     </div>
                   )}
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       {Icon && <Icon className="h-6 w-6 text-gold" />}
                     </div>
-                    <h3 className="mb-2 font-display text-xl font-bold text-foreground">{service.title}</h3>
+                    <h3 className="mb-2 font-display text-lg sm:text-xl font-bold text-foreground">{service.title}</h3>
                     <p className="text-sm leading-relaxed text-muted-foreground">{service.shortDescription}</p>
                     <div className="mt-3 text-sm font-semibold text-gold">Leia mais →</div>
                   </div>
@@ -82,7 +82,7 @@ const ServicesSection = () => {
           })}
         </div>
 
-        <div className="mb-10 grid gap-6 md:grid-cols-3">
+        <div className="mb-10 grid gap-4 sm:gap-6 md:grid-cols-3">
           {services.slice(2).map((service, i) => {
             const Icon = iconMap[service.slug];
             return (
@@ -96,7 +96,7 @@ const ServicesSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: (i + 2) * 0.15 }}
-                  className="rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-500 hover:border-gold/30"
+                  className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-card transition-all duration-500 hover:border-gold/30"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                     {Icon && <Icon className="h-6 w-6 text-gold" />}

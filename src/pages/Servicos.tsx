@@ -115,13 +115,13 @@ const Servicos = () => {
         <Header />
         <main>
           {/* Hero */}
-          <section className="relative flex min-h-[58vh] flex-col justify-end bg-transparent px-6 pb-16 pt-28 md:min-h-[62vh] md:pb-20 md:pt-32 lg:pt-36">
+          <section className="relative flex min-h-[52vh] sm:min-h-[58vh] flex-col justify-end bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:min-h-[62vh] md:pb-20 md:pt-32 lg:pt-36">
             <div className="container mx-auto max-w-5xl">
-              <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-white drop-shadow-md sm:text-4xl md:text-5xl">
+              <h1 className="mt-3 sm:mt-4 font-display text-2xl font-bold leading-[1.2] text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-5xl">
                 Luminous Instalações e Serviços: engenharia completa para{" "}
                 <span className="text-white/95">sua infraestrutura</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white sm:text-lg">
+              <p className="mt-4 sm:mt-5 max-w-2xl text-sm leading-relaxed text-white sm:text-base md:text-lg">
                 {introLead}
               </p>
             </div>
@@ -129,8 +129,8 @@ const Servicos = () => {
 
           {/* Intro complementar */}
           {/* {introSecondary ? (
-            <section className="border-y border-border bg-card py-16 md:py-20">
-              <div className="container mx-auto max-w-3xl px-6">
+            <section className="border-y border-border bg-card py-12 sm:py-16 md:py-20">
+              <div className="container mx-auto max-w-3xl">
                 <Reveal>
                   <p className="text-center text-base leading-relaxed text-muted-foreground md:text-lg">
                     {introSecondary}
@@ -141,20 +141,20 @@ const Servicos = () => {
           ) : null} */}
 
           {/* Atalhos — duas frentes (como Missão/Visão na Sobre) */}
-          <section className="border-b border-border bg-background py-16 md:py-24">
-            <div className="container mx-auto grid gap-8 px-6 md:grid-cols-2 lg:gap-10">
+          <section className="border-b border-border bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
               <Reveal>
                 <a
                   href="#engenharia-instalacoes"
-                  className="group block h-full rounded-2xl border border-border bg-card p-8 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md md:p-10"
+                  className="group block h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md sm:p-8 md:p-10"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
+                  <div className="mb-4 sm:mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
                     <HardHat className="h-6 w-6 text-gold" />
                   </div>
-                  <span className="text-lg font-semibold text-gold uppercase tracking-widest">
+                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
                     Projeto e obra
                   </span>
-                  <h2 className="mt-3 font-display text-2xl font-bold text-foreground">
+                  <h2 className="mt-2 sm:mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
                     Engenharia de instalações
                   </h2>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -169,15 +169,15 @@ const Servicos = () => {
               <Reveal delay={0.08}>
                 <a
                   href="#gestao-manutencao"
-                  className="group block h-full rounded-2xl border border-border bg-card p-8 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md md:p-10"
+                  className="group block h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md sm:p-8 md:p-10"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
+                  <div className="mb-4 sm:mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
                     <ClipboardList className="h-6 w-6 text-gold" />
                   </div>
-                  <span className="text-lg font-semibold text-gold uppercase tracking-widest">
+                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
                     Operação contínua
                   </span>
-                  <h2 className="mt-3 font-display text-2xl font-bold text-foreground">
+                  <h2 className="mt-2 sm:mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
                     Manutenção e contratos
                   </h2>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -193,13 +193,13 @@ const Servicos = () => {
           </section>
 
           {/* Portfólio — mesma linguagem da home */}
-          <section id="portfolio" className="scroll-mt-24 border-b border-border bg-card py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <Reveal className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">
+          <section id="portfolio" className="scroll-mt-24 border-b border-border bg-card py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
+              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
                   Linha de serviços
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Explore cada{" "}
                   <span className="text-gradient-gold">solução</span> em detalhe
                 </h2>
@@ -280,14 +280,14 @@ const Servicos = () => {
           {/* Engenharia de instalações */}
           <section
             id="engenharia-instalacoes"
-            className="scroll-mt-24 border-b border-border bg-background py-16 md:py-24"
+            className="scroll-mt-24 border-b border-border bg-background py-12 sm:py-16 md:py-24"
           >
-            <div className="container mx-auto px-6">
-              <Reveal className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">
+            <div className="container mx-auto">
+              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
                   Engenharia de instalações
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-foreground md:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl px-1">
                   Construindo a base da sua{" "}
                   <span className="text-gradient-gold">operação</span>
                 </h2>
@@ -297,9 +297,9 @@ const Servicos = () => {
                 </p>
               </Reveal>
 
-              <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
+              <div className="mx-auto grid max-w-6xl gap-6 sm:gap-8 md:grid-cols-2">
                 <Reveal>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-card md:p-10">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card sm:p-8 md:p-10">
                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       <Zap className="h-6 w-6 text-gold" />
                     </div>
@@ -312,7 +312,7 @@ const Servicos = () => {
                     </p>
                     <Accordion type="multiple" className="mt-6 w-full border-t border-border">
                       <AccordionItem value="eletrica-detalhes" className="border-b-0">
-                        <AccordionTrigger className="text-left text-base text-foreground hover:no-underline">
+                        <AccordionTrigger className="text-left text-sm text-foreground hover:no-underline sm:text-base">
                           Ver detalhes dos serviços de instalação elétrica
                         </AccordionTrigger>
                         <AccordionContent>
@@ -323,7 +323,7 @@ const Servicos = () => {
                   </div>
                 </Reveal>
                 <Reveal delay={0.08}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-card md:p-10">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card sm:p-8 md:p-10">
                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       <Droplets className="h-6 w-6 text-gold" />
                     </div>
@@ -336,7 +336,7 @@ const Servicos = () => {
                     </p>
                     <Accordion type="multiple" className="mt-6 w-full border-t border-border">
                       <AccordionItem value="hidraulica-detalhes" className="border-b-0">
-                        <AccordionTrigger className="text-left text-base text-foreground hover:no-underline">
+                        <AccordionTrigger className="text-left text-sm text-foreground hover:no-underline sm:text-base">
                           Ver detalhes dos serviços de instalação hidráulica
                         </AccordionTrigger>
                         <AccordionContent>
@@ -349,7 +349,7 @@ const Servicos = () => {
               </div>
 
               <Reveal className="mx-auto mt-10 max-w-3xl">
-                <p className="rounded-2xl border border-border bg-card/80 p-6 text-center leading-relaxed text-muted-foreground shadow-card backdrop-blur-sm md:p-8">
+                <p className="rounded-2xl border border-border bg-card/80 p-4 text-center text-sm leading-relaxed text-muted-foreground shadow-card backdrop-blur-sm sm:p-6 md:p-8 sm:text-base">
                   <span className="font-semibold text-foreground">Mão de obra especializada: </span>
                   equipe qualificada e certificada, com experiência em grandes projetos, integrando
                   instalações ao projeto estrutural desde a obra até o comissionamento.
@@ -361,14 +361,14 @@ const Servicos = () => {
           {/* Gestão de manutenção */}
           <section
             id="gestao-manutencao"
-            className="scroll-mt-24 border-b border-border bg-card py-16 md:py-24"
+            className="scroll-mt-24 border-b border-border bg-card py-12 sm:py-16 md:py-24"
           >
-            <div className="container mx-auto px-6">
-              <Reveal className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">
+            <div className="container mx-auto">
+              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
                   Gestão de manutenção
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-foreground md:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl px-1">
                   Continuidade operacional e{" "}
                   <span className="text-gradient-gold">prevenção de prejuízos</span>
                 </h2>
@@ -378,9 +378,9 @@ const Servicos = () => {
                 </p>
               </Reveal>
 
-              <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3">
+              <div className="mx-auto grid max-w-6xl gap-6 sm:gap-8 lg:grid-cols-3">
                 <Reveal>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-card md:p-8">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       <Zap className="h-6 w-6 text-gold" />
                     </div>
@@ -394,7 +394,7 @@ const Servicos = () => {
                   </div>
                 </Reveal>
                 <Reveal delay={0.06}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-card md:p-8">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       <Droplets className="h-6 w-6 text-gold" />
                     </div>
@@ -408,7 +408,7 @@ const Servicos = () => {
                   </div>
                 </Reveal>
                 <Reveal delay={0.12}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-card md:p-8">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                       <CalendarCheck className="h-6 w-6 text-gold" />
                     </div>
@@ -456,13 +456,13 @@ const Servicos = () => {
           </section>
 
           {/* Faixa valor — como Normas/Diferencial na Sobre */}
-          <section className="bg-gradient-gold py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <Reveal className="mb-12 text-center">
-                <span className="text-lg font-semibold uppercase tracking-[0.2em] text-white/70">
+          <section className="bg-gradient-gold py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
+              <Reveal className="mb-8 text-center sm:mb-12">
+                <span className="text-base sm:text-lg font-semibold uppercase tracking-[0.2em] text-white/70">
                   Entrega integrada
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl px-1">
                   Da obra à operação, um só padrão{" "}
                   <span className="text-white/85">Luminous</span>
                 </h2>
@@ -475,7 +475,7 @@ const Servicos = () => {
                   <Reveal key={item.slice(0, 40)} delay={i * 0.06}>
                     <div className="flex h-full gap-4 rounded-xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
                       <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-white" />
-                      <p className="text-base font-medium leading-snug text-white">{item}</p>
+                      <p className="text-sm sm:text-base font-medium leading-snug text-white">{item}</p>
                     </div>
                   </Reveal>
                 ))}
@@ -484,12 +484,12 @@ const Servicos = () => {
           </section>
 
           {/* Segmentos — chips como Sobre */}
-          <section id="segmentos" className="scroll-mt-24 border-b border-border bg-background py-16 md:py-24">
-            <div className="container mx-auto px-6">
+          <section id="segmentos" className="scroll-mt-24 border-b border-border bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
               <Reveal className="mb-10 text-center md:text-left">
                 <MapPin className="mx-auto mb-3 h-7 w-7 text-gold md:mx-0" />
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">Segmentos</span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Segmentos</span>
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Expertise para cada desafio
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground md:mx-0">
@@ -510,11 +510,11 @@ const Servicos = () => {
           </section>
 
           {/* Compromisso */}
-          <section className="border-t border-border bg-card py-16 md:py-20">
-            <div className="container mx-auto max-w-3xl px-6 text-center">
+          <section className="border-t border-border bg-card py-12 sm:py-16 md:py-20">
+            <div className="container mx-auto max-w-3xl text-center">
               <Reveal>
                 <span className="text-lg font-semibold text-gold uppercase tracking-widest">Próximo passo</span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Vamos desenhar o escopo ideal
                 </h2>
                 <p className="mt-6 leading-relaxed text-muted-foreground">
@@ -526,20 +526,20 @@ const Servicos = () => {
           </section>
 
           {/* CTA parallax */}
-          <section className="relative bg-transparent px-6 py-16 md:py-20">
+          <section className="relative bg-transparent py-12 sm:py-16 md:py-20">
             <div className="container mx-auto max-w-2xl text-center">
               <Reveal>
-                <h2 className="mt-3 font-display text-xl font-bold text-white drop-shadow-md sm:text-2xl md:text-5xl">
+                <h2 className="mt-3 font-display text-lg font-bold leading-tight text-white drop-shadow-md sm:text-xl md:text-3xl lg:text-5xl px-1">
                   Sua próxima decisão estratégica
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white drop-shadow md:text-lg">
+                <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/95 drop-shadow md:text-lg px-1">
                   Não deixe segurança e eficiência ao acaso. Solicite uma proposta personalizada ou fale com
                   um especialista.
                 </p>
                 <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row sm:gap-4">
                   <Link
                     to="/#contato"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-gold px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto"
+                    className="inline-flex w-full min-h-[44px] items-center justify-center gap-2 rounded-lg bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     Solicitar proposta agora
                     <ArrowRight className="h-4 w-4" />
@@ -548,14 +548,14 @@ const Servicos = () => {
                     href={CONTACT_WHATSAPP}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto"
+                    className="inline-flex w-full min-h-[44px] items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
                   </a>
                   <Link
                     to="/sobre"
-                    className="inline-flex w-full items-center justify-center rounded-lg border border-white/35 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto"
+                    className="inline-flex w-full min-h-[44px] items-center justify-center rounded-lg border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     Conhecer a empresa
                   </Link>

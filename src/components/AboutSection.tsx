@@ -33,7 +33,7 @@ function AnimatedCounter({
   }, [isInView, value, count]);
 
   return (
-    <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-display font-bold tabular-nums leading-none text-gold">
+    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-display font-bold tabular-nums leading-none text-gold">
       <motion.span>{rounded}</motion.span>
       <span className="text-gold/80">{suffix}</span>
     </span>
@@ -45,9 +45,9 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="sobre" className="py-24 bg-card" ref={ref}>
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch">
+    <section id="sobre" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 lg:items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -69,10 +69,10 @@ const AboutSection = () => {
             transition={{ duration: 0.65, delay: 0.06 }}
             className="order-1 lg:order-2 flex flex-col lg:justify-start"
           >
-            <span className="text-lg font-semibold text-gold uppercase tracking-[0.2em]">
+            <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-[0.2em]">
               Quem somos
             </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-3 mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-foreground mt-3 mb-4 leading-tight">
               Engenharia completa para a{" "}
               <span className="text-gradient-gold">excelência</span> da sua infraestrutura
             </h2>

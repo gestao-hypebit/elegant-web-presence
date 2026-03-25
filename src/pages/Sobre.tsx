@@ -90,13 +90,12 @@ const Sobre = () => {
 
         <main>
           {/* Hero institucional */}
-          <section className="relative flex min-h-[58vh] flex-col justify-end bg-transparent px-6 pb-16 pt-28 md:min-h-[50vh] md:pb-20 md:pt-32 lg:pt-36">
+          <section className="relative flex min-h-[52vh] sm:min-h-[58vh] flex-col justify-end bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:min-h-[50vh] md:pb-20 md:pt-32 lg:pt-36">
             <div className="container mx-auto max-w-5xl">
-             
-              <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-white drop-shadow-md sm:text-4xl md:text-5xl">
+              <h1 className="mt-3 sm:mt-4 font-display text-2xl font-bold leading-[1.2] text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-5xl">
                 Engenharia completa para a excelência da sua infraestrutura
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white sm:text-lg">
+              <p className="mt-4 sm:mt-5 max-w-2xl text-sm leading-relaxed text-white sm:text-base md:text-lg">
                 Da concepção à manutenção preditiva — parceria técnica em São Paulo com segurança,
                 conformidade e resultados mensuráveis.
               </p>
@@ -104,15 +103,15 @@ const Sobre = () => {
           </section>
 
           {/* Missão + Visão — cards sobre fundo sólido */}
-          <section className="border-y border-border bg-card py-16 md:py-20">
-            <div className="container mx-auto grid gap-8 px-6 md:grid-cols-2 lg:gap-10">
+          <section className="border-y border-border bg-card py-12 sm:py-16 md:py-20">
+            <div className="container mx-auto grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
               <Reveal>
-                <div className="h-full rounded-2xl border border-border bg-background p-8 shadow-card md:p-10">
+                <div className="h-full rounded-2xl border border-border bg-background p-5 shadow-card sm:p-8 md:p-10">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                     <Target className="h-6 w-6 text-gold" />
                   </div>
-                  <span className="text-lg font-semibold text-gold uppercase tracking-widest">Missão</span>
-                  <h2 className="mt-3 font-display text-2xl font-bold text-foreground">
+                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Missão</span>
+                  <h2 className="mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
                     Elevando padrões, construindo futuros
                   </h2>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -124,12 +123,12 @@ const Sobre = () => {
                 </div>
               </Reveal>
               <Reveal delay={0.08}>
-                <div className="h-full rounded-2xl border border-border bg-background p-8 shadow-card md:p-10">
+                <div className="h-full rounded-2xl border border-border bg-background p-5 shadow-card sm:p-8 md:p-10">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                     <Eye className="h-6 w-6 text-gold" />
                   </div>
-                  <span className="text-lg font-semibold text-gold uppercase tracking-widest">Visão</span>
-                  <h2 className="mt-3 font-display text-2xl font-bold text-foreground">
+                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Visão</span>
+                  <h2 className="mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
                     Liderança em infraestrutura crítica
                   </h2>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -144,8 +143,8 @@ const Sobre = () => {
           </section>
 
           {/* Quem somos — imagem + texto */}
-          <section id="quem-somos" className="bg-background py-16 md:py-24">
-            <div className="container mx-auto grid items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
+          <section id="quem-somos" className="bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal className="order-2 lg:order-1">
                 <div className="overflow-hidden rounded-2xl shadow-elevated ring-1 ring-border/60">
                   <img
@@ -157,10 +156,10 @@ const Sobre = () => {
                 </div>
               </Reveal>
               <Reveal className="order-1 lg:order-2" delay={0.06}>
-                <span className="text-lg font-semibold text-gold uppercase tracking-[0.2em]">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-[0.2em]">
                   Quem somos
                 </span>
-                <h2 className="mt-3 mb-4 font-display text-3xl font-bold leading-tight text-foreground md:text-5xl">
+                <h2 className="mt-3 mb-4 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl px-1">
                   Pilar de <span className="text-gradient-gold">confiabilidade</span> e execução
                 </h2>
                 <div className="mt-6 space-y-4 leading-relaxed ">
@@ -185,18 +184,18 @@ const Sobre = () => {
           </section>
 
           {/* Valores — grid de cards */}
-          <section id="valores" className="border-t border-border bg-card py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <Reveal className="mx-auto mb-12 max-w-3xl text-center">
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">Valores</span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+          <section id="valores" className="border-t border-border bg-card py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
+              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Valores</span>
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Os pilares da nossa atuação
                 </h2>
               </Reveal>
-              <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mx-auto grid max-w-6xl gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {valores.map((v, i) => (
                   <Reveal key={v.slice(0, 36)} delay={i * 0.05}>
-                    <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-card transition-shadow hover:shadow-md md:p-7">
+                    <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card transition-shadow hover:shadow-md sm:p-6 md:p-7">
                       <CheckCircle2 className="mb-4 h-8 w-8 shrink-0 text-gold" />
                       <p className="text-sm leading-relaxed text-muted-foreground">{v}</p>
                     </div>
@@ -207,13 +206,13 @@ const Sobre = () => {
           </section>
 
           {/* Diferencial — faixa azul como Vantagens */}
-          <section id="diferencial" className="bg-gradient-gold py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <Reveal className="mb-12 text-center">
-                <span className="text-lg font-semibold uppercase tracking-[0.2em] text-white/70">
+          <section id="diferencial" className="bg-gradient-gold py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
+              <Reveal className="mb-8 text-center sm:mb-12">
+                <span className="text-base sm:text-lg font-semibold uppercase tracking-[0.2em] text-white/70">
                   Diferencial
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+                <h2 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl px-1">
                   Da concepção à continuidade operacional
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white md:text-base">
@@ -221,12 +220,12 @@ const Sobre = () => {
                   integrado de longo prazo.
                 </p>
               </Reveal>
-              <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+              <div className="mx-auto grid max-w-4xl gap-4 sm:gap-6 sm:grid-cols-2">
                 {diferencialItens.map((item, i) => (
                   <Reveal key={item.slice(0, 40)} delay={i * 0.06}>
-                    <div className="flex gap-4 rounded-xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm  h-full">
+                    <div className="flex gap-3 sm:gap-4 rounded-xl border border-white/20 bg-white/10 p-4 sm:p-5 backdrop-blur-sm h-full">
                       <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-white" />
-                      <p className="text-base font-medium leading-snug text-white">{item}</p>
+                      <p className="text-sm sm:text-base font-medium leading-snug text-white">{item}</p>
                     </div>
                   </Reveal>
                 ))}
@@ -235,12 +234,12 @@ const Sobre = () => {
           </section>
 
           {/* Segmentos */}
-          <section id="atuacao" className="bg-background py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <Reveal className="mb-10 text-center md:text-left">
+          <section id="atuacao" className="bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto">
+              <Reveal className="mb-8 text-center md:mb-10 md:text-left">
                 <MapPin className="mx-auto mb-3 h-7 w-7 text-gold md:mx-0" />
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">Atuação</span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Atuação</span>
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Expertise em todo o estado de São Paulo
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground md:mx-0">
@@ -261,14 +260,14 @@ const Sobre = () => {
           </section>
 
           {/* Compromisso */}
-          <section id="compromisso" className="border-t border-border bg-card py-16 md:py-20">
-            <div className="container mx-auto max-w-3xl px-6 text-center">
+          <section id="compromisso" className="border-t border-border bg-card py-12 sm:py-16 md:py-20">
+            <div className="container mx-auto max-w-3xl text-center">
               <Reveal>
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">Compromisso</span>
-                <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-5xl">
+                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Compromisso</span>
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
                   Sua confiança, nossa prioridade
                 </h2>
-                <p className="mt-6 leading-relaxed ">
+                <p className="mt-5 sm:mt-6 text-sm sm:text-base leading-relaxed text-muted-foreground">
                   Na Luminous, o compromisso vai além da prestação de serviços: construímos relacionamentos
                   duradouros baseados em confiança, transparência e resultados superiores. Escolher a
                   Luminous é ter um parceiro que entende a criticidade das suas operações e antecipa
@@ -283,26 +282,26 @@ const Sobre = () => {
           </section>
 
           {/* CTA sobre imagem fixa (parallax) */}
-          <section className="relative bg-transparent px-6 py-16 md:py-20">
+          <section className="relative bg-transparent py-12 sm:py-16 md:py-20">
             <div className="container mx-auto max-w-2xl text-center">
               <Reveal>
-                <h2 className="mt-3 font-display text-xl font-bold text-white drop-shadow-md sm:text-2xl md:text-5xl">
+                <h2 className="mt-3 font-display text-lg font-bold leading-tight text-white drop-shadow-md sm:text-xl md:text-3xl lg:text-5xl px-1">
                   Pronto para dar o próximo passo?
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white drop-shadow md:text-lg">
+                <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/95 drop-shadow md:text-lg px-1">
                   Fale com nossa equipe e solicite uma proposta alinhada à sua operação.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                   <Link
                     to="/#contato"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-gold px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto"
+                    className="inline-flex w-full min-h-[44px] items-center justify-center gap-2 rounded-lg bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     Ir para contato
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     to="/servicos"
-                    className="inline-flex w-full items-center justify-center rounded-lg border border-white/35 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto"
+                    className="inline-flex w-full min-h-[44px] items-center justify-center rounded-lg border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     Conhecer serviços
                   </Link>

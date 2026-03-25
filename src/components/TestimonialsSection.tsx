@@ -67,20 +67,20 @@ const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="depoimentos" className="scroll-mt-24 bg-background py-20 md:py-28" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="depoimentos" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20 lg:py-28" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16"
+          className="grid items-start gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16"
         >
           <div className="lg:col-span-4">
-            <span className="text-lg font-bold uppercase tracking-[0.2em] text-gold">Depoimentos</span>
-            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-foreground md:text-5xl lg:leading-snug">
+            <span className="text-base sm:text-lg font-bold uppercase tracking-[0.2em] text-gold">Depoimentos</span>
+            <h2 className="mt-3 sm:mt-4 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl lg:leading-snug">
               O que nossos clientes dizem sobre nós
             </h2>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed  md:text-base">
+            <p className="mt-4 sm:mt-5 max-w-sm text-sm leading-relaxed md:text-base">
               Mais de 350 clientes atendidos e centenas de projetos concluídos em mais de uma década de
               história em São Paulo.
             </p>

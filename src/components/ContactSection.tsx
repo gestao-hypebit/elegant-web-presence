@@ -19,25 +19,25 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="py-24 bg-card" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="contato" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <span className="text-lg font-semibold text-gold uppercase tracking-widest">Contato</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3">
+          <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Contato</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 px-1">
             Solicite seu{" "}
             <span className="text-gradient-gold">orçamento</span>
           </h2>
-          <p className=" mt-4 max-w-md mx-auto">
+          <p className="mt-4 max-w-md mx-auto text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
             Entre em contato e descubra como podemos ajudar a reduzir seus custos com manutenção.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-8 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

@@ -47,9 +47,9 @@ const AccordionItem = ({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full items-start justify-between gap-4 p-4 text-left"
+        className="flex w-full items-start justify-between gap-3 sm:gap-4 p-4 sm:p-5 text-left min-h-[48px]"
       >
-        <span className="font-semibold text-foreground">{q}</span>
+        <span className="text-sm sm:text-base font-semibold text-foreground pr-2">{q}</span>
         <ChevronDown
           className={`mt-0.5 shrink-0 text-gold transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
           aria-hidden
@@ -85,16 +85,16 @@ const FAQSection = () => {
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   return (
-    <section id="duvidas" className="bg-background py-16 md:py-24" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="duvidas" className="bg-background py-12 sm:py-16 md:py-24" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-12 max-w-3xl text-center md:mb-14"
+          className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-14"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-gold">Dúvidas</span>
-          <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
+          <span className="text-sm sm:text-base font-semibold uppercase tracking-widest text-gold">Dúvidas</span>
+          <h2 className="mt-3 font-display text-xl font-bold leading-tight text-foreground sm:text-2xl md:text-4xl lg:text-5xl px-1">
             {faqIntro.title}
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">{faqIntro.lead}</p>

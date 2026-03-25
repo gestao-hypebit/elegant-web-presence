@@ -34,16 +34,16 @@ const GallerySection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="galeria" className="scroll-mt-24 bg-background py-24" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="galeria" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-24" ref={ref}>
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-8 text-center"
+          className="mb-6 sm:mb-8 text-center"
         >
-          <span className="text-lg font-semibold uppercase tracking-widest text-gold">Galeria</span>
-          <h2 className="mt-3 font-display text-3xl font-bold md:text-5xl">Trabalhos realizados</h2>
+          <span className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gold">Galeria</span>
+          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl md:text-5xl px-1">Trabalhos realizados</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:grid-flow-dense">

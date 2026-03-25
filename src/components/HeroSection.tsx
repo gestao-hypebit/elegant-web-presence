@@ -50,10 +50,10 @@ const HeroSection = () => {
       <section
         ref={sectionRef}
         id="inicio"
-        className="relative z-0 flex min-h-[80vh] items-center bg-transparent"
+        className="relative z-0 flex min-h-[72vh] sm:min-h-[80vh] items-center bg-transparent"
       >
-        <div className="container relative z-10 mx-auto px-6 pt-20 md:pt-24 lg:pt-36 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container relative z-10 mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-36 pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
           {/* Left — copy */}
           <div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-6 text-white uppercase"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.15] sm:leading-tight mb-4 sm:mb-6 text-white uppercase"
             >
               Excelência em{" "}
               <span className="">Manutenção</span>{" "}
@@ -82,7 +82,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-base sm:text-lg text-white mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed"
             >
               Soluções preventivas e corretivas para condomínios, empresas e indústrias em todo o estado de São Paulo. Segurança, eficiência e redução de custos operacionais.
             </motion.p>
@@ -91,18 +91,18 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
             >
               <a
                 href="#contato"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-gold text-white font-semibold hover:opacity-90 transition-opacity shadow-gold"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-gold text-white text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity shadow-gold"
               >
                 Solicitar Orçamento
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 to="/servicos"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-4 rounded-lg border border-white/30 text-white text-sm sm:text-base font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm"
               >
                 Nossos Serviços
               </Link>
