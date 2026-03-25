@@ -40,35 +40,46 @@ const DifferentialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="diferenciais" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+    <section
+      id="diferenciais"
+      className="relative border-t border-white/10 bg-black py-12 text-white sm:py-16 md:py-24"
+      ref={ref}
+    >
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+        aria-hidden
+      />
+
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-16"
+          className="mb-10 text-center sm:mb-16"
         >
-          <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Diferenciais</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 px-1">
+          <span className="text-base font-semibold uppercase tracking-widest text-gold sm:text-lg">
+            Diferenciais
+          </span>
+          <h2 className="mt-3 px-1 font-display text-2xl font-bold text-white sm:text-3xl md:text-5xl">
             Por que escolher a{" "}
             <span className="text-gradient-gold">Luminous</span>?
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {differentials.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group text-center p-5 sm:p-8 rounded-2xl border border-border hover:border-gold/30 bg-background/50 transition-all duration-500"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-center backdrop-blur-sm transition-all duration-500 hover:border-gold/45 hover:bg-white/[0.07] sm:p-8"
             >
-              <div className="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
-                <item.icon className="w-7 h-7 text-gold" />
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gold/15 transition-colors group-hover:border-gold/30 group-hover:bg-gold/20">
+                <item.icon className="h-7 w-7 text-gold" />
               </div>
-              <h3 className="text-lg font-display font-bold mb-3 text-foreground">{item.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+              <h3 className="mb-3 font-display text-lg font-bold text-white">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-white/65">{item.description}</p>
             </motion.div>
           ))}
         </div>
