@@ -42,14 +42,9 @@ const DifferentialsSection = () => {
   return (
     <section
       id="diferenciais"
-      className="relative border-t border-white/10 bg-black py-12 text-white sm:py-16 md:py-24"
+      className="border-t border-border bg-white py-12 sm:py-16 md:py-24"
       ref={ref}
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"
-        aria-hidden
-      />
-
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +55,7 @@ const DifferentialsSection = () => {
           <span className="text-base font-semibold uppercase tracking-widest text-gold sm:text-lg">
             Diferenciais
           </span>
-          <h2 className="mt-3 px-1 font-display text-2xl font-bold text-white sm:text-3xl md:text-5xl">
+          <h2 className="mt-3 px-1 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl">
             Por que escolher a{" "}
             <span className="text-gradient-gold">Luminous</span>?
           </h2>
@@ -73,13 +68,13 @@ const DifferentialsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-2xl border border-primary/35 bg-primary/20 p-5 text-center backdrop-blur-sm transition-all duration-500 hover:border-primary/55 hover:bg-primary/30 sm:p-8"
+              className="group rounded-2xl border border-primary/25 bg-primary p-5 text-center shadow-card transition-all duration-500 hover:border-primary/40 hover:bg-primary sm:p-8"
             >
-              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/45 bg-secondary/40 transition-colors group-hover:border-primary/60 group-hover:bg-secondary/55">
-                <item.icon className="h-7 w-7 text-gold drop-shadow-sm" />
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/30 bg-secondary/15 transition-colors group-hover:border-primary/45 group-hover:bg-secondary/25">
+                <item.icon className="h-7 w-7 text-white" />
               </div>
               <h3 className="mb-3 font-display text-lg font-bold text-white">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-white/65">{item.description}</p>
+              <p className="text-sm leading-relaxed text-white">{item.description}</p>
             </motion.div>
           ))}
         </div>
