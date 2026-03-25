@@ -73,10 +73,10 @@ const DifferentialsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-center backdrop-blur-sm transition-all duration-500 hover:border-gold/45 hover:bg-white/[0.07] sm:p-8"
+              className="group rounded-2xl border border-primary/35 bg-primary/20 p-5 text-center backdrop-blur-sm transition-all duration-500 hover:border-primary/55 hover:bg-primary/30 sm:p-8"
             >
-              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gold/15 transition-colors group-hover:border-gold/30 group-hover:bg-gold/20">
-                <item.icon className="h-7 w-7 text-gold" />
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/45 bg-secondary/40 transition-colors group-hover:border-primary/60 group-hover:bg-secondary/55">
+                <item.icon className="h-7 w-7 text-gold drop-shadow-sm" />
               </div>
               <h3 className="mb-3 font-display text-lg font-bold text-white">{item.title}</h3>
               <p className="text-sm leading-relaxed text-white/65">{item.description}</p>
