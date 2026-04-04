@@ -9,7 +9,7 @@ import { useRef, useEffect } from "react";
 import aboutBg from "@/assets/sobreimg.jpeg";
 
 const stats = [
-  { value: 10, suffix: "+", label: "Anos de experiência" },
+  { value: 2, suffix: "", label: "Anos de experiência" },
   { value: 350, suffix: "+", label: "Clientes atendidos" },
   { value: 2800, suffix: "+", label: "Projetos concluídos" },
 ];
