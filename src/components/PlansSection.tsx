@@ -1,159 +1,224 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Star, X } from "lucide-react";
+import { Check, Shield, Star } from "lucide-react";
+import { HashLink } from "@/components/HashLink";
+import {
+  planosAncoragem,
+  planosTituloMatriz,
+  planosFlexibilizacao,
+  planosSlaTitulo,
+  planosSlaTexto,
+  planosColunas,
+  planosMatrizLinhas,
+} from "@/content/planosMatriz";
 
-const plans = [
-  {
-    id: "essencial",
-    color: "green",
-    name: "Plano Básico — Essencial",
-    tagline: "Para pequenas empresas, comércios e condomínios simples",
-    includes: [
-      "Manutenção corretiva",
-      "Até 4 chamados/mês",
-      "Até 8 horas técnicas/mês",
-      "Materiais de pequeno porte até R$ 1.000/mês",
-      "Atendimento em horário comercial",
-      "Prazo de atendimento: até 48h",
-    ],
-    excludes: ["Obras", "Ampliação elétrica", "Troca de quadro", "Materiais acima do limite"],
-    note: "Ideal para volume e entrada de novos clientes.",
-    featured: false,
-  },
-  {
-    id: "profissional",
-    color: "blue",
-    name: "Plano Profissional — Padrão Ouro",
-    tagline: "O plano que mais vende (e o mais saudável)",
-    includes: [
-      "Manutenção preventiva + corretiva",
-      "Até 8 chamados/mês",
-      "Até 16 horas técnicas/mês",
-      "Materiais de pequeno porte até R$ 3.000/mês",
-      "Atendimento prioritário",
-      "Prazo de atendimento: até 24h",
-      "Relatório mensal simples",
-    ],
-    excludes: ["Grandes reformas", "Materiais fora do teto"],
-    note: "Esse plano é o equivalente ao B2G de R$ 25k, só que fracionado.",
-    featured: true,
-  },
-  {
-    id: "premium",
-    color: "purple",
-    name: "Plano Premium — Full Service",
-    tagline: "Para indústrias, redes e empresas críticas",
-    includes: [
-      "Preventiva + corretiva + emergencial",
-      "Chamados ilimitados",
-      "Até 32 horas técnicas/mês",
-      "Materiais de pequeno porte até R$ 5.000/mês",
-      "Atendimento emergencial",
-      "SLA de até 6–12h",
-      "Relatório técnico detalhado",
-      "Visitas preventivas programadas",
-    ],
-    excludes: ["Obras estruturais pesadas", "Materiais especiais/importados"],
-    note: "Para indústrias, redes, empresas críticas.",
-    featured: false,
-  },
-];
+const WHATSAPP = "https://wa.me/5511999999999";
+const waElite = `${WHATSAPP}?text=${encodeURIComponent(
+  "Olá! Tenho interesse em falar com um especialista sobre o plano ELITE 24/7 da Luminous.",
+)}`;
+
+function MatrizCell({ value, inverse }: { value: string; inverse?: boolean }) {
+  if (value === "✔️") {
+    return (
+      <span className="inline-flex justify-center" aria-label="Sim">
+        <Check
+          className={`h-5 w-5 ${inverse ? "text-white" : "text-[hsl(193_57%_29%)]"}`}
+          strokeWidth={2.5}
+        />
+      </span>
+    );
+  }
+  if (value === "❌") {
+    return (
+      <span
+        className={`tabular-nums ${inverse ? "text-white/45" : "text-muted-foreground"}`}
+        aria-label="Não"
+      >
+        —
+      </span>
+    );
+  }
+  return <span className="leading-snug">{value}</span>;
+}
 
 const PlansSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const colClass = (i: number) => {
+    if (i === 2) {
+      return "bg-violet-500/[0.06] border-x border-violet-500/20";
+    }
+    if (i === 3) {
+      return "bg-[hsl(193_70%_15%)] border-x-2 border-[hsl(193_57%_29%)] text-white";
+    }
+    return "";
+  };
+
+  const thClass = (i: number) => {
+    const base = "px-3 py-4 text-center align-bottom sm:px-4";
+    if (i === 2) return `${base} ${colClass(i)} rounded-t-lg`;
+    if (i === 3) return `${base} ${colClass(i)} rounded-t-lg`;
+    return `${base} bg-muted/30`;
+  };
+
+  const tdClass = (i: number) => {
+    const base = "px-3 py-3 text-center text-sm sm:px-4 sm:text-[0.8125rem] sm:leading-snug";
+    return `${base} ${colClass(i)}`;
+  };
+
   return (
-    <section id="planos" className="scroll-mt-28 py-12 sm:py-16 md:py-24 bg-background" ref={ref}>
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+    <section id="planos" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-24" ref={ref}>
+      <div className="container mx-auto max-w-7xl">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-16"
+          transition={{ duration: 0.45 }}
+          className="mx-auto mb-6 max-w-3xl text-center text-sm font-medium leading-relaxed text-[hsl(193_57%_29%)] md:text-base"
         >
-          <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Planos</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 px-1">
-            Contratos sob medida para sua{" "}
-            <span className="text-gradient-gold">necessidade</span>
+          {planosAncoragem}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-8 text-center sm:mb-10"
+        >
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Planos
+          </span>
+          <h2 className="mt-3 px-1 font-display text-xl font-bold leading-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
+            {planosTituloMatriz}
           </h2>
-          <p className="mt-4 max-w-lg mx-auto text-sm sm:text-base leading-relaxed text-muted-foreground px-2">
-            Escolha o plano ideal e garanta manutenção contínua com previsibilidade de custos e máxima eficiência.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-stretch">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              className={`relative flex flex-col rounded-2xl p-5 sm:p-8 border transition-all duration-500 ${
-                plan.featured
-                  ? "border-gold/40 bg-gradient-to-b from-card to-card/95 shadow-lg md:scale-[1.02]"
-                  : "border-border bg-card shadow-card hover:border-gold/20"
-              }`}
-            >
-              {plan.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
-                  <Star className="w-3 h-3" />
-                  Mais Popular
-                </div>
-              )}
-
-              <div className="mb-6">
-                <div className="flex items-start gap-4">
-                
-                  <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-foreground leading-snug">
-                      {plan.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">{plan.tagline}</p>
-                    <div className="text-xs text-muted-foreground mt-2">{plan.note}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6 flex-1">
-                <h4 className="text-sm font-semibold mb-3">Inclui</h4>
-                <ul className="space-y-3">
-                  {plan.includes.map((feat) => (
-                    <li key={feat} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-foreground">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold mb-2">Não inclui</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {plan.excludes.map((x) => (
-                    <li key={x} className="flex items-center gap-2">
-                      <X className="w-4 h-4 text-red-500" />
-                      <span>{x}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-4">
-                <a
-                  href="#contato"
-                  className={`w-full block py-3.5 rounded-full text-center font-semibold text-sm transition-all duration-300 ${
-                    plan.featured
-                      ? "bg-gradient-gold text-primary-foreground hover:opacity-95 shadow-lg"
-                      : "border border-border text-foreground hover:border-gold/50 hover:text-gold"
-                  }`}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0"
+        >
+          <table className="w-full min-w-[900px] border-collapse text-foreground">
+            <thead>
+              <tr className="border-b border-border">
+                <th
+                  scope="col"
+                  className="sticky left-0 z-20 min-w-[140px] bg-background px-3 py-4 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground shadow-[4px_0_12px_-4px_rgba(0,0,0,0.06)] sm:min-w-[180px] sm:px-4"
                 >
-                  Solicite uma proposta
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  Recursos / Plano
+                </th>
+                {planosColunas.map((plano, i) => (
+                  <th key={plano.id} scope="col" className={thClass(i)}>
+                    <div className="flex flex-col items-center gap-2">
+                      {plano.destaque === "recomendado" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(193_57%_29%)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                          <Star className="h-3 w-3" aria-hidden />
+                          Mais popular
+                        </span>
+                      )}
+                      {plano.destaque === "elite" && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                          <Shield className="h-3 w-3" aria-hidden />
+                          Disponibilidade crítica
+                        </span>
+                      )}
+                      <span className="text-lg sm:text-xl" aria-hidden>
+                        {plano.emoji}
+                      </span>
+                      <span
+                        className={`font-display text-sm font-bold leading-tight sm:text-base ${
+                          plano.destaque === "elite" ? "text-white" : ""
+                        }`}
+                      >
+                        {plano.nomeCompleto}
+                      </span>
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {planosMatrizLinhas.map((row) => (
+                <tr key={row.label} className="border-b border-border/80 hover:bg-muted/20">
+                  <th
+                    scope="row"
+                    className="sticky left-0 z-10 bg-background px-3 py-3 text-left text-xs font-semibold text-foreground shadow-[4px_0_12px_-4px_rgba(0,0,0,0.06)] sm:px-4 sm:text-sm"
+                  >
+                    {row.label}
+                  </th>
+                  {row.valores.map((cell, i) => (
+                    <td
+                      key={`${row.label}-${planosColunas[i].id}`}
+                      className={`${tdClass(i)} ${i === 3 ? "text-white/95" : "text-foreground/90"}`}
+                    >
+                      <MatrizCell value={cell} inverse={i === 3} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4"
+        >
+          <HashLink
+            to="/#contato"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border border-border bg-card px-4 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/40"
+          >
+            Solicitar proposta — Essencial
+          </HashLink>
+          <HashLink
+            to="/#contato"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border border-border bg-card px-4 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/40"
+          >
+            Solicitar proposta — Padrão Ouro
+          </HashLink>
+          <HashLink
+            to="/#contato"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-violet-500/35 bg-violet-500/[0.07] px-4 py-3 text-center text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-violet-500/55"
+          >
+            Solicitar proposta — Full Service
+          </HashLink>
+          <a
+            href={waElite}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[hsl(193_57%_29%)] bg-[hsl(193_70%_15%)] px-4 py-3 text-center text-sm font-semibold text-white transition-opacity hover:opacity-95"
+          >
+            Falar com especialista Elite
+          </a>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.45, delay: 0.2 }}
+          className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground md:text-base"
+        >
+          {planosFlexibilizacao}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.22 }}
+          className="mt-12 rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-gradient-to-br from-muted/50 to-background p-6 sm:p-8 md:p-10"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="font-display text-lg font-bold text-foreground sm:text-xl md:text-2xl">
+              {planosSlaTitulo}
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+              {planosSlaTexto}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
