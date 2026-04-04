@@ -69,13 +69,13 @@ const Footer = () => {
               com SLA — da concepção à operação contínua, com foco em segurança, normas e previsibilidade
               de custos em São Paulo e região.
             </p>
-            <a
-              href="/#contato"
+            <Link
+              to="/#contato"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-white"
             >
               Solicitar proposta
               <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </a>
+            </Link>
           </div>
 
           {/* Navegação institucional */}
@@ -86,12 +86,12 @@ const Footer = () => {
             <ul className="mt-4 space-y-3">
               {linksInstitucional.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-sm text-white/65 transition-colors hover:text-white"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -105,12 +105,12 @@ const Footer = () => {
             <ul className="mt-4 space-y-3">
               {linksSite.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-sm text-white/65 transition-colors hover:text-white"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

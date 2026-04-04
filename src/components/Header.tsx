@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Phone, Mail, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
@@ -134,7 +134,7 @@ const Header = () => {
       </div>
 
       <div className="container mx-auto py-3 sm:py-4 flex items-center justify-between gap-3">
-        <a href="/#inicio" className="flex items-center gap-2">
+        <Link to="/#inicio" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center shadow-lg shadow-black/10">
             <Zap className="w-5 h-5 text-primary-foreground" />
           </div>
@@ -154,13 +154,13 @@ const Header = () => {
               Instalações & Serviços
             </span>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className={`text-sm font-medium transition-colors duration-300 ${
                 showSolid
                   ? "text-muted-foreground hover:text-gold"
@@ -168,14 +168,14 @@ const Header = () => {
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="/#contato"
+          <Link
+            to="/#contato"
             className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground hover:opacity-90 transition-opacity shadow-md"
           >
             Solicitar Orçamento
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -199,22 +199,22 @@ const Header = () => {
           >
             <div className="container mx-auto py-4 flex flex-col gap-1 sm:gap-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setIsOpen(false)}
                   className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors py-3 min-h-[44px] flex items-center"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/#contato"
+              <Link
+                to="/#contato"
                 onClick={() => setIsOpen(false)}
                 className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground text-center"
               >
                 Solicitar Orçamento
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
