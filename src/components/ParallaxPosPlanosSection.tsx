@@ -1,4 +1,5 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { HashLink } from "@/components/HashLink";
 
 const ParallaxPosPlanosSection = () => {
   return (
@@ -17,19 +18,19 @@ const ParallaxPosPlanosSection = () => {
           nível de risco e disponibilidade.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <a
-            href="/#contato"
-             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-gold text-white font-semibold hover:opacity-90 transition-opacity shadow-gold"
+          <HashLink
+            to="/#contato"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-gold px-6 py-3 font-semibold text-white shadow-gold transition-opacity hover:opacity-90 sm:w-auto sm:px-8 sm:py-4"
           >
             Personalizar proposta
             <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="/#depoimentos"
-           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm"
+          </HashLink>
+          <HashLink
+            to="/#depoimentos"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/30 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:w-auto sm:px-8 sm:py-4"
           >
             Ver resultados de clientes
-          </a>
+          </HashLink>
         </div>
       </div>
     </section>

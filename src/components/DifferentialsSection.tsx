@@ -42,7 +42,7 @@ const DifferentialsSection = () => {
   return (
     <section
       id="diferenciais"
-      className="border-t border-border bg-white py-12 sm:py-16 md:py-24"
+      className="scroll-mt-28 border-t border-border bg-white py-12 sm:py-16 md:py-24"
       ref={ref}
     >
       <div className="container mx-auto">

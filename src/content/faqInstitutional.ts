@@ -1,7 +1,7 @@
 export const faqIntro = {
-  title: "FAQ Estratégico: Luminous Instalações e Serviços",
+  title: "FAQ — Luminous Instalações e Serviços",
   lead:
-    "Este FAQ foi desenvolvido para sanar dúvidas técnicas e comerciais, transformando incertezas em confiança. As respostas foram redigidas em estilo corporate, com foco em valor agregado, segurança e continuidade operacional, abrangendo tanto a gestão de manutenção quanto a execução de instalações de engenharia.",
+    "Este FAQ foi desenvolvido para sanar dúvidas técnicas e comerciais, transformando incertezas em confiança. As respostas foram redigidas em estilo Corporate High-Level, focando em valor agregado, segurança e continuidade operacional, abrangendo tanto a gestão de manutenção quanto a execução de instalações de engenharia.",
 };
 
 export type FaqGroup = {
@@ -44,7 +44,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Como funciona o SLA (Service Level Agreement) de atendimento?",
-        a: "A previsibilidade é um dos nossos pilares. Trabalhamos com SLAs rigorosos de atendimento emergencial, que variam de 6 a 12 horas nos planos Premium, chegando a até 2 horas no plano Elite 24/7, garantindo que sua operação crítica nunca fique desamparada.",
+        a: "A previsibilidade é um dos nossos pilares. Trabalhamos com SLAs rigorosos de atendimento emergencial, que variam de 6 a 12 horas nos planos Premium, chegando a até 2 horas no PLANO ELITE 24/7, garantindo que sua operação crítica nunca fique desamparada.",
       },
       {
         q: "Qual o nível de suporte contínuo oferecido para empresas?",
@@ -52,7 +52,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "É possível garantir a continuidade em operações que não podem parar?",
-        a: "Sim, este é o nosso core business. Para hospitais, shoppings e indústrias, oferecemos o plano Elite 24/7, que inclui equipes de plantão ou sobreaviso imediato, garantindo disponibilidade total e risco zero de interrupção por falhas de infraestrutura.",
+        a: "Sim, este é o nosso core business. Para hospitais, shoppings e indústrias, oferecemos o PLANO ELITE 24/7, que inclui equipes de plantão ou sobreaviso imediato, garantindo disponibilidade total e risco zero de interrupção por falhas de infraestrutura.",
       },
       {
         q: "A Luminous fornece documentação técnica para auditorias e seguros?",
@@ -98,7 +98,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Como é calculado o investimento de um contrato de manutenção ou de um projeto de instalação?",
-        a: "O valor é personalizado. Para manutenção, realizamos uma avaliação técnica inicial para entender o porte da estrutura, a idade das instalações e a criticidade da operação. Para instalações, o orçamento é baseado no escopo detalhado do projeto, materiais, complexidade e prazos. Em ambos os casos, apresentamos uma proposta que equilibra custo-benefício e segurança operacional.",
+        a: "O valor é personalizado. Para manutenção, realizamos uma Avaliação Técnica Inicial para entender o porte da estrutura, a idade das instalações e a criticidade da operação. Para instalações, o orçamento é baseado no escopo detalhado do projeto, materiais, complexidade e prazos. Em ambos os casos, apresentamos uma proposta que equilibra custo-benefício e segurança operacional.",
       },
       {
         q: "Existe um plano pré-definido para o meu tipo de negócio?",
@@ -106,11 +106,11 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Posso solicitar uma personalização total do meu plano de serviços ou projeto?",
-        a: "Com certeza. Entendemos que cada operação e projeto possuem particularidades. Desenvolvemos escopos de trabalho customizados para atender demandas específicas de engenharia, horários diferenciados de manutenção ou níveis de SLA mais exigentes para contratos, e soluções de instalação sob medida para a sua obra.",
+        a: "Com certeza. Entendemos que cada operação e projeto possuem particularidades. Desenvolvemos escopos de trabalho customizados para atender demandas específicas de engenharia, horários diferenciados de manutenção ou níveis de SLA ultra-agressivos para contratos, e soluções de instalação sob medida para a sua obra.",
       },
       {
         q: "Qual o procedimento para solicitar um orçamento ou visita técnica?",
-        a: "O processo é ágil e profissional. Você pode solicitar uma proposta diretamente através do formulário no site ou iniciar um atendimento imediato via WhatsApp com um de nossos consultores técnicos. Para projetos de instalação, agendamos uma reunião para levantamento de requisitos e análise de projeto.",
+        a: "O processo é ágil e profissional. Você pode solicitar uma proposta diretamente através do nosso formulário no site ou iniciar um atendimento imediato via WhatsApp com um de nossos consultores técnicos. Para projetos de instalação, agendamos uma reunião para levantamento de requisitos e análise de projeto.",
       },
     ],
   },

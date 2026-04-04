@@ -19,7 +19,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+    <section id="contato" className="scroll-mt-28 py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

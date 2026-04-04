@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { HashLink } from "@/components/HashLink";
 import services from "@/lib/services";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -117,7 +118,7 @@ const ServiceDetail = () => {
               <div className="bg-card border border-border rounded-xl p-6">
                 <h4 className="font-semibold mb-3">Solicitar orçamento</h4>
                 <p className="text-sm text-muted-foreground mb-4">Entre em contato para um orçamento detalhado e personalizado.</p>
-                <a href="/#contato" className="block w-full text-center py-3 rounded-full bg-gradient-gold text-primary-foreground font-semibold">Solicitar</a>
+                <HashLink to="/#contato" className="block w-full rounded-full bg-gradient-gold py-3 text-center font-semibold text-primary-foreground">Solicitar</HashLink>
                 <Link to="/servicos" className="block text-center mt-3 text-sm text-muted-foreground hover:underline">Voltar aos serviços</Link>
               </div>
 

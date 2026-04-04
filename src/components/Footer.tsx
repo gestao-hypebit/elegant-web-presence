@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "@/components/HashLink";
 import {
   Zap,
   Phone,
@@ -48,8 +49,8 @@ const Footer = () => {
         <div className=" container mx-auto grid gap-10 py-12 sm:gap-12 sm:py-14 lg:grid-cols-12 lg:gap-10 lg:py-16">
           {/* Marca e posicionamento */}
           <div className="lg:col-span-4">
-            <Link
-              to="/"
+            <HashLink
+              to="/#inicio"
               className="inline-flex items-center gap-3 rounded-lg outline-none ring-offset-black transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold/50"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-gold shadow-md shadow-gold/20">
@@ -63,19 +64,19 @@ const Footer = () => {
                   Instalações & Serviços
                 </span>
               </div>
-            </Link>
+            </HashLink>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               Engenharia de instalações elétricas e hidráulicas, manutenção predial e contratos técnicos
               com SLA — da concepção à operação contínua, com foco em segurança, normas e previsibilidade
               de custos em São Paulo e região.
             </p>
-            <Link
+            <HashLink
               to="/#contato"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-white"
             >
               Solicitar proposta
               <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
+            </HashLink>
           </div>
 
           {/* Navegação institucional */}
@@ -86,12 +87,21 @@ const Footer = () => {
             <ul className="mt-4 space-y-3">
               {linksInstitucional.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-white/65 transition-colors hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.href.startsWith("/#") ? (
+                    <HashLink
+                      to={item.href}
+                      className="text-sm text-white/65 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </HashLink>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="text-sm text-white/65 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -105,12 +115,12 @@ const Footer = () => {
             <ul className="mt-4 space-y-3">
               {linksSite.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <HashLink
                     to={item.href}
                     className="text-sm text-white/65 transition-colors hover:text-white"
                   >
                     {item.label}
-                  </Link>
+                  </HashLink>
                 </li>
               ))}
             </ul>

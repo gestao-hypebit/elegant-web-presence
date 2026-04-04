@@ -50,7 +50,7 @@ const HeroSection = () => {
       <section
         ref={sectionRef}
         id="inicio"
-        className="relative z-0 flex min-h-[72vh] sm:min-h-[80vh] items-center bg-transparent"
+        className="relative z-0 flex min-h-[72vh] scroll-mt-28 sm:min-h-[80vh] items-center bg-transparent"
       >
         <div className="container relative z-10 mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-36 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">

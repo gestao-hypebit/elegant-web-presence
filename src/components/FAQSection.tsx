@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect, RefObject } from "react";
-import { Link } from "react-router-dom";
+import { HashLink } from "@/components/HashLink";
 import { ChevronDown, MessageCircle } from "lucide-react";
 import { faqIntro, faqGroups, faqClosing } from "@/content/faqInstitutional";
 
@@ -135,12 +135,12 @@ const FAQSection = () => {
             {faqClosing.text}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Link
+            <HashLink
               to="/#contato"
               className="inline-flex w-full items-center justify-center rounded-lg bg-gradient-gold px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto"
             >
               Solicitar proposta estratégica
-            </Link>
+            </HashLink>
             <a
               href={WHATSAPP_URL}
               target="_blank"

@@ -1,78 +1,129 @@
-/** Copy institucional completa — página /servicos */
+/** Copy da página /servicos — base institucional, versão sintetizada para leitura em tela */
 
 export const introParagrafos = [
-  "No cenário dinâmico e exigente do mercado atual, a Luminous Instalações e Serviços se posiciona como sua parceira estratégica para garantir a continuidade operacional, a segurança patrimonial e a excelência na execução de projetos de infraestrutura. Oferecemos um portfólio completo que abrange desde a concepção e instalação de sistemas elétricos e hidráulicos de alta complexidade até a gestão proativa e preditiva de sua manutenção.",
-  "Nossos serviços são meticulosamente desenvolvidos para atender às demandas de condomínios residenciais de alto padrão, empresas de todos os portes, operações corporativas complexas e, especialmente, setores críticos como indústrias, hospitais, data centers e shoppings, onde qualquer interrupção ou falha na execução pode gerar prejuízos incalculáveis. Com a Luminous, você investe em confiabilidade técnica, gestão estruturada e a tranquilidade de saber que seu patrimônio está em mãos de especialistas.",
+  "Instalação e manutenção de sistemas elétricos e hidráulicos de alta complexidade, com foco em continuidade operacional, segurança patrimonial e normas. Atendemos desde condomínios e escritórios até indústria, saúde, data centers e shoppings — onde parar não é opção.",
 ];
+
+/** Destaques rápidos abaixo do hero (chips) */
+export const introDestaques = ["NBR 5410 · NR-10 · NBR 5626", "Projetos + obra + comissionamento", "Contratos com SLA até 24/7"];
+
+export const engenhariaSectionIntro =
+  "Projetamos e executamos instalações elétricas e hidráulicas prediais e industriais, do planejamento à entrega, com equipe especializada e conformidade técnica.";
+
+export const instalacaoEletricaTitulo = "Instalações elétricas";
+
+export const instalacaoEletricaIntro =
+  "Quadros, distribuição, infraestrutura de cabos, SPDA, iluminação e ambientes industriais — com foco em segurança, desempenho e eficiência energética.";
 
 export const instalacaoEletricaItens = [
-  "Quadros de distribuição e disjuntores: dimensionamento e montagem de quadros elétricos de baixa e média tensão, incluindo painéis de comando e controle, com foco em segurança e capacidade de carga para ambientes prediais e industriais.",
-  "Infraestrutura para cabeamento: instalação de perfilados, eletrodutos, canaletas e leitos para cabos, com materiais de alta resistência e durabilidade, garantindo proteção da fiação e longevidade da instalação.",
-  "Sistemas de aterramento e SPDA: proteção contra descargas atmosféricas e aterramento, em conformidade com a NBR 5419.",
-  "Iluminação técnica: projetos e instalações eficientes para ambientes internos e externos, incluindo emergência e automação.",
-  "Instalações industriais específicas: adequação para maquinário pesado, subestações, força e controle, com alimentação contínua e segura.",
-  "Conformidade: execução em conformidade com a NBR 5410 e NR-10.",
+  "Quadros, disjuntores, painéis de comando e capacidade de carga adequada ao uso.",
+  "Infraestrutura para cabos (eletrodutos, bandejas, leitos) com materiais duráveis.",
+  "Aterramento e SPDA conforme NBR 5419; iluminação técnica, emergência e automação.",
+  "Instalações industriais: força, controle e alimentação segura de processos — NBR 5410 e NR-10.",
 ];
+
+export const instalacaoHidraulicaTitulo = "Instalações hidráulicas";
+
+export const instalacaoHidraulicaIntro =
+  "Abastecimento, esgoto, combate a incêndio e soluções para processos — com estanqueidade, pressão correta e redes dimensionadas.";
 
 export const instalacaoHidraulicaItens = [
-  "Redes de água fria e quente: tubulações, conexões e equipamentos com estanqueidade e pressão adequada.",
-  "Sistemas de esgoto e águas pluviais: redes de coleta e descarte com dimensionamento correto.",
-  "Sistemas de combate a incêndio: hidrantes, sprinklers e pressurização, conforme Corpo de Bombeiros e NBR 13714.",
-  "Instalações industriais: redes para processos, ar comprimido, vapor e fluidos específicos.",
-  "Bombeamento e recalque: conjuntos motobomba, reservatórios e pressurização em edificações verticais.",
-  "Conformidade: NBR 5626 e demais normas pertinentes.",
+  "Redes de água fria e quente; esgoto e águas pluviais com dimensionamento adequado.",
+  "Combate a incêndio (hidrantes, sprinklers, pressurização) conforme CBPM e NBR 13714.",
+  "Processos industriais: ar comprimido, vapor e fluidos; bombeamento e recalque.",
+  "Conformidade com NBR 5626 e normas aplicáveis.",
 ];
+
+export const maoDeObraEspecializada =
+  "Engenheiros e técnicos certificados, integrados ao projeto arquitetônico e estrutural da obra até o comissionamento.";
+
+export const gestaoManutencaoIntro =
+  "Manutenção elétrica e hidráulica predial com foco em prevenção, eficiência energética e conformidade — menos paradas e mais previsibilidade.";
+
+export const manutencaoEletricaTitulo = "Manutenção elétrica predial";
+
+export const manutencaoEletricaIntro =
+  "Inspeção, preventiva e correções com foco em segurança de pessoas e ativos e adequação às normas.";
+
+export const manutencaoEletricaSub = "Inclui:";
 
 export const manutencaoEletricaItens = [
-  "Inspeções técnicas detalhadas: análise termográfica, medição de cargas e avaliação de quadros, disjuntores e aterramento.",
-  "Manutenção preventiva programada: planos personalizados para revisão e ajuste de componentes.",
-  "Correção de falhas e sobrecargas: diagnóstico e reparos ágeis em circuitos, fiação e iluminação.",
-  "Modernização e adequação: otimização de consumo e adequação às normas (NR-10, NBR 5410).",
+  "Inspeções com termografia, leitura de cargas e checagem de quadros e aterramento.",
+  "Preventiva programada e resposta a falhas e sobrecargas em circuitos e iluminação.",
+  "Modernização e adequação NR-10 / NBR 5410.",
 ];
+
+export const manutencaoEletricaFecho = "Operação segura, eficiente e em conformidade.";
+
+export const manutencaoHidraulicaTitulo = "Manutenção hidráulica predial";
+
+export const manutencaoHidraulicaIntro =
+  "Detecção e correção de vazamentos, redes hidráulicas e equipamentos — antes virar emergência.";
+
+export const manutencaoHidraulicaSub = "Inclui:";
 
 export const manutencaoHidraulicaItens = [
-  "Identificação e correção de vazamentos: detecção não invasiva e reparos eficazes.",
-  "Manutenção de tubulações e redes: água fria, quente, esgoto e pluviais.",
-  "Revisão e substituição de componentes: registros, válvulas, bombas e caixas d'água.",
-  "Inspeções preventivas: verificação periódica para antecipar problemas críticos.",
+  "Vazamentos com técnicas não invasivas; redes de água, esgoto e pluviais.",
+  "Registros, válvulas, bombas e reservatórios; inspeções periódicas.",
 ];
 
+export const manutencaoHidraulicaFecho = "Menos desperdício e risco estrutural.";
+
+export const preventivaTitulo = "Manutenção preventiva";
+
+export const preventivaIntro =
+  "Planos sob medida (preditiva/preventiva) conforme perfil de uso — investimento que reduz paradas e custo corretivo.";
+
+export const preventivaBeneficiosTitulo = "Principais ganhos";
+
 export const preventivaBeneficios = [
-  "Redução drástica de falhas inesperadas e paradas não programadas.",
-  "Otimização da vida útil dos ativos e adiamento de substituições caras.",
-  "Previsibilidade e controle de custos com planejamento claro.",
-  "Segurança reforçada para moradores, colaboradores e visitantes.",
-  "Conformidade regulatória: apoio em laudos e certificações.",
+  "Menos falhas e paradas não programadas.",
+  "Maior vida útil dos ativos e custos mais previsíveis.",
+  "Segurança e apoio em laudos e exigências legais.",
 ];
+
+export const contratosTitulo = "Contratos de manutenção";
+
+export const contratosIntro =
+  "Planos com SLA e escopo definido — do atendimento em horário comercial ao plantão para operações críticas.";
+
+export const contratosPlanosTitulo = "Linhas de plano";
 
 export const planosContrato = [
   {
-    nome: "Plano Básico (Essencial)",
-    texto:
-      "Ideal para pequenas empresas e condomínios: manutenções corretivas com atendimento em horário comercial e SLA de até 48h.",
+    nome: "Básico (Essencial)",
+    texto: "Corretivo em horário comercial · SLA até 48h.",
   },
   {
-    nome: "Plano Profissional (Padrão Ouro)",
-    texto:
-      "Preventiva e corretiva, atendimento prioritário, SLA de até 24h e relatórios mensais para gestão.",
+    nome: "Profissional (Padrão ouro)",
+    texto: "Preventiva + corretivo · prioridade · SLA até 24h · relatórios.",
   },
   {
-    nome: "Plano Premium (Full Service)",
-    texto:
-      "Alta disponibilidade: chamados ilimitados, emergencial, SLA de 6 a 12h, visitas preventivas e relatórios técnicos detalhados.",
+    nome: "Premium (Full service)",
+    texto: "Alta disponibilidade · emergencial · SLA 6–12h · visitas preventivas.",
   },
   {
-    nome: "Plano Elite 24/7 (Disponibilidade crítica)",
-    texto:
-      "Para indústrias, hospitais, data centers e shoppings: plantão dedicado, manutenção preditiva avançada, SLA de emergência de até 2h e suporte a conformidade e auditorias.",
+    nome: "Elite 24/7",
+    texto: "Plantão · preditiva avançada · SLA emergência até 2h · conformidade e auditorias.",
   },
 ];
 
+export const segmentosTitulo = "Onde atuamos";
+
+export const segmentosIntro = "Soluções adaptadas ao perfil de cada operação:";
+
 export const segmentosServicos = [
-  "Condomínios residenciais",
-  "Empresas e escritórios",
-  "Indústrias",
-  "Hospitais e clínicas",
-  "Data centers",
-  "Shoppings e centros comerciais",
+  { titulo: "Condomínios", texto: "Conforto, segurança e valorização patrimonial." },
+  { titulo: "Empresas e escritórios", texto: "Ambiente produtivo e em conformidade." },
+  { titulo: "Indústrias", texto: "Disponibilidade de linhas e equipamentos críticos." },
+  { titulo: "Saúde", texto: "Continuidade de sistemas vitais." },
+  { titulo: "Data centers", texto: "Resiliência elétrica e hidráulica da infraestrutura." },
+  { titulo: "Shoppings e varejo", texto: "Fluxo, conforto e segurança para operação e público." },
+];
+
+export const compromissoTitulo = "Fale com a Luminous";
+
+export const compromissoParagrafos = [
+  "Conte com parceria técnica para projeto, obra ou manutenção predial — proposta alinhada ao seu prédio ou operação.",
+  "Solicite uma proposta ou converse com um especialista; respondemos com clareza e prazos definidos.",
 ];

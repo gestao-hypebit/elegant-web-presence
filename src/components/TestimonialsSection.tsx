@@ -67,7 +67,7 @@ const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="depoimentos" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20 lg:py-28" ref={ref}>
+    <section id="depoimentos" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-20 lg:py-28" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

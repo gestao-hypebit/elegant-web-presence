@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
+import { HashLink } from "@/components/HashLink";
 import {
   ArrowRight,
   MessageCircle,
@@ -27,13 +28,39 @@ import {
 } from "@/components/ui/accordion";
 import {
   introParagrafos,
+  introDestaques,
+  engenhariaSectionIntro,
+  instalacaoEletricaTitulo,
+  instalacaoEletricaIntro,
   instalacaoEletricaItens,
+  instalacaoHidraulicaTitulo,
+  instalacaoHidraulicaIntro,
   instalacaoHidraulicaItens,
+  maoDeObraEspecializada,
+  gestaoManutencaoIntro,
+  manutencaoEletricaTitulo,
+  manutencaoEletricaIntro,
+  manutencaoEletricaSub,
   manutencaoEletricaItens,
+  manutencaoEletricaFecho,
+  manutencaoHidraulicaTitulo,
+  manutencaoHidraulicaIntro,
+  manutencaoHidraulicaSub,
   manutencaoHidraulicaItens,
+  manutencaoHidraulicaFecho,
+  preventivaTitulo,
+  preventivaIntro,
+  preventivaBeneficiosTitulo,
   preventivaBeneficios,
+  contratosTitulo,
+  contratosIntro,
+  contratosPlanosTitulo,
   planosContrato,
+  segmentosTitulo,
+  segmentosIntro,
   segmentosServicos,
+  compromissoTitulo,
+  compromissoParagrafos,
 } from "@/content/servicosInstitucional";
 import heroBg from "@/assets/imghero.jpeg";
 import { services } from "@/lib/services";
@@ -92,12 +119,14 @@ function BulletList({ items, className = "" }: { items: string[]; className?: st
   );
 }
 
+const sectionDark = "bg-[hsl(193_70%_13%)] text-white";
+const sectionDarkBorder = "border-white/10";
+
 const Servicos = () => {
-  const [introLead, ...introRest] = introParagrafos;
-  const introSecondary = introRest.join(" ");
+  const [introLead] = introParagrafos;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-muted/40">
       <div
         className="pointer-events-none fixed inset-0 z-0 h-[100dvh] w-full"
         aria-hidden
@@ -115,53 +144,51 @@ const Servicos = () => {
         <Header />
         <main>
           {/* Hero */}
-          <section className="relative flex min-h-[52vh] sm:min-h-[58vh] flex-col justify-end bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:min-h-[62vh] md:pb-20 md:pt-32 lg:pt-36">
-            <div className="container mx-auto max-w-5xl">
-              <h1 className="mt-3 sm:mt-4 font-display text-2xl font-bold leading-[1.2] text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-5xl">
-                Luminous Instalações e Serviços: engenharia completa para{" "}
-                <span className="text-white/95">sua infraestrutura</span>
+          <section className="relative flex min-h-[48vh] sm:min-h-[54vh] flex-col justify-end bg-transparent pb-10 pt-24 sm:pb-14 sm:pt-28 md:min-h-[58vh] md:pb-16 md:pt-32 lg:pt-36">
+            <div className="container mx-auto max-w-4xl">
+              <p className="mb-3 inline-flex rounded-full border border-white/25 bg-black/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-sm">
+                Instalações · manutenção · contratos
+              </p>
+              <h1 className="mt-2 font-display text-2xl font-bold leading-[1.15] text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-[2.75rem]">
+                Engenharia completa para{" "}
+                <span className="text-white">sua infraestrutura</span>
               </h1>
-              <p className="mt-4 sm:mt-5 max-w-2xl text-sm leading-relaxed text-white sm:text-base md:text-lg">
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/95 sm:text-base md:text-lg">
                 {introLead}
               </p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {introDestaques.map((d) => (
+                  <li
+                    key={d}
+                    className="rounded-lg border border-white/20 bg-black/25 px-3 py-2 text-xs font-medium text-white/95 backdrop-blur-sm sm:text-sm"
+                  >
+                    {d}
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
-          {/* Intro complementar */}
-          {/* {introSecondary ? (
-            <section className="border-y border-border bg-card py-12 sm:py-16 md:py-20">
-              <div className="container mx-auto max-w-3xl">
-                <Reveal>
-                  <p className="text-center text-base leading-relaxed text-muted-foreground md:text-lg">
-                    {introSecondary}
-                  </p>
-                </Reveal>
-              </div>
-            </section>
-          ) : null} */}
-
-          {/* Atalhos — duas frentes (como Missão/Visão na Sobre) */}
-          <section className="border-b border-border bg-background py-12 sm:py-16 md:py-24">
+          {/* Atalhos — bloco escuro + cards claros */}
+          <section className={`border-b ${sectionDarkBorder} py-12 sm:py-16 md:py-20 ${sectionDark}`}>
             <div className="container mx-auto grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
               <Reveal>
                 <a
                   href="#engenharia-instalacoes"
-                  className="group block h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md sm:p-8 md:p-10"
+                  className="group flex h-full flex-col rounded-2xl border border-white/15 bg-white p-5 text-foreground shadow-elevated transition-all duration-300 hover:border-[hsl(193_57%_29%)]/40 hover:shadow-lg sm:p-8"
                 >
-                  <div className="mb-4 sm:mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
-                    <HardHat className="h-6 w-6 text-gold" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/12 transition-colors group-hover:bg-[hsl(193_57%_29%)]/18">
+                    <HardHat className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                   </div>
-                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-[hsl(193_57%_29%)]">
                     Projeto e obra
                   </span>
-                  <h2 className="mt-2 sm:mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
-                    Engenharia de instalações
-                  </h2>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Elétrica e hidráulica de alta complexidade, do planejamento ao comissionamento, com
-                    equipe especializada e conformidade técnica.
+                  <h2 className="mt-2 font-display text-xl font-bold sm:text-2xl">Engenharia de instalações</h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    Elétrica e hidráulica de alta complexidade — do projeto ao comissionamento, com normas e
+                    equipe dedicada.
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold">
+                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[hsl(193_57%_29%)]">
                     Ver detalhes <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </a>
@@ -169,22 +196,19 @@ const Servicos = () => {
               <Reveal delay={0.08}>
                 <a
                   href="#gestao-manutencao"
-                  className="group block h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-md sm:p-8 md:p-10"
+                  className="group flex h-full flex-col rounded-2xl border border-white/15 bg-white p-5 text-foreground shadow-elevated transition-all duration-300 hover:border-[hsl(193_57%_29%)]/40 hover:shadow-lg sm:p-8"
                 >
-                  <div className="mb-4 sm:mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 transition-colors group-hover:bg-gold/15">
-                    <ClipboardList className="h-6 w-6 text-gold" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/12 transition-colors group-hover:bg-[hsl(193_57%_29%)]/18">
+                    <ClipboardList className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                   </div>
-                  <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-[hsl(193_57%_29%)]">
                     Operação contínua
                   </span>
-                  <h2 className="mt-2 sm:mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
-                    Manutenção e contratos
-                  </h2>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Preventiva, corretiva e planos com SLA — menos paradas, mais previsibilidade e
-                    segurança patrimonial.
+                  <h2 className="mt-2 font-display text-xl font-bold sm:text-2xl">Gestão de manutenção</h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    Preventiva, corretiva e contratos com SLA — menos paradas e mais segurança patrimonial.
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold">
+                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[hsl(193_57%_29%)]">
                     Ver detalhes <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </a>
@@ -192,20 +216,21 @@ const Servicos = () => {
             </div>
           </section>
 
-          {/* Portfólio — mesma linguagem da home */}
-          <section id="portfolio" className="scroll-mt-24 border-b border-border bg-card py-12 sm:py-16 md:py-24">
+          {/* Portfólio */}
+          <section
+            id="portfolio"
+            className="scroll-mt-24 border-b border-border bg-white py-12 shadow-[inset_0_1px_0_0_hsl(193_57%_29%/0.08)] sm:py-16 md:py-24"
+          >
             <div className="container mx-auto">
-              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
-                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
+              <Reveal className="mx-auto mb-8 max-w-2xl text-center sm:mb-12 md:mb-14">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(193_57%_29%)]">
                   Linha de serviços
                 </span>
-                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
-                  Explore cada{" "}
-                  <span className="text-gradient-gold">solução</span> em detalhe
+                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+                  Soluções em <span className="text-gradient-gold">detalhe</span>
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  Páginas dedicadas com escopo, benefícios e aplicações — o mesmo portfólio da página
-                  inicial, com aprofundamento técnico.
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  Páginas com escopo e benefícios — aprofunde cada frente de atuação.
                 </p>
               </Reveal>
 
@@ -222,7 +247,7 @@ const Servicos = () => {
                         className="group block"
                         aria-label={`Abrir detalhes de ${service.title}`}
                       >
-                        <div className="relative overflow-hidden rounded-2xl border border-border bg-background shadow-card transition-all duration-500 hover:border-gold/30">
+                        <div className="relative overflow-hidden rounded-2xl border border-[hsl(193_57%_29%)]/15 bg-muted/30 shadow-card transition-all duration-500 hover:border-[hsl(193_57%_29%)]/35">
                           {!hideImage && service.image && (
                             <div className="h-52 overflow-hidden">
                               <img
@@ -261,7 +286,7 @@ const Servicos = () => {
                         className="group block"
                         aria-label={`Abrir detalhes de ${service.title}`}
                       >
-                        <div className="h-full rounded-2xl border border-border bg-background p-6 shadow-card transition-all duration-500 hover:border-gold/30">
+                        <div className="h-full rounded-2xl border border-[hsl(193_57%_29%)]/15 bg-muted/20 p-6 shadow-card transition-all duration-500 hover:border-[hsl(193_57%_29%)]/35">
                           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                             {Icon && <Icon className="h-6 w-6 text-gold" />}
                           </div>
@@ -280,40 +305,37 @@ const Servicos = () => {
           {/* Engenharia de instalações */}
           <section
             id="engenharia-instalacoes"
-            className="scroll-mt-24 border-b border-border bg-background py-12 sm:py-16 md:py-24"
+            className={`scroll-mt-24 border-b ${sectionDarkBorder} py-12 sm:py-16 md:py-24 ${sectionDark}`}
           >
             <div className="container mx-auto">
-              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
-                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
+              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-14">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                   Engenharia de instalações
                 </span>
-                <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl px-1">
-                  Construindo a base da sua{" "}
-                  <span className="text-gradient-gold">operação</span>
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+                  Base sólida para sua <span className="text-white">operação</span>
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  Execução de projetos elétricos e hidráulicos de alta complexidade, do planejamento à
-                  entrega, em conformidade com normas técnicas rigorosas.
+                <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-base">
+                  {engenhariaSectionIntro}
                 </p>
               </Reveal>
 
               <div className="mx-auto grid max-w-6xl gap-6 sm:gap-8 md:grid-cols-2">
                 <Reveal>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card sm:p-8 md:p-10">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                      <Zap className="h-6 w-6 text-gold" />
+                  <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white p-5 text-foreground shadow-elevated sm:p-8">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <Zap className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                     </div>
                     <h3 className="font-display text-xl font-bold text-foreground">
-                      Instalações elétricas: potência e segurança
+                      {instalacaoEletricaTitulo}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                      Projetamos e executamos instalações prediais e industriais eficientes e seguras, com
-                      rigor técnico para otimizar energia e reduzir riscos operacionais.
+                      {instalacaoEletricaIntro}
                     </p>
-                    <Accordion type="multiple" className="mt-6 w-full border-t border-border">
+                    <Accordion type="multiple" className="mt-6 w-full border-t border-border/80">
                       <AccordionItem value="eletrica-detalhes" className="border-b-0">
                         <AccordionTrigger className="text-left text-sm text-foreground hover:no-underline sm:text-base">
-                          Ver detalhes dos serviços de instalação elétrica
+                          Ver escopo elétrico
                         </AccordionTrigger>
                         <AccordionContent>
                           <BulletList items={instalacaoEletricaItens} />
@@ -323,21 +345,20 @@ const Servicos = () => {
                   </div>
                 </Reveal>
                 <Reveal delay={0.08}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card sm:p-8 md:p-10">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                      <Droplets className="h-6 w-6 text-gold" />
+                  <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white p-5 text-foreground shadow-elevated sm:p-8">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <Droplets className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                     </div>
                     <h3 className="font-display text-xl font-bold text-foreground">
-                      Instalações hidráulicas: fluxo contínuo e eficiência
+                      {instalacaoHidraulicaTitulo}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                      Sistemas prediais e industriais com foco em eficiência, durabilidade e
-                      sustentabilidade no abastecimento, descarte e tratamento de água.
+                      {instalacaoHidraulicaIntro}
                     </p>
-                    <Accordion type="multiple" className="mt-6 w-full border-t border-border">
+                    <Accordion type="multiple" className="mt-6 w-full border-t border-border/80">
                       <AccordionItem value="hidraulica-detalhes" className="border-b-0">
                         <AccordionTrigger className="text-left text-sm text-foreground hover:no-underline sm:text-base">
-                          Ver detalhes dos serviços de instalação hidráulica
+                          Ver escopo hidráulico
                         </AccordionTrigger>
                         <AccordionContent>
                           <BulletList items={instalacaoHidraulicaItens} />
@@ -349,10 +370,9 @@ const Servicos = () => {
               </div>
 
               <Reveal className="mx-auto mt-10 max-w-3xl">
-                <p className="rounded-2xl border border-border bg-card/80 p-4 text-center text-sm leading-relaxed text-muted-foreground shadow-card backdrop-blur-sm sm:p-6 md:p-8 sm:text-base">
-                  <span className="font-semibold text-foreground">Mão de obra especializada: </span>
-                  equipe qualificada e certificada, com experiência em grandes projetos, integrando
-                  instalações ao projeto estrutural desde a obra até o comissionamento.
+                <p className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center text-sm leading-relaxed text-white/90 backdrop-blur-sm sm:p-6 md:text-base">
+                  <span className="font-semibold text-white">Equipe dedicada. </span>
+                  {maoDeObraEspecializada}
                 </p>
               </Reveal>
             </div>
@@ -361,93 +381,83 @@ const Servicos = () => {
           {/* Gestão de manutenção */}
           <section
             id="gestao-manutencao"
-            className="scroll-mt-24 border-b border-border bg-card py-12 sm:py-16 md:py-24"
+            className="scroll-mt-24 border-b border-border bg-muted/60 py-12 sm:py-16 md:py-24"
           >
             <div className="container mx-auto">
-              <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-16">
-                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">
+              <Reveal className="mx-auto mb-8 max-w-2xl text-center sm:mb-12 md:mb-14">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(193_57%_29%)]">
                   Gestão de manutenção
                 </span>
-                <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-5xl px-1">
-                  Continuidade operacional e{" "}
-                  <span className="text-gradient-gold">prevenção de prejuízos</span>
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-4xl">
+                  Continuidade e{" "}
+                  <span className="text-gradient-gold">prevenção</span>
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  Manutenção elétrica e hidráulica predial com foco em prevenção, eficiência energética e
-                  conformidade regulatória.
+                  {gestaoManutencaoIntro}
                 </p>
               </Reveal>
 
               <div className="mx-auto grid max-w-6xl gap-6 sm:gap-8 lg:grid-cols-3">
                 <Reveal>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                      <Zap className="h-6 w-6 text-gold" />
+                  <div className="flex h-full flex-col rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-white p-5 shadow-card sm:p-6 md:p-8">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <Zap className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-foreground">Manutenção elétrica predial</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      Priorizamos prevenção e otimização para segurança, eficiência e conformidade jurídica.
-                    </p>
-                    <div className="mt-5 flex-1">
+                    <h3 className="font-display text-lg font-bold text-foreground">{manutencaoEletricaTitulo}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{manutencaoEletricaIntro}</p>
+                    <p className="mt-3 text-sm font-medium text-foreground">{manutencaoEletricaSub}</p>
+                    <div className="mt-4 flex-1">
                       <BulletList items={manutencaoEletricaItens} />
                     </div>
+                    <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{manutencaoEletricaFecho}</p>
                   </div>
                 </Reveal>
                 <Reveal delay={0.06}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                      <Droplets className="h-6 w-6 text-gold" />
+                  <div className="flex h-full flex-col rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-white p-5 shadow-card sm:p-6 md:p-8">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <Droplets className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-foreground">Manutenção hidráulica predial</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      Abordagem proativa contra vazamentos, infiltrações e entupimentos.
-                    </p>
-                    <div className="mt-5 flex-1">
+                    <h3 className="font-display text-lg font-bold text-foreground">{manutencaoHidraulicaTitulo}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{manutencaoHidraulicaIntro}</p>
+                    <p className="mt-3 text-sm font-medium text-foreground">{manutencaoHidraulicaSub}</p>
+                    <div className="mt-4 flex-1">
                       <BulletList items={manutencaoHidraulicaItens} />
                     </div>
+                    <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{manutencaoHidraulicaFecho}</p>
                   </div>
                 </Reveal>
                 <Reveal delay={0.12}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card sm:p-6 md:p-8">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                      <CalendarCheck className="h-6 w-6 text-gold" />
+                  <div className="flex h-full flex-col rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-white p-5 shadow-card sm:p-6 md:p-8">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <CalendarCheck className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-foreground">
-                      Manutenção preventiva: longevidade e custos
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      Planos preditivos e preventivos sob medida. Benefícios:
-                    </p>
-                    <div className="mt-5 flex-1">
+                    <h3 className="font-display text-lg font-bold text-foreground">{preventivaTitulo}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{preventivaIntro}</p>
+                    <p className="mt-4 text-sm font-semibold text-foreground">{preventivaBeneficiosTitulo}</p>
+                    <div className="mt-3 flex-1">
                       <BulletList items={preventivaBeneficios} />
                     </div>
                   </div>
                 </Reveal>
               </div>
 
-              <Reveal className="mx-auto mt-14 max-w-3xl text-center">
+              <Reveal className="mx-auto mt-12 max-w-3xl text-center">
                 <div className="mb-2 flex justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
-                    <FileText className="h-6 w-6 text-gold" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                    <FileText className="h-6 w-6 text-[hsl(193_57%_29%)]" />
                   </div>
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground">Contratos técnicos de manutenção</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  Acompanhamento contínuo e suporte especializado, com planos alinhados à criticidade da sua
-                  operação.
-                </p>
+                <h3 className="font-display text-xl font-bold text-foreground">{contratosTitulo}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{contratosIntro}</p>
+                <p className="mt-5 text-sm font-semibold text-[hsl(193_57%_29%)] md:text-base">{contratosPlanosTitulo}</p>
               </Reveal>
 
               <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {planosContrato.map((plano, i) => (
                   <Reveal key={plano.nome} delay={i * 0.05}>
-                    <div className="flex h-full flex-col rounded-xl border border-border bg-background p-5 shadow-card transition-shadow hover:shadow-md">
-                      <h4 className="font-display text-sm font-bold leading-snug text-foreground md:text-base">
-                        {plano.nome}
-                      </h4>
-                      <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground md:text-sm">
-                        {plano.texto}
-                      </p>
+                    <div className="flex h-full flex-col rounded-xl border border-[hsl(193_57%_29%)]/25 bg-[hsl(193_70%_13%)] p-5 text-white shadow-card transition-shadow hover:border-white/25">
+                      <h4 className="font-display text-sm font-bold leading-snug md:text-base">{plano.nome}</h4>
+                      <p className="mt-2 flex-1 text-xs leading-relaxed text-white/85 md:text-sm">{plano.texto}</p>
                     </div>
                   </Reveal>
                 ))}
@@ -483,26 +493,29 @@ const Servicos = () => {
             </div>
           </section>
 
-          {/* Segmentos — chips como Sobre */}
-          <section id="segmentos" className="scroll-mt-24 border-b border-border bg-background py-12 sm:py-16 md:py-24">
+          {/* Segmentos */}
+          <section
+            id="segmentos"
+            className="scroll-mt-24 border-b border-border bg-white py-12 sm:py-16 md:py-24"
+          >
             <div className="container mx-auto">
               <Reveal className="mb-10 text-center md:text-left">
-                <MapPin className="mx-auto mb-3 h-7 w-7 text-gold md:mx-0" />
-                <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-widest">Segmentos</span>
-                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
-                  Expertise para cada desafio
+                <MapPin className="mx-auto mb-3 h-7 w-7 text-[hsl(193_57%_29%)] md:mx-0" />
+                <h2 className="mt-1 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+                  {segmentosTitulo}
                 </h2>
-                <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground md:mx-0">
-                  A Luminous adapta soluções às especificidades de cada tipo de cliente:
-                </p>
+                <p className="mx-auto mt-3 max-w-2xl text-muted-foreground md:mx-0">{segmentosIntro}</p>
               </Reveal>
-              <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+              <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {segmentosServicos.map((s, i) => (
-                  <Reveal key={s} delay={i * 0.03}>
-                    <span className="inline-flex items-center rounded-full border border-gold/25 bg-gold/5 px-4 py-2 text-sm font-medium text-foreground">
-                      <Building2 className="mr-2 h-3.5 w-3.5 text-gold" />
-                      {s}
-                    </span>
+                  <Reveal key={s.titulo} delay={i * 0.03}>
+                    <div className="flex h-full gap-3 rounded-2xl border border-[hsl(193_57%_29%)]/12 bg-gradient-to-br from-muted/80 to-white p-4 sm:p-5">
+                      <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-[hsl(193_57%_29%)]" />
+                      <div>
+                        <h3 className="font-display text-base font-bold text-foreground">{s.titulo}</h3>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.texto}</p>
+                      </div>
+                    </div>
                   </Reveal>
                 ))}
               </div>
@@ -510,17 +523,20 @@ const Servicos = () => {
           </section>
 
           {/* Compromisso */}
-          <section className="border-t border-border bg-card py-12 sm:py-16 md:py-20">
-            <div className="container mx-auto max-w-3xl text-center">
+          <section className={`border-t ${sectionDarkBorder} py-12 sm:py-16 md:py-20 ${sectionDark}`}>
+            <div className="container mx-auto max-w-2xl text-center">
               <Reveal>
-                <span className="text-lg font-semibold text-gold uppercase tracking-widest">Próximo passo</span>
-                <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl md:text-5xl px-1">
-                  Vamos desenhar o escopo ideal
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Contato</span>
+                <h2 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+                  {compromissoTitulo}
                 </h2>
-                <p className="mt-6 leading-relaxed text-muted-foreground">
-                  Combine instalações, manutenção e contrato no mesmo parceiro — com transparência, SLA e
-                  responsabilidade técnica de ponta a ponta.
-                </p>
+                <div className="mt-6 space-y-3 text-white/85">
+                  {compromissoParagrafos.map((bloco) => (
+                    <p key={bloco.slice(0, 48)} className="text-sm leading-relaxed md:text-base">
+                      {bloco}
+                    </p>
+                  ))}
+                </div>
               </Reveal>
             </div>
           </section>
@@ -530,20 +546,19 @@ const Servicos = () => {
             <div className="container mx-auto max-w-2xl text-center">
               <Reveal>
                 <h2 className="mt-3 font-display text-lg font-bold leading-tight text-white drop-shadow-md sm:text-xl md:text-3xl lg:text-5xl px-1">
-                  Sua próxima decisão estratégica
+                  Pronto para dar o próximo passo?
                 </h2>
                 <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/95 drop-shadow md:text-lg px-1">
-                  Não deixe segurança e eficiência ao acaso. Solicite uma proposta personalizada ou fale com
-                  um especialista.
+                  Solicite uma proposta ou fale com um especialista pelo WhatsApp.
                 </p>
                 <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                  <Link
+                  <HashLink
                     to="/#contato"
                     className="inline-flex w-full min-h-[44px] items-center justify-center gap-2 rounded-lg bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold transition-opacity hover:opacity-90 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     Solicitar proposta agora
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </HashLink>
                   <a
                     href={CONTACT_WHATSAPP}
                     target="_blank"
@@ -551,7 +566,7 @@ const Servicos = () => {
                     className="inline-flex w-full min-h-[44px] items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 sm:w-auto sm:px-8 sm:py-3.5"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    WhatsApp
+                    Falar com especialista via WhatsApp
                   </a>
                   <Link
                     to="/sobre"

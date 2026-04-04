@@ -64,7 +64,7 @@ const PlansSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="planos" className="py-12 sm:py-16 md:py-24 bg-background" ref={ref}>
+    <section id="planos" className="scroll-mt-28 py-12 sm:py-16 md:py-24 bg-background" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

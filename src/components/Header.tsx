@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { HashLink } from "@/components/HashLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Phone, Mail, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
@@ -134,7 +135,7 @@ const Header = () => {
       </div>
 
       <div className="container mx-auto py-3 sm:py-4 flex items-center justify-between gap-3">
-        <Link to="/#inicio" className="flex items-center gap-2">
+        <HashLink to="/#inicio" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center shadow-lg shadow-black/10">
             <Zap className="w-5 h-5 text-primary-foreground" />
           </div>
@@ -154,28 +155,42 @@ const Header = () => {
               Instalações & Serviços
             </span>
           </div>
-        </Link>
+        </HashLink>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                showSolid
-                  ? "text-muted-foreground hover:text-gold"
-                  : "text-white/90 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
+          {navItems.map((item) =>
+            item.href.startsWith("/#") ? (
+              <HashLink
+                key={item.href}
+                to={item.href}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  showSolid
+                    ? "text-muted-foreground hover:text-gold"
+                    : "text-white/90 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </HashLink>
+            ) : (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  showSolid
+                    ? "text-muted-foreground hover:text-gold"
+                    : "text-white/90 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
+          <HashLink
             to="/#contato"
             className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground hover:opacity-90 transition-opacity shadow-md"
           >
             Solicitar Orçamento
-          </Link>
+          </HashLink>
         </nav>
 
         <button
@@ -198,23 +213,34 @@ const Header = () => {
             className="lg:hidden bg-card border-t border-border overflow-hidden"
           >
             <div className="container mx-auto py-4 flex flex-col gap-1 sm:gap-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors py-3 min-h-[44px] flex items-center"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link
+              {navItems.map((item) =>
+                item.href.startsWith("/#") ? (
+                  <HashLink
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors py-3 min-h-[44px] flex items-center"
+                  >
+                    {item.label}
+                  </HashLink>
+                ) : (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors py-3 min-h-[44px] flex items-center"
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
+              <HashLink
                 to="/#contato"
                 onClick={() => setIsOpen(false)}
                 className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground text-center"
               >
                 Solicitar Orçamento
-              </Link>
+              </HashLink>
             </div>
           </motion.div>
         )}

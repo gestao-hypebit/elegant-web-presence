@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
+import { ScrollToHash } from "@/components/ScrollToHash";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import DestaqueInfraSection from "@/components/DestaqueInfraSection";
-import ServicesSection from "@/components/ServicesSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
 import VantagensSection from "@/components/VantagensSection";
 import NormasCompromissoSection from "@/components/NormasCompromissoSection";
@@ -18,6 +18,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollToHash />
       <Header />
       <HeroSection />
       {/* Camada acima do fundo fixo da hero — parallax: Sobre e demais seções sobem cobrindo a imagem */}
@@ -34,7 +35,7 @@ const Index = () => {
         <NormasCompromissoSection />
         <TestimonialsSection />
         <TrabalheConoscoSection />
-        {/* <ContactSection /> */}
+        <ContactSection />
 
         <Footer />
       </div>
