@@ -12,7 +12,7 @@ import {
   planosMatrizLinhas,
 } from "@/content/planosMatriz";
 
-const WHATSAPP = "https://wa.me/5511999999999";
+const WHATSAPP = "https://wa.me/5511911094032";
 const waElite = `${WHATSAPP}?text=${encodeURIComponent(
   "Olá! Tenho interesse em falar com um especialista sobre o plano ELITE 24/7 da Luminous.",
 )}`;

@@ -9,7 +9,7 @@ const TrabalheConoscoSection = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Tenho interesse em trabalhar na Luminous. Gostaria de saber mais sobre as vagas disponíveis."
   );
-  const whatsappLink = `https://wa.me/5511999999999?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/5511911094032?text=${whatsappMessage}`;
 
   const icons = [
     { icon: HardHat, delay: 0.3, top: "10%", left: "10%" },

@@ -45,8 +45,8 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-8"
           >
             {[
-              { icon: Phone, label: "Telefone", value: "(11) 99999-9999" },
-              { icon: Mail, label: "E-mail", value: "contato@luminous.com.br" },
+              { icon: Phone, label: "Telefone", value: "(11) 91109-4032" },
+              { icon: Mail, label: "E-mail", value: "contato@ffluminous.com.br" },
               { icon: MapPin, label: "Área de Atuação", value: "Todo o Estado de São Paulo" },
             ].map((info) => (
               <div key={info.label} className="flex items-start gap-4">

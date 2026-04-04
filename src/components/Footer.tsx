@@ -12,10 +12,10 @@ import {
 } from "lucide-react";
 
 const CONTACT = {
-  phone: "(11) 99999-9999",
-  phoneTel: "+5511999999999",
-  email: "contato@luminous.com.br",
-  whatsapp: "https://wa.me/5511999999999",
+  phone: "(11) 91109-4032",
+  phoneTel: "+5511911094032",
+  email: "contato@ffluminous.com.br",
+  whatsapp: "https://wa.me/5511911094032",
   linkedin: "https://www.linkedin.com",
   instagram: "https://www.instagram.com",
 };
