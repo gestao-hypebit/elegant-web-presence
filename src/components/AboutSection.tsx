@@ -1,64 +1,32 @@
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-  animate,
-} from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Clock, Users, ClipboardCheck } from "lucide-react";
 import aboutBg from "@/assets/sobreimg.jpeg";
-
-const stats = [
-  { value: 2, suffix: "", label: "Anos de experiência" },
-  { value: 350, suffix: "+", label: "Clientes atendidos" },
-  { value: 2800, suffix: "+", label: "Projetos concluídos" },
-];
-
-function AnimatedCounter({
-  value,
-  suffix,
-  isInView,
-}: {
-  value: number;
-  suffix: string;
-  isInView: boolean;
-}) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.floor(v).toLocaleString("pt-BR"));
-
-  useEffect(() => {
-    if (!isInView) return;
-    const controls = animate(count, value, { duration: 2, ease: "easeOut" });
-    return () => controls.stop();
-  }, [isInView, value, count]);
-
-  return (
-    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-display font-bold tabular-nums leading-none text-gold">
-      <motion.span>{rounded}</motion.span>
-      <span className="text-gold/80">{suffix}</span>
-    </span>
-  );
-}
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="sobre" className="py-12 sm:py-16 md:py-24 bg-card" ref={ref}>
+    <section id="sobre" className="bg-card py-12 sm:py-16 md:py-24" ref={ref}>
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 lg:items-stretch">
+        <div className="grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65 }}
             className="order-2 lg:order-1"
           >
-            <div className="rounded-2xl overflow-hidden shadow-elevated ring-1 ring-border/60 h-full min-h-[320px] lg:min-h-[480px]">
+            <div className="relative h-full min-h-[280px] overflow-hidden rounded-2xl shadow-elevated ring-1 ring-border/60 lg:min-h-[420px]">
               <img
                 src={aboutBg}
                 alt="Equipe e operações Luminous"
-                className="w-full h-full min-h-[320px] lg:min-h-[480px] object-cover"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"
+                aria-hidden
               />
             </div>
           </motion.div>
@@ -67,40 +35,65 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: 28 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.06 }}
-            className="order-1 lg:order-2 flex flex-col lg:justify-start"
+            className="order-1 flex flex-col justify-center lg:order-2"
           >
-            <span className="text-base sm:text-lg font-semibold text-gold uppercase tracking-[0.2em]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(193_57%_29%)] sm:text-sm">
               Quem somos
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-foreground mt-3 mb-4 leading-tight">
+            <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.35rem]">
               Engenharia completa para a{" "}
               <span className="text-gradient-gold">excelência</span> da sua infraestrutura
             </h2>
-            <p className=" leading-relaxed mb-0">
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               A Luminous vai além da manutenção predial: somos engenharia de instalações elétricas e
               hidráulicas em todo o ciclo — projeto, execução e manutenção preditiva — em São Paulo,
               com foco em segurança, conformidade e custos sob controle.
             </p>
 
-            <div className="mt-6 pt-5 border-t border-border">
-              <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-3 lg:gap-x-0 lg:gap-y-0">
-                {stats.map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    className={`flex flex-col items-start lg:px-5 ${
-                      i > 0 ? "lg:border-l lg:border-border" : ""
-                    }`}
-                  >
-                    <AnimatedCounter
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      isInView={isInView}
-                    />
-                    <span className="mt-2 text-xs sm:text-sm font-bold text-foreground uppercase tracking-wide leading-snug">
-                      {stat.label}
-                    </span>
+            <div className="mt-8">
+              <div className="overflow-hidden rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-white shadow-[0_12px_40px_-16px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.03]">
+                <div className="border-b border-[hsl(193_57%_29%)]/10 bg-gradient-to-r from-[hsl(193_57%_29%)]/[0.06] via-white to-white px-5 py-6 sm:px-7 sm:py-7">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                    <div className="flex shrink-0 items-center">
+                      <span className="font-display text-5xl font-extrabold leading-none tracking-tight text-[hsl(193_57%_29%)] sm:text-6xl md:text-7xl">
+                        2+
+                      </span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-display text-xl font-bold leading-tight text-foreground sm:text-2xl md:text-[1.65rem]">
+                        anos de atuação no mercado
+                      </p>
+                      <p className="mt-2 text-base font-medium leading-relaxed text-[hsl(193_57%_29%)] sm:text-lg">
+                        Experiência em instalações e manutenção técnica
+                      </p>
+                    </div>
+                    <div className="hidden shrink-0 sm:flex sm:h-16 sm:w-px sm:bg-[hsl(193_57%_29%)]/15" aria-hidden />
+                    <div className="flex shrink-0 justify-start sm:justify-center">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(193_57%_29%)]/12 shadow-inner">
+                        <Clock className="h-7 w-7 text-[hsl(193_57%_29%)]" strokeWidth={2} aria-hidden />
+                      </div>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                <div className="grid divide-y divide-border sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+                  <div className="flex gap-4 px-5 py-5 sm:px-7 sm:py-6">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <Users className="h-6 w-6 text-[hsl(193_57%_29%)]" strokeWidth={2} aria-hidden />
+                    </div>
+                    <p className="flex items-center font-display text-base font-bold leading-snug text-foreground sm:text-lg">
+                      Dezenas de clientes atendidos
+                    </p>
+                  </div>
+                  <div className="flex gap-4 px-5 py-5 sm:px-7 sm:py-6">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[hsl(193_57%_29%)]/10">
+                      <ClipboardCheck className="h-6 w-6 text-[hsl(193_57%_29%)]" strokeWidth={2} aria-hidden />
+                    </div>
+                    <p className="flex items-center font-display text-base font-bold leading-snug text-foreground sm:text-lg">
+                      Centenas de serviços realizados
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
