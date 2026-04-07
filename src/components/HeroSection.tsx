@@ -73,9 +73,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.15] sm:leading-tight mb-4 sm:mb-6 text-white uppercase"
             >
-              Excelência em{" "}
-              <span className="">Manutenção</span>{" "}
-              Elétrica e Hidráulica
+             Gestão técnica em manutenção e instalações prediais
             </motion.h1>
 
             <motion.p
@@ -84,7 +82,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-sm sm:text-base md:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed"
             >
-              Soluções preventivas e corretivas para condomínios, empresas e indústrias em todo o estado de São Paulo. Segurança, eficiência e redução de custos operacionais.
+             Soluções completas em manutenção preventiva e instalações elétricas e hidráulicas para condomínios, empresas e operações corporativas em São Paulo.
             </motion.p>
 
             <motion.div
