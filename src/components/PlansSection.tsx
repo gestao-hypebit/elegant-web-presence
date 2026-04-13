@@ -1,6 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Shield, Star } from "lucide-react";
+import {
+  Award,
+  Building2,
+  Check,
+  Layers,
+  Shield,
+  ShieldCheck,
+  Star,
+  type LucideIcon,
+} from "lucide-react";
 import { HashLink } from "@/components/HashLink";
 import {
   planosAncoragem,
@@ -10,7 +19,29 @@ import {
   planosSlaTexto,
   planosColunas,
   planosMatrizLinhas,
+  type PlanoId,
 } from "@/content/planosMatriz";
+
+const PLANO_ICONS: Record<PlanoId, LucideIcon> = {
+  essencial: Building2,
+  "padrao-ouro": Award,
+  "full-service": Layers,
+  elite: ShieldCheck,
+};
+
+function planoIconShellClass(colIndex: number, destaque: "none" | "recomendado" | "elite") {
+  const base = "inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1";
+  if (destaque === "elite") {
+    return `${base} bg-white/[0.08] text-white ring-white/20`;
+  }
+  if (colIndex === 2) {
+    return `${base} bg-violet-500/[0.12] text-violet-700 ring-violet-500/25 dark:text-violet-300`;
+  }
+  if (colIndex === 1) {
+    return `${base} bg-[hsl(193_57%_29%)]/[0.1] text-[hsl(193_57%_29%)] ring-[hsl(193_57%_29%)]/20`;
+  }
+  return `${base} bg-muted/70 text-foreground/85 ring-border/80`;
+}
 
 const WHATSAPP = "https://wa.me/5511911094032";
 const waElite = `${WHATSAPP}?text=${encodeURIComponent(
@@ -108,34 +139,37 @@ const PlansSection = () => {
                 >
                   Recursos / Plano
                 </th>
-                {planosColunas.map((plano, i) => (
-                  <th key={plano.id} scope="col" className={thClass(i)}>
-                    <div className="flex flex-col items-center gap-2">
-                      {plano.destaque === "recomendado" && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(193_57%_29%)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                          <Star className="h-3 w-3" aria-hidden />
-                          Mais popular
+                {planosColunas.map((plano, i) => {
+                  const Icon = PLANO_ICONS[plano.id];
+                  return (
+                    <th key={plano.id} scope="col" className={thClass(i)}>
+                      <div className="flex flex-col items-center gap-2">
+                        {plano.destaque === "recomendado" && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(193_57%_29%)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                            <Star className="h-3 w-3" aria-hidden />
+                            Mais popular
+                          </span>
+                        )}
+                        {plano.destaque === "elite" && (
+                          <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                            <Shield className="h-3 w-3" aria-hidden />
+                            Disponibilidade crítica
+                          </span>
+                        )}
+                        <span className={planoIconShellClass(i, plano.destaque)} aria-hidden>
+                          <Icon className="h-6 w-6" strokeWidth={1.75} />
                         </span>
-                      )}
-                      {plano.destaque === "elite" && (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                          <Shield className="h-3 w-3" aria-hidden />
-                          Disponibilidade crítica
+                        <span
+                          className={`font-display text-sm font-bold leading-tight sm:text-base ${
+                            plano.destaque === "elite" ? "text-white" : ""
+                          }`}
+                        >
+                          {plano.nomeCompleto}
                         </span>
-                      )}
-                      <span className="text-lg sm:text-xl" aria-hidden>
-                        {plano.emoji}
-                      </span>
-                      <span
-                        className={`font-display text-sm font-bold leading-tight sm:text-base ${
-                          plano.destaque === "elite" ? "text-white" : ""
-                        }`}
-                      >
-                        {plano.nomeCompleto}
-                      </span>
-                    </div>
-                  </th>
-                ))}
+                      </div>
+                    </th>
+                  );
+                })}
               </tr>
             </thead>
             <tbody>

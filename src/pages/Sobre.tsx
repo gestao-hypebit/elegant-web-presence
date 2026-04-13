@@ -3,7 +3,23 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "@/components/HashLink";
-import { ArrowRight, CheckCircle2, Target, Eye, Building2, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Briefcase,
+  CheckCircle2,
+  DraftingCompass,
+  Eye,
+  Factory,
+  HardHat,
+  HeartPulse,
+  Home,
+  MapPin,
+  Server,
+  Sparkles,
+  Target,
+  Warehouse,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -27,9 +43,21 @@ import {
   atuacaoTitulo,
   atuacaoIntro,
   atuacaoSegmentos,
+  type AtuacaoSegmentoIcon,
   compromissoTitulo,
   compromissoParagrafos,
 } from "@/content/sobreInstitucional";
+
+const ATUACAO_ICONS: Record<AtuacaoSegmentoIcon, LucideIcon> = {
+  construtoras: HardHat,
+  arquitetura: DraftingCompass,
+  condominios: Home,
+  empresas: Briefcase,
+  industrias: Factory,
+  saude: HeartPulse,
+  "data-centers": Server,
+  "retail-logistica": Warehouse,
+};
 
 const sectionDark = "bg-[hsl(193_70%_13%)] text-white";
 const sectionDarkBorder = "border-white/10";
@@ -219,19 +247,26 @@ const Sobre = () => {
                 <p className="mx-auto mt-3 max-w-2xl text-muted-foreground md:mx-0">{atuacaoIntro}</p>
               </Reveal>
               <div className=" grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {atuacaoSegmentos.map((s, i) => (
-                  <Reveal key={s.titulo} delay={i * 0.03}>
-                    <div
-                      className={`flex h-full gap-3 rounded-2xl border ${ringAccent} bg-gradient-to-br from-muted/70 to-white p-4 sm:p-5`}
-                    >
-                      <Building2 className={`mt-0.5 h-5 w-5 shrink-0 ${accent}`} />
-                      <div>
-                        <h3 className="font-display text-sm font-bold text-foreground">{s.titulo}</h3>
-                        <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">{s.texto}</p>
+                {atuacaoSegmentos.map((s, i) => {
+                  const SegmentIcon = ATUACAO_ICONS[s.icon];
+                  return (
+                    <Reveal key={s.titulo} delay={i * 0.03}>
+                      <div
+                        className={`flex h-full gap-3 rounded-2xl border ${ringAccent} bg-gradient-to-br from-muted/70 to-white p-4 sm:p-5`}
+                      >
+                        <SegmentIcon
+                          className={`mt-0.5 h-5 w-5 shrink-0 ${accent}`}
+                          strokeWidth={1.85}
+                          aria-hidden
+                        />
+                        <div>
+                          <h3 className="font-display text-sm font-bold text-foreground">{s.titulo}</h3>
+                          <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">{s.texto}</p>
+                        </div>
                       </div>
-                    </div>
-                  </Reveal>
-                ))}
+                    </Reveal>
+                  );
+                })}
               </div>
             </div>
           </section>

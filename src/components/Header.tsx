@@ -189,7 +189,7 @@ const Header = () => {
             to="/#contato"
             className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground hover:opacity-90 transition-opacity shadow-md"
           >
-            Solicitar Orçamento
+            Solicitar proposta personalizada
           </HashLink>
         </nav>
 
@@ -239,7 +239,7 @@ const Header = () => {
                 onClick={() => setIsOpen(false)}
                 className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-gold text-primary-foreground text-center"
               >
-                Solicitar Orçamento
+                Solicitar proposta personalizada
               </HashLink>
             </div>
           </motion.div>

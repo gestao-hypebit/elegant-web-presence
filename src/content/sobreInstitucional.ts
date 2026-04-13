@@ -69,15 +69,26 @@ export const atuacaoTitulo = "Expertise em São Paulo";
 export const atuacaoIntro =
   "Atendemos diversos perfis em todo o estado, com soluções ajustadas a cada segmento:";
 
-export const atuacaoSegmentos: { titulo: string; texto: string }[] = [
-  { titulo: "Construtoras e incorporadoras", texto: "Instalações em novos empreendimentos." },
-  { titulo: "Arquitetura e engenharia", texto: "Apoio técnico para materializar projetos com excelência." },
-  { titulo: "Condomínios", texto: "Residencial e comercial — segurança e conforto." },
-  { titulo: "Empresas e escritórios", texto: "Ambientes produtivos e em conformidade." },
-  { titulo: "Indústrias", texto: "Disponibilidade de linhas e equipamentos críticos." },
-  { titulo: "Saúde", texto: "Continuidade de sistemas vitais." },
-  { titulo: "Data centers", texto: "Resiliência da infraestrutura e dos dados." },
-  { titulo: "Shoppings e logística", texto: "Fluxo comercial e operações de grande escala." },
+/** Chave para ícone Lucide na página Sobre (seção Expertise em São Paulo) */
+export type AtuacaoSegmentoIcon =
+  | "construtoras"
+  | "arquitetura"
+  | "condominios"
+  | "empresas"
+  | "industrias"
+  | "saude"
+  | "data-centers"
+  | "retail-logistica";
+
+export const atuacaoSegmentos: { titulo: string; texto: string; icon: AtuacaoSegmentoIcon }[] = [
+  { titulo: "Construtoras e incorporadoras", texto: "Instalações em novos empreendimentos.", icon: "construtoras" },
+  { titulo: "Arquitetura e engenharia", texto: "Apoio técnico para materializar projetos com excelência.", icon: "arquitetura" },
+  { titulo: "Condomínios", texto: "Residencial e comercial — segurança e conforto.", icon: "condominios" },
+  { titulo: "Empresas e escritórios", texto: "Ambientes produtivos e em conformidade.", icon: "empresas" },
+  { titulo: "Indústrias", texto: "Disponibilidade de linhas e equipamentos críticos.", icon: "industrias" },
+  { titulo: "Saúde", texto: "Continuidade de sistemas vitais.", icon: "saude" },
+  { titulo: "Data centers", texto: "Resiliência da infraestrutura e dos dados.", icon: "data-centers" },
+  { titulo: "Shoppings e logística", texto: "Fluxo comercial e operações de grande escala.", icon: "retail-logistica" },
 ];
 
 export const compromissoTitulo = "Sua confiança, nossa prioridade";

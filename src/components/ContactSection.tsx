@@ -12,6 +12,7 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
+      variant: "success",
       title: "Mensagem enviada!",
       description: "Entraremos em contato em breve.",
     });

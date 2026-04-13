@@ -43,8 +43,12 @@ const GallerySection = () => {
           className="mb-6 sm:mb-8 text-center"
         >
           <span className="text-base sm:text-lg font-semibold uppercase tracking-widest text-gold">Galeria</span>
-          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl md:text-5xl px-1">Trabalhos realizados</h2>
+          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl md:text-5xl px-1">Atuação em campo</h2>
         </motion.div>
+
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base text-center mx-auto max-w-3xl mb-8">
+        A Luminous atua diretamente em campo, executando serviços com responsabilidade técnica e foco em qualidade.
+        </p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:grid-flow-dense">
           {photos.map((src, i) => (

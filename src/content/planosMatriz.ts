@@ -18,23 +18,20 @@ export type PlanoId = "essencial" | "padrao-ouro" | "full-service" | "elite";
 
 export const planosColunas: {
   id: PlanoId;
-  emoji: string;
   nomeCurto: string;
   nomeCompleto: string;
   destaque: "none" | "recomendado" | "elite";
 }[] = [
-  { id: "essencial", emoji: "🟢", nomeCurto: "Essencial", nomeCompleto: "Essencial", destaque: "none" },
-  { id: "padrao-ouro", emoji: "🔵", nomeCurto: "Padrão Ouro", nomeCompleto: "Padrão Ouro", destaque: "none" },
+  { id: "essencial", nomeCurto: "Essencial", nomeCompleto: "Essencial", destaque: "none" },
+  { id: "padrao-ouro", nomeCurto: "Padrão Ouro", nomeCompleto: "Padrão Ouro", destaque: "none" },
   {
     id: "full-service",
-    emoji: "🟣",
     nomeCurto: "Full Service",
     nomeCompleto: "Full Service",
     destaque: "recomendado",
   },
   {
     id: "elite",
-    emoji: "🔴",
     nomeCurto: "ELITE 24/7",
     nomeCompleto: "ELITE 24/7",
     destaque: "elite",
