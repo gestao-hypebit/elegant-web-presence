@@ -20,7 +20,7 @@ const navItems = [
   { label: "Diferenciais", href: "/#diferenciais" },
   { label: "Planos", href: "/#planos" },
   { label: "Depoimentos", href: "/#depoimentos" },
-  { label: "Dúvidas", href: "/duvidas" },
+  { label: "FAQ", href: "/duvidas" },
   { label: "Contato", href: "/#contato" },
 ];
 

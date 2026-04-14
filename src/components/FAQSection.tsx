@@ -93,7 +93,7 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 md:mb-14"
         >
-          <span className="text-sm sm:text-base font-semibold uppercase tracking-widest text-gold">Dúvidas</span>
+          <span className="text-sm sm:text-base font-semibold uppercase tracking-widest text-gold">FAQ</span>
           <h2 className="mt-3 font-display text-xl font-bold leading-tight text-foreground sm:text-2xl md:text-4xl lg:text-5xl px-1">
             {faqIntro.title}
           </h2>

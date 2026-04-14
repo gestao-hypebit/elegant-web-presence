@@ -24,7 +24,7 @@ const linksInstitucional = [
   { label: "Início", href: "/#inicio" },
   { label: "Sobre a empresa", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
-  { label: "Dúvidas frequentes", href: "/duvidas" },
+  { label: "FAQ", href: "/duvidas" },
   { label: "Contato", href: "/#contato" },
 ];
 
