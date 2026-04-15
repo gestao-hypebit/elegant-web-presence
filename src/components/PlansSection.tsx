@@ -3,11 +3,15 @@ import { useRef } from "react";
 import {
   Award,
   Building2,
+  CalendarDays,
   Check,
+  Clock,
   Layers,
   Shield,
   ShieldCheck,
   Star,
+  X,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 import { HashLink } from "@/components/HashLink";
@@ -17,90 +21,281 @@ import {
   planosFlexibilizacao,
   planosSlaTitulo,
   planosSlaTexto,
-  planosColunas,
-  planosMatrizLinhas,
-  type PlanoId,
 } from "@/content/planosMatriz";
 
-const PLANO_ICONS: Record<PlanoId, LucideIcon> = {
-  essencial: Building2,
-  "padrao-ouro": Award,
-  "full-service": Layers,
-  elite: ShieldCheck,
-};
-
-function planoIconShellClass(colIndex: number, destaque: "none" | "recomendado" | "elite") {
-  const base = "inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1";
-  if (destaque === "elite") {
-    return `${base} bg-white/[0.08] text-white ring-white/20`;
-  }
-  if (colIndex === 2) {
-    return `${base} bg-violet-500/[0.12] text-violet-700 ring-violet-500/25 dark:text-violet-300`;
-  }
-  if (colIndex === 1) {
-    return `${base} bg-[hsl(193_57%_29%)]/[0.1] text-[hsl(193_57%_29%)] ring-[hsl(193_57%_29%)]/20`;
-  }
-  return `${base} bg-muted/70 text-foreground/85 ring-border/80`;
-}
-
-const WHATSAPP = "https://wa.me/5511911094032";
-const waElite = `${WHATSAPP}?text=${encodeURIComponent(
+const WHATSAPP_ELITE = `https://wa.me/5511911094032?text=${encodeURIComponent(
   "Olá! Tenho interesse em falar com um especialista sobre o plano ELITE 24/7 da Luminous.",
 )}`;
 
-function MatrizCell({ value, inverse }: { value: string; inverse?: boolean }) {
-  if (value === "✔️") {
-    return (
-      <span className="inline-flex justify-center" aria-label="Sim">
-        <Check
-          className={`h-5 w-5 ${inverse ? "text-white" : "text-[hsl(193_57%_29%)]"}`}
-          strokeWidth={2.5}
-        />
-      </span>
-    );
-  }
-  if (value === "❌") {
-    return (
-      <span
-        className={`tabular-nums ${inverse ? "text-white/45" : "text-muted-foreground"}`}
-        aria-label="Não"
-      >
-        —
-      </span>
-    );
-  }
-  return <span className="leading-snug">{value}</span>;
+type Destaque = "none" | "recomendado" | "elite";
+
+interface Feature {
+  label: string;
+  ok: boolean;
+  note?: string;
+}
+
+interface Plan {
+  id: string;
+  nome: string;
+  Icone: LucideIcon;
+  descricao: string;
+  sla: string;
+  horario: string;
+  visitas: string;
+  features: Feature[];
+  destaque: Destaque;
+  ctaLabel: string;
+  ctaHref: string;
+  external?: boolean;
+}
+
+const plans: Plan[] = [
+  {
+    id: "essencial",
+    nome: "Essencial",
+    Icone: Building2,
+    descricao: "Para pequenos comércios e escritórios com necessidades básicas de manutenção.",
+    sla: "Até 24 horas",
+    horario: "Comercial (seg–sex)",
+    visitas: "1× por mês",
+    features: [
+      { label: "Manutenção corretiva", ok: true },
+      { label: "Atendimento emergencial", ok: false, note: "sob orçamento" },
+      { label: "Manutenção preditiva", ok: false },
+      { label: "Relatórios técnicos", ok: false },
+      { label: "Equipe dedicada", ok: false },
+    ],
+    destaque: "none",
+    ctaLabel: "Solicitar proposta",
+    ctaHref: "/#contato",
+  },
+  {
+    id: "padrao-ouro",
+    nome: "Padrão Ouro",
+    Icone: Award,
+    descricao: "Para empresas e prédios comerciais que precisam de atendimento prioritário.",
+    sla: "Até 8 horas",
+    horario: "Comercial prioritário",
+    visitas: "2× por mês",
+    features: [
+      { label: "Manutenção corretiva", ok: true },
+      { label: "Emergencial incluso", ok: true, note: "SLA até 12h" },
+      { label: "Manutenção preditiva", ok: false },
+      { label: "Relatórios mensais básicos", ok: true },
+      { label: "Equipe dedicada", ok: false },
+    ],
+    destaque: "none",
+    ctaLabel: "Solicitar proposta",
+    ctaHref: "/#contato",
+  },
+  {
+    id: "full-service",
+    nome: "Full Service",
+    Icone: Layers,
+    descricao: "Para condomínios de grande porte e corporativos com alta demanda operacional.",
+    sla: "Até 2 horas",
+    horario: "Estendido (até 20h)",
+    visitas: "1× por semana",
+    features: [
+      { label: "Manutenção corretiva", ok: true },
+      { label: "Emergencial incluso", ok: true, note: "SLA até 4h" },
+      { label: "Manutenção preditiva básica", ok: true },
+      { label: "Relatórios técnicos detalhados", ok: true },
+      { label: "Equipe parcial (consultoria)", ok: true },
+    ],
+    destaque: "recomendado",
+    ctaLabel: "Solicitar proposta",
+    ctaHref: "/#contato",
+  },
+  {
+    id: "elite",
+    nome: "ELITE 24/7",
+    Icone: ShieldCheck,
+    descricao: "Para hospitais, indústrias, data centers e shoppings com criticidade máxima.",
+    sla: "Imediato (≤ 2h críticos)",
+    horario: "24h / 7 dias",
+    visitas: "2 a 5× por semana",
+    features: [
+      { label: "Manutenção corretiva", ok: true },
+      { label: "Emergencial imediato incluso", ok: true },
+      { label: "Preditiva avançada (termografia)", ok: true },
+      { label: "Relatórios de conformidade", ok: true },
+      { label: "Equipe dedicada (plantão)", ok: true },
+    ],
+    destaque: "none",
+    ctaLabel: "Falar com especialista",
+    ctaHref: WHATSAPP_ELITE,
+    external: true,
+  },
+];
+
+function iconShell(destaque: Destaque) {
+  const base =
+    "inline-flex h-10 w-10 items-center justify-center rounded-xl ring-1 flex-shrink-0";
+  if (destaque === "elite")
+    return `${base} bg-[hsl(193_57%_29%)]/[0.1] text-[hsl(193_57%_29%)] ring-[hsl(193_57%_29%)]/25`;
+  if (destaque === "recomendado")
+    return `${base} bg-[hsl(193_57%_29%)]/[0.1] text-[hsl(193_57%_29%)] ring-[hsl(193_57%_29%)]/25`;
+  return `${base} bg-muted/70 text-foreground/75 ring-border/80`;
+}
+
+function ctaBtnClass(destaque: Destaque) {
+  const base =
+    "flex min-h-[44px] w-full items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all";
+  if (destaque === "elite")
+    return `${base} bg-[hsl(193_57%_29%)] text-white hover:opacity-90`;
+  if (destaque === "recomendado")
+    return `${base} bg-[hsl(193_57%_29%)] text-white shadow-md shadow-[hsl(193_57%_29%)]/20 hover:bg-[hsl(193_70%_17%)]`;
+  return `${base} border border-border bg-background text-foreground hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/30`;
+}
+
+function Stat({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <Icon
+        className="h-3.5 w-3.5 flex-shrink-0 text-[hsl(193_57%_29%)]"
+        strokeWidth={2}
+      />
+      <span className="text-xs text-foreground/80">{label}</span>
+    </div>
+  );
+}
+
+function PlanCard({
+  plan,
+  index,
+  isInView,
+}: {
+  plan: Plan;
+  index: number;
+  isInView: boolean;
+}) {
+  const isPopular = plan.destaque === "recomendado";
+  const isElite = plan.destaque === "elite";
+  const { Icone } = plan;
+
+  const cardClass = [
+    "relative flex flex-1 flex-col overflow-hidden rounded-2xl",
+    isPopular
+      ? "ring-2 ring-[hsl(193_57%_29%)]/50 shadow-[0_32px_64px_-12px_hsl(193_57%_29%/0.35)] bg-card"
+      : isElite
+        ? "bg-card border-2 border-[hsl(193_57%_29%)]/40 shadow-md"
+        : "bg-card border border-border shadow-sm hover:shadow-md",
+  ].join(" ");
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.08 + index * 0.09 }}
+      className={[
+        "flex flex-1 flex-col",
+        isPopular ? "lg:-translate-y-6 lg:scale-[1.04] lg:z-10" : "",
+      ].join(" ")}
+    >
+      <div className={cardClass}>
+        {/* Faixa "Mais popular" no topo */}
+        {isPopular && (
+          <div className="bg-gradient-to-r from-[hsl(193_70%_17%)] to-[hsl(193_57%_29%)] px-6 py-3 text-center">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-white">
+              <Star className="h-3.5 w-3.5 fill-white" aria-hidden />
+              Mais popular
+            </span>
+          </div>
+        )}
+
+        <div className="flex flex-1 flex-col p-6">
+          {/* Badge elite */}
+          {isElite && (
+            <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[hsl(193_57%_29%)]/30 bg-[hsl(193_57%_29%)]/[0.08] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[hsl(193_57%_29%)]">
+              <Shield className="h-3 w-3" aria-hidden />
+              Disponibilidade crítica
+            </span>
+          )}
+
+          {/* Ícone + Nome */}
+          <div className="mb-3 flex items-center gap-3">
+            <span className={iconShell(plan.destaque)} aria-hidden>
+              <Icone className="h-5 w-5" strokeWidth={1.75} />
+            </span>
+            <h3 className="font-display text-lg font-bold leading-tight text-foreground">
+              {plan.nome}
+            </h3>
+          </div>
+
+          {/* Descrição */}
+          <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+            {plan.descricao}
+          </p>
+
+          {/* Stats principais */}
+          <div className="mb-5 space-y-2.5 rounded-xl bg-muted/40 p-4">
+            <Stat icon={Zap} label={`SLA: ${plan.sla}`} />
+            <Stat icon={Clock} label={plan.horario} />
+            <Stat icon={CalendarDays} label={`Visitas: ${plan.visitas}`} />
+          </div>
+
+          {/* Lista de features */}
+          <ul className="mb-6 flex-1 space-y-2.5">
+            {plan.features.map((f) => (
+              <li key={f.label} className="flex items-start gap-2 text-sm">
+                {f.ok ? (
+                  <Check
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-[hsl(193_57%_29%)]"
+                    strokeWidth={2.5}
+                  />
+                ) : (
+                  <X
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground/40"
+                    strokeWidth={2}
+                  />
+                )}
+                <span
+                  className={f.ok ? "text-foreground/90" : "text-muted-foreground/55"}
+                >
+                  {f.label}
+                  {f.note && (
+                    <span className="ml-1 text-xs opacity-70">({f.note})</span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          {plan.external ? (
+            <a
+              href={plan.ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ctaBtnClass(plan.destaque)}
+            >
+              {plan.ctaLabel}
+            </a>
+          ) : (
+            <HashLink to={plan.ctaHref} className={ctaBtnClass(plan.destaque)}>
+              {plan.ctaLabel}
+            </HashLink>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
 }
 
 const PlansSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const colClass = (i: number) => {
-    if (i === 2) {
-      return "bg-violet-500/[0.06] border-x border-violet-500/20";
-    }
-    if (i === 3) {
-      return "bg-[hsl(193_70%_15%)] border-x-2 border-[hsl(193_57%_29%)] text-white";
-    }
-    return "";
-  };
-
-  const thClass = (i: number) => {
-    const base = "px-3 py-4 text-center align-bottom sm:px-4";
-    if (i === 2) return `${base} ${colClass(i)} rounded-t-lg`;
-    if (i === 3) return `${base} ${colClass(i)} rounded-t-lg`;
-    return `${base} bg-muted/30`;
-  };
-
-  const tdClass = (i: number) => {
-    const base = "px-3 py-3 text-center text-sm sm:px-4 sm:text-[0.8125rem] sm:leading-snug";
-    return `${base} ${colClass(i)}`;
-  };
-
   return (
-    <section id="planos" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-24" ref={ref}>
-      <div className="container mx-auto max-w-7xl">
+    <section
+      id="planos"
+      className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-24"
+      ref={ref}
+    >
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Ancoragem */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -110,11 +305,12 @@ const PlansSection = () => {
           {planosAncoragem}
         </motion.p>
 
+        {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="mb-8 text-center sm:mb-10"
+          className="mb-10 text-center sm:mb-14"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Planos
@@ -124,124 +320,28 @@ const PlansSection = () => {
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0"
-        >
-          <table className="w-full min-w-[900px] border-collapse text-foreground">
-            <thead>
-              <tr className="border-b border-border">
-                <th
-                  scope="col"
-                  className="sticky left-0 z-20 min-w-[140px] bg-background px-3 py-4 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground shadow-[4px_0_12px_-4px_rgba(0,0,0,0.06)] sm:min-w-[180px] sm:px-4"
-                >
-                  Recursos / Plano
-                </th>
-                {planosColunas.map((plano, i) => {
-                  const Icon = PLANO_ICONS[plano.id];
-                  return (
-                    <th key={plano.id} scope="col" className={thClass(i)}>
-                      <div className="flex flex-col items-center gap-2">
-                        {plano.destaque === "recomendado" && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(193_57%_29%)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                            <Star className="h-3 w-3" aria-hidden />
-                            Mais popular
-                          </span>
-                        )}
-                        {plano.destaque === "elite" && (
-                          <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                            <Shield className="h-3 w-3" aria-hidden />
-                            Disponibilidade crítica
-                          </span>
-                        )}
-                        <span className={planoIconShellClass(i, plano.destaque)} aria-hidden>
-                          <Icon className="h-6 w-6" strokeWidth={1.75} />
-                        </span>
-                        <span
-                          className={`font-display text-sm font-bold leading-tight sm:text-base ${
-                            plano.destaque === "elite" ? "text-white" : ""
-                          }`}
-                        >
-                          {plano.nomeCompleto}
-                        </span>
-                      </div>
-                    </th>
-                  );
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {planosMatrizLinhas.map((row) => (
-                <tr key={row.label} className="border-b border-border/80 hover:bg-muted/20">
-                  <th
-                    scope="row"
-                    className="sticky left-0 z-10 bg-background px-3 py-3 text-left text-xs font-semibold text-foreground shadow-[4px_0_12px_-4px_rgba(0,0,0,0.06)] sm:px-4 sm:text-sm"
-                  >
-                    {row.label}
-                  </th>
-                  {row.valores.map((cell, i) => (
-                    <td
-                      key={`${row.label}-${planosColunas[i].id}`}
-                      className={`${tdClass(i)} ${i === 3 ? "text-white/95" : "text-foreground/90"}`}
-                    >
-                      <MatrizCell value={cell} inverse={i === 3} />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
+        {/* Cards — empilhados no mobile, grid 2×2 no tablet, linha no desktop */}
+        <div className="flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-5 lg:flex lg:flex-row lg:items-stretch lg:gap-4 lg:pb-8 lg:pt-8">
+          {plans.map((plan, i) => (
+            <PlanCard key={plan.id} plan={plan} index={i} isInView={isInView} />
+          ))}
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4"
-        >
-          <HashLink
-            to="/#contato"
-            className="flex min-h-[48px] items-center justify-center rounded-xl border border-border bg-card px-4 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/40"
-          >
-            Solicitar proposta — Essencial
-          </HashLink>
-          <HashLink
-            to="/#contato"
-            className="flex min-h-[48px] items-center justify-center rounded-xl border border-border bg-card px-4 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/40"
-          >
-            Solicitar proposta — Padrão Ouro
-          </HashLink>
-          <HashLink
-            to="/#contato"
-            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-violet-500/35 bg-violet-500/[0.07] px-4 py-3 text-center text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-violet-500/55"
-          >
-            Solicitar proposta — Full Service
-          </HashLink>
-          <a
-            href={waElite}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[hsl(193_57%_29%)] bg-[hsl(193_70%_15%)] px-4 py-3 text-center text-sm font-semibold text-white transition-opacity hover:opacity-95"
-          >
-            Falar com especialista Elite
-          </a>
-        </motion.div>
-
+        {/* Nota de flexibilização */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.45, delay: 0.2 }}
-          className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground md:text-base"
+          transition={{ duration: 0.45, delay: 0.5 }}
+          className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground md:text-base"
         >
           {planosFlexibilizacao}
         </motion.p>
 
+        {/* Bloco SLA */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.22 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
           className="mt-12 rounded-2xl border border-[hsl(193_57%_29%)]/20 bg-gradient-to-br from-muted/50 to-background p-6 sm:p-8 md:p-10"
         >
           <div className="mx-auto max-w-3xl text-center">
