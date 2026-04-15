@@ -71,25 +71,6 @@ const plans: Plan[] = [
     ctaHref: "/#contato",
   },
   {
-    id: "padrao-ouro",
-    nome: "Padrão Ouro",
-    Icone: Award,
-    descricao: "Para empresas e prédios comerciais que precisam de atendimento prioritário.",
-    sla: "Até 8 horas",
-    horario: "Comercial prioritário",
-    visitas: "2× por mês",
-    features: [
-      { label: "Manutenção corretiva", ok: true },
-      { label: "Emergencial incluso", ok: true, note: "SLA até 12h" },
-      { label: "Manutenção preditiva", ok: false },
-      { label: "Relatórios mensais básicos", ok: true },
-      { label: "Equipe dedicada", ok: false },
-    ],
-    destaque: "none",
-    ctaLabel: "Solicitar proposta",
-    ctaHref: "/#contato",
-  },
-  {
     id: "full-service",
     nome: "Full Service",
     Icone: Layers,
@@ -123,10 +104,29 @@ const plans: Plan[] = [
       { label: "Relatórios de conformidade", ok: true },
       { label: "Equipe dedicada (plantão)", ok: true },
     ],
-    destaque: "none",
+    destaque: "elite",
     ctaLabel: "Falar com especialista",
     ctaHref: WHATSAPP_ELITE,
     external: true,
+  },
+  {
+    id: "padrao-ouro",
+    nome: "Padrão Ouro",
+    Icone: Award,
+    descricao: "Para empresas e prédios comerciais que precisam de atendimento prioritário.",
+    sla: "Até 8 horas",
+    horario: "Comercial prioritário",
+    visitas: "2× por mês",
+    features: [
+      { label: "Manutenção corretiva", ok: true },
+      { label: "Emergencial incluso", ok: true, note: "SLA até 12h" },
+      { label: "Manutenção preditiva", ok: false },
+      { label: "Relatórios mensais básicos", ok: true },
+      { label: "Equipe dedicada", ok: false },
+    ],
+    destaque: "none",
+    ctaLabel: "Solicitar proposta",
+    ctaHref: "/#contato",
   },
 ];
 
@@ -144,7 +144,7 @@ function ctaBtnClass(destaque: Destaque) {
   const base =
     "flex min-h-[44px] w-full items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all";
   if (destaque === "elite")
-    return `${base} bg-[hsl(193_57%_29%)] text-white hover:opacity-90`;
+    return `${base} border border-border bg-background text-foreground hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/30`;
   if (destaque === "recomendado")
     return `${base} bg-[hsl(193_57%_29%)] text-white shadow-md shadow-[hsl(193_57%_29%)]/20 hover:bg-[hsl(193_70%_17%)]`;
   return `${base} border border-border bg-background text-foreground hover:border-[hsl(193_57%_29%)]/40 hover:bg-muted/30`;
@@ -176,11 +176,11 @@ function PlanCard({
   const { Icone } = plan;
 
   const cardClass = [
-    "relative flex flex-1 flex-col overflow-hidden rounded-2xl",
+    "relative flex flex-col overflow-hidden rounded-2xl w-full h-full",
     isPopular
       ? "ring-2 ring-[hsl(193_57%_29%)]/50 shadow-[0_32px_64px_-12px_hsl(193_57%_29%/0.35)] bg-card"
       : isElite
-        ? "bg-card border-2 border-[hsl(193_57%_29%)]/40 shadow-md"
+        ? "bg-card border-2 border-[hsl(193_57%_29%)]/40 shadow-[0_20px_60px_-8px_hsl(193_57%_29%/0.45)]"
         : "bg-card border border-border shadow-sm hover:shadow-md",
   ].join(" ");
 
@@ -190,8 +190,8 @@ function PlanCard({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: 0.08 + index * 0.09 }}
       className={[
-        "flex flex-1 flex-col",
-        isPopular ? "lg:-translate-y-6 lg:scale-[1.04] lg:z-10" : "",
+        "flex flex-col w-full lg:w-1/4",
+        (isPopular || isElite) ? "lg:-translate-y-8 lg:z-10 lg:self-stretch" : "",
       ].join(" ")}
     >
       <div className={cardClass}>
@@ -205,14 +205,17 @@ function PlanCard({
           </div>
         )}
 
-        <div className="flex flex-1 flex-col p-6">
-          {/* Badge elite */}
-          {isElite && (
-            <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[hsl(193_57%_29%)]/30 bg-[hsl(193_57%_29%)]/[0.08] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[hsl(193_57%_29%)]">
-              <Shield className="h-3 w-3" aria-hidden />
+        {/* Faixa "ELITE 24/7" no topo */}
+        {isElite && (
+          <div className="bg-gradient-to-r from-zinc-500 to-zinc-400 px-6 py-3 text-center">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-white">
+              <Shield className="h-3.5 w-3.5 fill-white" aria-hidden />
               Disponibilidade crítica
             </span>
-          )}
+          </div>
+        )}
+
+        <div className={`flex flex-1 flex-col p-6${(isPopular || isElite) ? " lg:py-10 lg:px-7" : ""}`}>
 
           {/* Ícone + Nome */}
           <div className="mb-3 flex items-center gap-3">
@@ -321,7 +324,7 @@ const PlansSection = () => {
         </motion.div>
 
         {/* Cards — empilhados no mobile, grid 2×2 no tablet, linha no desktop */}
-        <div className="flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-5 lg:flex lg:flex-row lg:items-stretch lg:gap-4 lg:pb-8 lg:pt-8">
+        <div className="flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-5 lg:flex lg:flex-row lg:items-start lg:gap-4 lg:pb-8 lg:pt-8">
           {plans.map((plan, i) => (
             <PlanCard key={plan.id} plan={plan} index={i} isInView={isInView} />
           ))}
