@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +14,7 @@ const testimonials = [
     company: "Condomínio Parque Real",
     role: "Síndico",
     initials: "CP",
+    rating: 5,
     text: "A Luminous transformou a gestão de manutenção do nosso condomínio. Com o plano preventivo, reduzimos em 40% os chamados de emergência.",
   },
   {
@@ -21,6 +22,7 @@ const testimonials = [
     company: "Tech Corp",
     role: "Gerente de Facilities",
     initials: "TC",
+    rating: 5,
     text: "Profissionalismo e pontualidade excepcionais. A equipe técnica é altamente qualificada e o atendimento é sempre transparente.",
   },
   {
@@ -28,9 +30,42 @@ const testimonials = [
     company: "Indústria MetalSP",
     role: "Diretor industrial",
     initials: "M",
+    rating: 5,
     text: "Desde que contratamos o serviço recorrente da Luminous, nossos custos com manutenção caíram significativamente. Recomendo fortemente.",
   },
 ];
+
+const ratingLabel: Record<number, string> = {
+  5: "Excelente",
+  4: "Muito bom",
+  3: "Bom",
+};
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex items-center gap-0.5" aria-label={`${rating} de 5 estrelas`}>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star
+            key={i}
+            className="h-5 w-5"
+            strokeWidth={1.5}
+            style={{
+              fill: i < rating ? "#F59E0B" : "none",
+              color: i < rating ? "#F59E0B" : "#D1D5DB",
+            }}
+          />
+        ))}
+      </div>
+      <span className="text-base font-bold text-foreground tabular-nums">
+        {rating.toFixed(1).replace(".", ",")}
+      </span>
+      <span className="text-sm font-medium text-amber-500">
+        {/* {ratingLabel[rating] ?? ""} */}
+      </span>
+    </div>
+  );
+}
 
 function TestimonialCarouselPrev() {
   const { scrollPrev, canScrollPrev } = useCarousel();
@@ -81,8 +116,7 @@ const TestimonialsSection = () => {
               O que nossos clientes dizem sobre nós
             </h2>
             <p className="mt-4 sm:mt-5 max-w-sm text-sm leading-relaxed md:text-base">
-              Mais de 350 clientes atendidos e centenas de projetos concluídos em mais de uma década de
-              história em São Paulo.
+              Mais de 350 clientes atendidos e centenas de projetos concluídos.
             </p>
           </div>
 
@@ -101,24 +135,24 @@ const TestimonialsSection = () => {
                   <CarouselContent className="-ml-0">
                     {testimonials.map((t) => (
                       <CarouselItem key={t.name} className="basis-full pl-0">
-                        <blockquote className="text-left">
-                          <p className="text-base font-normal italic leading-relaxed text-foreground md:text-xl">
-                            {t.text}
+                        <blockquote className="rounded-xl border border-border bg-card px-6 py-7 shadow-sm text-left">
+                          <StarRating rating={t.rating} />
+                          <p className="mt-5 text-base font-normal leading-relaxed text-foreground md:text-lg">
+                            "{t.text}"
                           </p>
-                          <footer className="mt-8 flex items-start gap-4">
+                          <footer className="mt-6 flex items-center gap-4 border-t border-border pt-5">
                             <div
-                              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-border bg-card text-xs font-bold uppercase tracking-wide text-muted-foreground"
+                              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-xs font-bold uppercase tracking-wide text-muted-foreground"
                               aria-hidden
                             >
                               {t.initials}
                             </div>
-                            <div>
-                              <cite className="not-italic">
-                                <span className="block text-sm font-bold text-foreground">{t.name}</span>
-                                <span className="mt-0.5 block text-sm text-muted-foreground">{t.company}</span>
-                                <span className="mt-0.5 block text-xs text-muted-foreground">{t.role}</span>
-                              </cite>
-                            </div>
+                            <cite className="not-italic">
+                              <span className="block text-sm font-bold text-foreground">{t.name}</span>
+                              <span className="mt-0.5 block text-xs text-muted-foreground">
+                                {t.role} · {t.company}
+                              </span>
+                            </cite>
                           </footer>
                         </blockquote>
                       </CarouselItem>

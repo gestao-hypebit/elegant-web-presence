@@ -23,7 +23,7 @@ import {
   planosSlaTexto,
 } from "@/content/planosMatriz";
 
-const WHATSAPP_ELITE = `https://wa.me/5511911094032?text=${encodeURIComponent(
+const WHATSAPP_ELITE = `https://wa.me/5511925333021?text=${encodeURIComponent(
   "Olá! Tenho interesse em falar com um especialista sobre o plano ELITE 24/7 da Luminous.",
 )}`;
 
@@ -220,9 +220,9 @@ function PlanCard({
           {/* Ícone + Nome */}
           <div className="mb-3 flex items-center gap-3">
             <span className={iconShell(plan.destaque)} aria-hidden>
-              <Icone className="h-5 w-5" strokeWidth={1.75} />
+              <Icone className="h-5 w-5 text-gold" strokeWidth={1.75} />
             </span>
-            <h3 className="font-display text-lg font-bold leading-tight text-foreground">
+            <h3 className="font-display text-lg font-bold leading-tight text-gold">
               {plan.nome}
             </h3>
           </div>

@@ -28,7 +28,7 @@ const HeroSection = () => {
 
   const handleWhatsApp = () => {
     const msg = `Olá! Gostaria de solicitar um orçamento.\n\n*Nome:* ${nome}\n*Telefone:* ${telefone}\n*Serviço:* ${servico || "Não informado"}`;
-    window.open(`https://wa.me/5511911094032?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.me/5511925333021?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
@@ -167,7 +167,7 @@ const HeroSection = () => {
                   </label>
                   <input
                     type="tel"
-                    placeholder="(11) 91109-4032"
+                    placeholder="(11) 92533-3021"
                     value={telefone}
                     onChange={(e) => setTelefone(e.target.value)}
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 focus:bg-white/15 transition-colors"

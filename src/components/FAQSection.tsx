@@ -4,7 +4,7 @@ import { HashLink } from "@/components/HashLink";
 import { ChevronDown, MessageCircle } from "lucide-react";
 import { faqIntro, faqGroups, faqClosing } from "@/content/faqInstitutional";
 
-const WHATSAPP_URL = "https://wa.me/5511911094032";
+const WHATSAPP_URL = "https://wa.me/5511925333021";
 
 function useMeasure(ref: RefObject<HTMLElement | null>, open: boolean) {
   const [height, setHeight] = useState<number>(0);

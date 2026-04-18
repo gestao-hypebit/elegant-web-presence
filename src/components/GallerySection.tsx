@@ -14,9 +14,9 @@ import galeria11 from "@/assets/galeria/galeria11.jpeg";
 import galeria12 from "@/assets/galeria/galeria12.jpeg";
 
 const photos = [
+  galeria3,
   galeria1,
   galeria2,
-  galeria3,
   galeria4,
   galeria5,
   galeria6,

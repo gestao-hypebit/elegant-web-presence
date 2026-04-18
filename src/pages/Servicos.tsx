@@ -65,7 +65,7 @@ import {
 import heroBg from "@/assets/imghero.jpeg";
 import { services } from "@/lib/services";
 
-const CONTACT_WHATSAPP = "https://wa.me/5511911094032";
+const CONTACT_WHATSAPP = "https://wa.me/5511925333021";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "manutencao-eletrica-predial": Zap,
