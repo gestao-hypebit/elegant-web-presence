@@ -69,8 +69,12 @@ const galleryImages: GalleryImage[] = [
 
 const categories: Category[] = ["Todas", "Obras", "Data Centers", "Nobreak", "Sistema Hidráulico"];
 
-// Imagens em destaque na visualização principal (uma de cada categoria)
-const heroImages = [galeria3, galeria1, galeria5, galeria7, galeria11, galeria17];
+const photos = [
+  galeria3, galeria1, galeria2, galeria4, galeria5, galeria6,
+  galeria7, galeria8, galeria9, galeria10, galeria11, galeria12,
+  galeria13, galeria14, galeria15, galeria16, galeria17, galeria18,
+  galeria19, galeria20, galeria21, galeria22, galeria23,
+];
 
 const GallerySection = () => {
   const ref = useRef(null);
@@ -93,7 +97,7 @@ const GallerySection = () => {
       setLightboxIndex((prev) => {
         if (prev === null) return null;
         const next = prev + dir;
-        return next < 0 ? heroImages.length - 1 : next >= heroImages.length ? 0 : next;
+        return next < 0 ? photos.length - 1 : next >= photos.length ? 0 : next;
       });
     },
     []
@@ -135,28 +139,27 @@ const GallerySection = () => {
           </p>
         </motion.div>
 
-        {/* Grid principal — layout estilo bento */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:grid-rows-2 md:auto-rows-[220px]">
-          {heroImages.map((src, i) => (
+        {/* Grid principal — layout original */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:grid-flow-dense">
+          {photos.map((src, i) => (
             <motion.div
               key={src}
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.07 }}
-              className={`group relative cursor-pointer overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm ${
+              transition={{ duration: 0.5, delay: i * 0.04 }}
+              className={`relative cursor-pointer overflow-hidden rounded-lg border border-border bg-card ${
                 i === 0
-                  ? "col-span-2 row-span-2 h-64 sm:h-72 md:h-full"
-                  : "h-40 sm:h-48 md:h-full"
+                  ? "h-72 sm:h-80 md:col-span-2 md:row-span-2 md:h-[min(28rem,70vh)]"
+                  : "h-44 sm:h-48 md:h-44"
               }`}
               onClick={() => openLightbox(i)}
             >
               <img
                 src={src}
-                alt={`Trabalho realizado pela Luminous — destaque ${i + 1}`}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt={`Trabalho realizado pela Luminous — imagem ${i + 1}`}
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.div>
           ))}
         </div>
@@ -211,8 +214,8 @@ const GallerySection = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={heroImages[lightboxIndex]}
-                  alt={`Destaque ${lightboxIndex + 1}`}
+                  src={photos[lightboxIndex]}
+                  alt={`Trabalho realizado — imagem ${lightboxIndex + 1}`}
                   className="max-h-[85vh] w-full rounded-xl object-contain shadow-2xl"
                 />
               </motion.div>
