@@ -135,44 +135,50 @@ const GallerySection = () => {
           </p>
         </motion.div>
 
-        {/* Grid resumo — 5 imagens em layout assimétrico elegante */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12 md:grid-rows-2 md:gap-4" style={{ gridAutoRows: "200px" }}>
-          {/* Imagem principal — ocupa toda a coluna esquerda */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5 }}
-            className="group relative col-span-2 cursor-pointer overflow-hidden rounded-xl border border-border bg-card md:col-span-7 md:row-span-2"
-            onClick={() => openLightbox(0)}
-          >
-            <img
-              src={previewImages[0]}
-              alt="Trabalho realizado pela Luminous — destaque"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </motion.div>
-
-          {/* 4 imagens menores à direita — grid 2x2 */}
-          {previewImages.slice(1).map((src, i) => (
-            <motion.div
-              key={src}
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.08 * (i + 1) }}
-              className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card md:col-span-5 lg:col-span-5"
-              onClick={() => openLightbox(i + 1)}
-            >
-              <img
-                src={src}
-                alt={`Trabalho realizado pela Luminous — imagem ${i + 2}`}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </motion.div>
-          ))}
+        {/* Grid resumo — 3 em cima + 2 centralizadas embaixo */}
+        <div className="space-y-3 sm:space-y-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+            {previewImages.slice(0, 3).map((src, i) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.07 * i }}
+                className={`group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card h-48 sm:h-56 md:h-64 ${
+                  i === 2 ? "col-span-2 md:col-span-1" : ""
+                }`}
+                onClick={() => openLightbox(i)}
+              >
+                <img
+                  src={src}
+                  alt={`Trabalho realizado pela Luminous — imagem ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:mx-auto md:max-w-[66.666%]">
+            {previewImages.slice(3).map((src, i) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.07 * (i + 3) }}
+                className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card h-48 sm:h-56 md:h-64"
+                onClick={() => openLightbox(i + 3)}
+              >
+                <img
+                  src={src}
+                  alt={`Trabalho realizado pela Luminous — imagem ${i + 4}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Botão Ver Mais */}
