@@ -69,12 +69,8 @@ const galleryImages: GalleryImage[] = [
 
 const categories: Category[] = ["Todas", "Obras", "Data Centers", "Nobreak", "Sistema Hidráulico"];
 
-const photos = [
-  galeria3, galeria1, galeria2, galeria4, galeria5, galeria6,
-  galeria7, galeria8, galeria9, galeria10, galeria11, galeria12,
-  galeria13, galeria14, galeria15, galeria16, galeria17, galeria18,
-  galeria19, galeria20, galeria21, galeria22, galeria23,
-];
+// 5 imagens de resumo — uma de cada categoria + 1 extra
+const previewImages = [galeria3, galeria1, galeria5, galeria7, galeria11];
 
 const GallerySection = () => {
   const ref = useRef(null);
@@ -97,7 +93,7 @@ const GallerySection = () => {
       setLightboxIndex((prev) => {
         if (prev === null) return null;
         const next = prev + dir;
-        return next < 0 ? photos.length - 1 : next >= photos.length ? 0 : next;
+        return next < 0 ? previewImages.length - 1 : next >= previewImages.length ? 0 : next;
       });
     },
     []
@@ -139,27 +135,42 @@ const GallerySection = () => {
           </p>
         </motion.div>
 
-        {/* Grid principal — layout original */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:grid-flow-dense">
-          {photos.map((src, i) => (
+        {/* Grid resumo — 5 imagens em layout assimétrico elegante */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12 md:grid-rows-2 md:gap-4" style={{ gridAutoRows: "200px" }}>
+          {/* Imagem principal — ocupa toda a coluna esquerda */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="group relative col-span-2 cursor-pointer overflow-hidden rounded-xl border border-border bg-card md:col-span-7 md:row-span-2"
+            onClick={() => openLightbox(0)}
+          >
+            <img
+              src={previewImages[0]}
+              alt="Trabalho realizado pela Luminous — destaque"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </motion.div>
+
+          {/* 4 imagens menores à direita — grid 2x2 */}
+          {previewImages.slice(1).map((src, i) => (
             <motion.div
               key={src}
-              initial={{ opacity: 0, scale: 0.98 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.04 }}
-              className={`relative cursor-pointer overflow-hidden rounded-lg border border-border bg-card ${
-                i === 0
-                  ? "h-72 sm:h-80 md:col-span-2 md:row-span-2 md:h-[min(28rem,70vh)]"
-                  : "h-44 sm:h-48 md:h-44"
-              }`}
-              onClick={() => openLightbox(i)}
+              transition={{ duration: 0.5, delay: 0.08 * (i + 1) }}
+              className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card md:col-span-5 lg:col-span-5"
+              onClick={() => openLightbox(i + 1)}
             >
               <img
                 src={src}
-                alt={`Trabalho realizado pela Luminous — imagem ${i + 1}`}
-                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                alt={`Trabalho realizado pela Luminous — imagem ${i + 2}`}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.div>
           ))}
         </div>
@@ -214,7 +225,7 @@ const GallerySection = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={photos[lightboxIndex]}
+                  src={previewImages[lightboxIndex]}
                   alt={`Trabalho realizado — imagem ${lightboxIndex + 1}`}
                   className="max-h-[85vh] w-full rounded-xl object-contain shadow-2xl"
                 />
