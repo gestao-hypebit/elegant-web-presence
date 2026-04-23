@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import DestaqueInfraSection from "@/components/DestaqueInfraSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
+import AmbientesAtendidosSection from "@/components/AmbientesAtendidosSection";
 import VantagensSection from "@/components/VantagensSection";
 import NormasCompromissoSection from "@/components/NormasCompromissoSection";
 import PlansSection from "@/components/PlansSection";
@@ -27,6 +28,7 @@ const Index = () => {
         <DestaqueInfraSection />
         {/* <ServicesSection /> */}
         <DifferentialsSection />
+        <AmbientesAtendidosSection />
         <VantagensSection />
         <GallerySection />
         <ParallaxPosPlanosSection />

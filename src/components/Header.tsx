@@ -152,7 +152,7 @@ const Header = () => {
                 showSolid ? "text-muted-foreground" : "text-white/65"
               }`}
             >
-              Instalações & Serviços
+              Luminous Engenharia & Infraestrutura
             </span>
           </div>
         </HashLink>

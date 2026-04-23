@@ -61,7 +61,7 @@ const Footer = () => {
                   Luminous
                 </span>
                 <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-                  Instalações & Serviços
+                  Luminous Engenharia & Infraestrutura
                 </span>
               </div>
             </HashLink>
