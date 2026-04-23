@@ -12,6 +12,18 @@ import galeria9 from "@/assets/galeria/galeria9.jpeg";
 import galeria10 from "@/assets/galeria/galeria10.jpeg";
 import galeria11 from "@/assets/galeria/galeria11.jpeg";
 import galeria12 from "@/assets/galeria/galeria12.jpeg";
+import galeria13 from "@/assets/galeria/galeria13.jpeg";
+import galeria14 from "@/assets/galeria/galeria14.jpeg";
+import galeria15 from "@/assets/galeria/galeria15.jpeg";
+import galeria16 from "@/assets/galeria/galeria16.jpeg";
+import galeria17 from "@/assets/galeria/galeria17.jpeg";
+import galeria18 from "@/assets/galeria/galeria18.jpeg";
+import galeria19 from "@/assets/galeria/galeria19.jpeg";
+import galeria20 from "@/assets/galeria/galeria20.jpeg";
+import galeria21 from "@/assets/galeria/galeria21.jpeg";
+import galeria22 from "@/assets/galeria/galeria22.jpeg";
+import galeria23 from "@/assets/galeria/galeria23.jpeg";
+
 
 const photos = [
   galeria3,
@@ -26,6 +38,17 @@ const photos = [
   galeria10,
   galeria11,
   galeria12,
+  galeria13,
+  galeria14,
+  galeria15,
+  galeria16,
+  galeria17,
+  galeria18,
+  galeria19,
+  galeria20,
+  galeria21,
+  galeria22,
+  galeria23,
 ];
 
 const GallerySection = () => {
