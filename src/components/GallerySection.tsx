@@ -70,7 +70,7 @@ const galleryImages: GalleryImage[] = [
 const categories: Category[] = ["Todas", "Obras", "Data Centers", "Nobreak", "Sistema Hidráulico"];
 
 // 5 imagens de resumo — uma de cada categoria + 1 extra
-const previewImages = [galeria3, galeria1, galeria5, galeria7, galeria11];
+const previewImages = [galeria3, galeria1, galeria5, galeria7, galeria11, galeria14];
 
 const GallerySection = () => {
   const ref = useRef(null);
@@ -159,7 +159,7 @@ const GallerySection = () => {
               </motion.div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:mx-auto md:max-w-[66.666%]">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:mx-auto md:grid-cols-3 md:max-w-[86.666%]">
             {previewImages.slice(3).map((src, i) => (
               <motion.div
                 key={src}

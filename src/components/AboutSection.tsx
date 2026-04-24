@@ -12,8 +12,8 @@ const AboutSection = () => {
       <div className="container mx-auto">
         <div className="grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -28 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65 }}
             className="order-2 lg:order-1"
           >
@@ -32,8 +32,8 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.06 }}
             className="order-1 flex flex-col justify-center lg:order-2"
           >

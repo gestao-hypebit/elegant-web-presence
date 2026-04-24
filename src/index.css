@@ -75,6 +75,10 @@
     font-family: var(--font-body);
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   h1, h2, h3, h4 {
     font-family: var(--font-display);
   }
