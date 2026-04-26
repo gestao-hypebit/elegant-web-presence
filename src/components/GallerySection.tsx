@@ -32,8 +32,15 @@ import galeria20 from "@/assets/galeria/galeria20.jpeg";
 import galeria21 from "@/assets/galeria/galeria21.jpeg";
 import galeria22 from "@/assets/galeria/galeria22.jpeg";
 import galeria23 from "@/assets/galeria/galeria23.jpeg";
+import galeria24 from "@/assets/galeria/galeria24.jpeg";
+import galeria25 from "@/assets/galeria/galeria25.jpeg";
+import galeria26 from "@/assets/galeria/galeria26.jpeg";
+import galeria27 from "@/assets/galeria/galeria27.jpeg";
+import galeria28 from "@/assets/galeria/galeria28.jpeg";
+import galeria29 from "@/assets/galeria/galeria29.jpeg";
+import galeria30 from "@/assets/galeria/galeria30.jpeg";
 
-type Category = "Todas" | "Obras" | "Data Centers" | "Nobreak" | "Sistema Hidráulico";
+type Category = "Todas" | "Obras" | "Data Centers" | "Nobreak" | "Sistema Hidráulico" | "Cabines Primárias" | "Escritórios" | "Lojas";
 
 interface GalleryImage {
   src: string;
@@ -42,32 +49,40 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: galeria1, category: "Obras", alt: "Obra elétrica industrial" },
-  { src: galeria2, category: "Obras", alt: "Instalação em campo" },
-  { src: galeria3, category: "Data Centers", alt: "Infraestrutura de data center" },
+  { src: galeria1, category: "Cabines Primárias", alt: "Obra elétrica industrial" },
+  { src: galeria2, category: "Cabines Primárias", alt: "Instalação em campo" },
+  { src: galeria3, category: "Lojas", alt: "Infraestrutura de data center" },
   { src: galeria4, category: "Data Centers", alt: "Cabeamento estruturado" },
   { src: galeria5, category: "Nobreak", alt: "Sistema nobreak instalado" },
   { src: galeria6, category: "Nobreak", alt: "Manutenção de nobreak" },
-  { src: galeria7, category: "Sistema Hidráulico", alt: "Sistema hidráulico de shopping" },
-  { src: galeria8, category: "Sistema Hidráulico", alt: "Tubulação hidráulica" },
-  { src: galeria9, category: "Obras", alt: "Execução de obra elétrica" },
-  { src: galeria10, category: "Obras", alt: "Quadro de distribuição" },
-  { src: galeria11, category: "Data Centers", alt: "Rack de servidores" },
-  { src: galeria12, category: "Data Centers", alt: "Climatização de data center" },
-  { src: galeria13, category: "Nobreak", alt: "Banco de baterias" },
-  { src: galeria14, category: "Nobreak", alt: "Painel de nobreak" },
-  { src: galeria15, category: "Sistema Hidráulico", alt: "Bombeamento hidráulico" },
-  { src: galeria16, category: "Sistema Hidráulico", alt: "Instalação hidráulica comercial" },
+  { src: galeria7, category: "Nobreak", alt: "Sistema hidráulico de shopping" },
+  { src: galeria8, category: "Nobreak", alt: "Tubulação hidráulica" },
+  { src: galeria9, category: "Nobreak", alt: "Execução de obra elétrica" },
+  { src: galeria10, category: "Nobreak", alt: "Quadro de distribuição" },
+  { src: galeria11, category: "Nobreak", alt: "Rack de servidores" },
+  { src: galeria12, category: "Cabines Primárias", alt: "Climatização de data center" },
+  { src: galeria13, category: "Sistema Hidráulico", alt: "Banco de baterias" },
+  { src: galeria14, category: "Cabines Primárias", alt: "Painel de nobreak" },
+  { src: galeria15, category: "Obras", alt: "Bombeamento hidráulico" },
+  // { src: galeria16, category: "Sistema Hidráulico", alt: "Instalação hidráulica comercial" },
   { src: galeria17, category: "Obras", alt: "Projeto elétrico em execução" },
-  { src: galeria18, category: "Obras", alt: "Infraestrutura elétrica" },
+  { src: galeria18, category: "Data Centers", alt: "Infraestrutura elétrica" },
+  { src: galeria16, category: "Obras", alt: "Infraestrutura elétrica" },
   { src: galeria19, category: "Data Centers", alt: "Piso elevado data center" },
   { src: galeria20, category: "Data Centers", alt: "Energia de data center" },
-  { src: galeria21, category: "Nobreak", alt: "Instalação de UPS" },
+  { src: galeria21, category: "Sistema Hidráulico", alt: "Instalação de UPS" },
   { src: galeria22, category: "Sistema Hidráulico", alt: "Manutenção hidráulica" },
-  { src: galeria23, category: "Obras", alt: "Finalização de obra" },
+  { src: galeria23, category: "Sistema Hidráulico", alt: "Finalização de obra" },
+  { src: galeria24, category: "Escritórios", alt: "Finalização de obra" },
+  { src: galeria25, category: "Escritórios", alt: "Finalização de obra" },
+  { src: galeria26, category: "Escritórios", alt: "Finalização de obra" },
+  { src: galeria27, category: "Escritórios", alt: "Finalização de obra" },
+  { src: galeria28, category: "Escritórios", alt: "Finalização de obra" },
+  { src: galeria29, category: "Lojas", alt: "Finalização de obra" },
+  { src: galeria30, category: "Lojas", alt: "Finalização de obra" },
 ];
 
-const categories: Category[] = ["Todas", "Obras", "Data Centers", "Nobreak", "Sistema Hidráulico"];
+const categories: Category[] = ["Todas", "Obras", "Escritórios", "Lojas", "Cabines Primárias", "Data Centers", "Nobreak", "Sistema Hidráulico"];
 
 // 5 imagens de resumo — uma de cada categoria + 1 extra
 const previewImages = [galeria3, galeria1, galeria5, galeria7, galeria11, galeria14];
