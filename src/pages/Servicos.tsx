@@ -119,7 +119,7 @@ function BulletList({ items, className = "" }: { items: string[]; className?: st
   );
 }
 
-const sectionDark = "bg-[hsl(193_70%_13%)] text-white";
+const sectionDark = "bg-gradient-gold text-white";
 const sectionDarkBorder = "border-white/10";
 
 const Servicos = () => {

@@ -59,7 +59,7 @@ const ATUACAO_ICONS: Record<AtuacaoSegmentoIcon, LucideIcon> = {
   "retail-logistica": Warehouse,
 };
 
-const sectionDark = "bg-[hsl(193_70%_13%)] text-white";
+const sectionDark = "bg-gradient-gold text-white";
 const sectionDarkBorder = "border-white/10";
 const accent = "text-[hsl(193_57%_29%)]";
 const accentBg = "bg-[hsl(193_57%_29%)]/10";
