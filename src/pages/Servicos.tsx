@@ -455,7 +455,7 @@ const Servicos = () => {
               <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {planosContrato.map((plano, i) => (
                   <Reveal key={plano.nome} delay={i * 0.05}>
-                    <div className="flex h-full flex-col rounded-xl border border-[hsl(193_57%_29%)]/25 bg-[hsl(193_70%_13%)] p-5 text-white shadow-card transition-shadow hover:border-white/25">
+                    <div className="flex h-full flex-col rounded-xl border border-[hsl(193_57%_29%)]/25 bg-[hsl(193_70%_17%)] p-5 text-white shadow-card transition-shadow hover:border-white/25">
                       <h4 className="font-display text-sm font-bold leading-snug md:text-base">{plano.nome}</h4>
                       <p className="mt-2 flex-1 text-xs leading-relaxed text-white/85 md:text-sm">{plano.texto}</p>
                     </div>

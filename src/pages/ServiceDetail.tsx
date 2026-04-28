@@ -103,7 +103,7 @@ const ServiceDetail = () => {
 
               <div className="mt-6 bg-card border border-border rounded-xl p-6 flex items-start gap-4">
                 <div className="pt-1">
-                  <Shield className="w-6 h-6 text-blue-500" />
+                  <Shield className="w-6 h-6 text-[hsl(193_57%_29%)]" />
                 </div>
                 <div>
                   <h4 className="font-semibold">Documentação & Garantia</h4>

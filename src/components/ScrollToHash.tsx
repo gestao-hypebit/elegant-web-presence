@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /**
@@ -8,11 +8,10 @@ import { useLocation } from "react-router-dom";
 export function ScrollToHash() {
   const { pathname, hash } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (pathname !== "/" || !hash) return;
-    const raw = hash.slice(1);
-    if (!raw) return;
-    const id = decodeURIComponent(raw);
+    const id = decodeURIComponent(hash.slice(1));
+    if (!id) return;
 
     const scroll = () => {
       const el = document.getElementById(id);
@@ -21,8 +20,8 @@ export function ScrollToHash() {
       }
     };
 
-    scroll();
-    const t = window.setTimeout(scroll, 100);
+    // Aguarda o browser terminar o paint e qualquer reset de scroll do router
+    const t = window.setTimeout(scroll, 80);
     return () => window.clearTimeout(t);
   }, [pathname, hash]);
 

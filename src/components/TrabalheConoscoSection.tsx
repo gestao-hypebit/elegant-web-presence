@@ -41,7 +41,7 @@ const TrabalheConoscoSection = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-gold font-semibold text-sm hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:gap-3 group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-gradient-gold text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-gold group"
             >
               Fale conosco!
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />

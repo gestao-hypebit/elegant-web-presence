@@ -20,6 +20,16 @@ export function HashLink({ to, onClick, ...props }: HashLinkProps) {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+
+    // Se já está na home com o mesmo hash, faz scroll diretamente
+    // (navigate com replace não re-dispara o efeito quando o hash não muda)
+    if (location.pathname === "/" && location.hash === `#${id}`) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      onClick?.(e);
+      return;
+    }
+
     navigate(
       { pathname: "/", hash: `#${id}` },
       { replace: location.pathname === "/" },
