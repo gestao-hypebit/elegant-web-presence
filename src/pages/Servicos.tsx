@@ -119,7 +119,7 @@ function BulletList({ items, className = "" }: { items: string[]; className?: st
   );
 }
 
-const sectionDark = "bg-gradient-gold text-white";
+const sectionDark = "bg-[hsl(193_70%_17%)] text-white";
 const sectionDarkBorder = "border-white/10";
 
 const Servicos = () => {
@@ -466,7 +466,7 @@ const Servicos = () => {
           </section>
 
           {/* Faixa valor — como Normas/Diferencial na Sobre */}
-          <section className="bg-gradient-gold py-12 sm:py-16 md:py-24">
+          <section className="bg-[hsl(193_70%_17%)] py-12 sm:py-16 md:py-24">
             <div className="container mx-auto">
               <Reveal className="mb-8 text-center sm:mb-12">
                 <span className="text-base sm:text-lg font-semibold uppercase tracking-[0.2em] text-white/70">

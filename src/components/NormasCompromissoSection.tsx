@@ -26,7 +26,7 @@ const NormasCompromissoSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="conformidade" className="bg-gradient-gold py-12 sm:py-16 md:py-20" ref={ref}>
+    <section id="conformidade" className="bg-[hsl(193_70%_17%)] py-12 sm:py-16 md:py-20" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

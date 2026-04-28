@@ -19,7 +19,7 @@ const TrabalheConoscoSection = () => {
   ];
 
   return (
-    <section id="trabalhe-conosco" className="bg-gradient-gold overflow-hidden" ref={ref}>
+    <section id="trabalhe-conosco" className="bg-[hsl(193_70%_17%)] overflow-hidden" ref={ref}>
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between min-h-[220px] sm:min-h-[260px] gap-6 sm:gap-8 py-12 sm:py-16 md:py-24">
 
