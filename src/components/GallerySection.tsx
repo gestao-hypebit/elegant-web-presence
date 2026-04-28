@@ -39,8 +39,23 @@ import galeria27 from "@/assets/galeria/galeria27.jpeg";
 import galeria28 from "@/assets/galeria/galeria28.jpeg";
 import galeria29 from "@/assets/galeria/galeria29.jpeg";
 import galeria30 from "@/assets/galeria/galeria30.jpeg";
+import galeria31 from "@/assets/galeria/galeria31.jpeg";
+import galeria32 from "@/assets/galeria/galeria32.jpeg";
+import galeria33 from "@/assets/galeria/galeria33.jpeg";
+import galeria34 from "@/assets/galeria/galeria34.jpeg";
+import galeria35 from "@/assets/galeria/galeria35.jpeg";
+import galeria36 from "@/assets/galeria/galeria36.jpeg";
+import galeria37 from "@/assets/galeria/galeria37.jpeg";
+import galeria38 from "@/assets/galeria/galeria38.jpeg";
+import galeria39 from "@/assets/galeria/galeria39.jpeg";
+import galeria40 from "@/assets/galeria/galeria40.jpeg";
+import galeria41 from "@/assets/galeria/galeria41.jpeg";
+import galeria42 from "@/assets/galeria/galeria42.jpeg";
+import galeria43 from "@/assets/galeria/galeria43.jpeg";
+import galeria44 from "@/assets/galeria/galeria44.jpeg";
 
-type Category = "Todas" | "Obras" | "Data Centers" | "Nobreak" | "Sistema Hidráulico" | "Cabines Primárias" | "Escritórios" | "Lojas";
+
+type Category = "Todas" | "Obras" | "Data Centers" | "Energia Contínua (Nobreak)" | "Infraestrutura Hidráulica" | "Cabines Primárias e Distribuição de Energia" | "Infraestrutura em Implantação" | "Execução Técnica em Altura" | "Equipe Técnica Especializada" | "Ambientes Corporativos";
 
 interface GalleryImage {
   src: string;
@@ -49,40 +64,68 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: galeria1, category: "Cabines Primárias", alt: "Obra elétrica industrial" },
-  { src: galeria2, category: "Cabines Primárias", alt: "Instalação em campo" },
-  { src: galeria3, category: "Lojas", alt: "Infraestrutura de data center" },
-  { src: galeria4, category: "Data Centers", alt: "Cabeamento estruturado" },
-  { src: galeria5, category: "Nobreak", alt: "Sistema nobreak instalado" },
-  { src: galeria6, category: "Nobreak", alt: "Manutenção de nobreak" },
-  { src: galeria7, category: "Nobreak", alt: "Sistema hidráulico de shopping" },
-  { src: galeria8, category: "Nobreak", alt: "Tubulação hidráulica" },
-  { src: galeria9, category: "Nobreak", alt: "Execução de obra elétrica" },
-  { src: galeria10, category: "Nobreak", alt: "Quadro de distribuição" },
-  { src: galeria11, category: "Nobreak", alt: "Rack de servidores" },
-  { src: galeria12, category: "Cabines Primárias", alt: "Climatização de data center" },
-  { src: galeria13, category: "Sistema Hidráulico", alt: "Banco de baterias" },
-  { src: galeria14, category: "Cabines Primárias", alt: "Painel de nobreak" },
-  { src: galeria15, category: "Obras", alt: "Bombeamento hidráulico" },
-  // { src: galeria16, category: "Sistema Hidráulico", alt: "Instalação hidráulica comercial" },
-  { src: galeria17, category: "Obras", alt: "Projeto elétrico em execução" },
-  { src: galeria18, category: "Data Centers", alt: "Infraestrutura elétrica" },
+  { src: galeria31, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria32, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria33, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria34, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria35, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria36, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria37, category: "Ambientes Corporativos", alt: "Ambiente corporativo" },
+  { src: galeria38, category: "Data Centers", alt: "Cabeamento estruturado" },
+  { src: galeria4, category: "Cabines Primárias e Distribuição de Energia", alt: "Obra elétrica industrial" },
+  { src: galeria5, category: "Cabines Primárias e Distribuição de Energia", alt: "Sistema nobreak instalado" },
+  { src: galeria6, category: "Cabines Primárias e Distribuição de Energia", alt: "Manutenção de nobreak" },
+  { src: galeria7, category: "Cabines Primárias e Distribuição de Energia", alt: "Sistema hidráulico de shopping" },
+  { src: galeria8, category: "Cabines Primárias e Distribuição de Energia", alt: "Tubulação hidráulica" },
+  { src: galeria9, category: "Cabines Primárias e Distribuição de Energia", alt: "Execução de obra elétrica" },
+  { src: galeria10, category: "Cabines Primárias e Distribuição de Energia", alt: "Quadro de distribuição" },
+  { src: galeria11, category: "Cabines Primárias e Distribuição de Energia", alt: "Rack de servidores" },
+  { src: galeria12, category: "Cabines Primárias e Distribuição de Energia", alt: "Climatização de data center" },
+  // { src: galeria2, category: "Cabines Primárias e Distribuição de Energia", alt: "Instalação em campo" },
+  { src: galeria13, category: "Infraestrutura Hidráulica", alt: "Banco de baterias" },
+  // { src: galeria14, category: "Cabines Primárias e Distribuição de Energia", alt: "Painel de nobreak" },
+  { src: galeria15, category: "Infraestrutura em Implantação", alt: "Bombeamento hidráulico" },
+  { src: galeria16, category: "Infraestrutura em Implantação", alt: "Instalação hidráulica comercial" },
+  { src: galeria17, category: "Infraestrutura em Implantação", alt: "Projeto elétrico em execução" },
+  // { src: galeria18, category: "Data Centers", alt: "Infraestrutura elétrica" },
   { src: galeria16, category: "Obras", alt: "Infraestrutura elétrica" },
-  { src: galeria19, category: "Data Centers", alt: "Piso elevado data center" },
-  { src: galeria20, category: "Data Centers", alt: "Energia de data center" },
-  { src: galeria21, category: "Sistema Hidráulico", alt: "Instalação de UPS" },
-  { src: galeria22, category: "Sistema Hidráulico", alt: "Manutenção hidráulica" },
-  { src: galeria23, category: "Sistema Hidráulico", alt: "Finalização de obra" },
-  { src: galeria24, category: "Escritórios", alt: "Finalização de obra" },
-  { src: galeria25, category: "Escritórios", alt: "Finalização de obra" },
-  { src: galeria26, category: "Escritórios", alt: "Finalização de obra" },
-  { src: galeria27, category: "Escritórios", alt: "Finalização de obra" },
-  { src: galeria28, category: "Escritórios", alt: "Finalização de obra" },
-  { src: galeria29, category: "Lojas", alt: "Finalização de obra" },
-  { src: galeria30, category: "Lojas", alt: "Finalização de obra" },
+  { src: galeria39, category: "Data Centers", alt: "Piso elevado data center" },
+  { src: galeria40, category: "Data Centers", alt: "Energia de data center" },
+  { src: galeria21, category: "Infraestrutura Hidráulica", alt: "Instalação de UPS" },
+  { src: galeria22, category: "Infraestrutura Hidráulica", alt: "Manutenção hidráulica" },
+  { src: galeria23, category: "Infraestrutura Hidráulica", alt: "Finalização de obra" },
+  { src: galeria41, category: "Energia Contínua (Nobreak)", alt: "Finalização de obra" },
+  { src: galeria42, category: "Energia Contínua (Nobreak)", alt: "Finalização de obra" },
+  { src: galeria43, category: "Energia Contínua (Nobreak)", alt: "Finalização de obra" },
+  { src: galeria1, category: "Execução Técnica em Altura", alt: "Finalização de obra" },
+  { src: galeria2, category: "Execução Técnica em Altura", alt: "Finalização de obra" },
+  { src: galeria12, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
+  { src: galeria14, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
+  { src: galeria44, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
 ];
 
-const categories: Category[] = ["Todas", "Obras", "Escritórios", "Lojas", "Cabines Primárias", "Data Centers", "Nobreak", "Sistema Hidráulico"];
+const categories: Category[] = ["Todas", "Ambientes Corporativos", "Cabines Primárias e Distribuição de Energia", "Data Centers", "Infraestrutura em Implantação", "Energia Contínua (Nobreak)", "Infraestrutura Hidráulica", "Execução Técnica em Altura", "Equipe Técnica Especializada"];
+
+/** Texto exibido abaixo do título da categoria na galeria completa e no lightbox */
+const categoryDescriptions: Record<Exclude<Category, "Todas">, string> = {
+  "Ambientes Corporativos":
+    "Infraestrutura elétrica aplicada a ambientes corporativos, garantindo organização, eficiência e condições adequadas para operação contínua.",
+  "Cabines Primárias e Distribuição de Energia":
+    "Sistemas de distribuição elétrica aplicados a ambientes críticos, com foco em segurança, controle e continuidade operacional.",
+  "Data Centers":
+    "Infraestrutura elétrica dedicada a ambientes críticos, com foco em fornecimento estável e continuidade das operações.",
+  "Infraestrutura em Implantação":
+    "Implantação de sistemas técnicos em obras, garantindo organização, padronização e uma base sólida para o funcionamento das operações.",
+  "Energia Contínua (Nobreak)":
+    "Suporte à infraestrutura elétrica de sistemas de energia contínua, assegurando confiabilidade e continuidade operacional em ambientes críticos.",
+  "Infraestrutura Hidráulica":
+    "Infraestrutura hidráulica executada com planejamento e padrão técnico, garantindo eficiência e funcionamento adequado das operações.",
+  "Execução Técnica em Altura":
+    "Operações técnicas em altura realizadas com planejamento, equipamentos adequados e foco total em segurança e qualidade na execução.",
+  "Equipe Técnica Especializada":
+    "Profissionais qualificados atuando com padrão técnico, organização e responsabilidade em cada etapa da execução.",
+  Obras: "",
+};
 
 // 5 imagens de resumo — uma de cada categoria + 1 extra
 const previewImages = [galeria3, galeria1, galeria5, galeria7, galeria11, galeria14];
@@ -305,6 +348,19 @@ const GallerySection = () => {
               ))}
             </div>
 
+            {activeCategory !== "Todas" && (
+              <div className="mb-5 rounded-xl border border-border/60 bg-muted/30 px-4 py-3 sm:px-5 sm:py-4">
+                <h3 className="font-display text-base font-semibold text-foreground sm:text-lg">
+                  {activeCategory}
+                </h3>
+                {categoryDescriptions[activeCategory] ? (
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {categoryDescriptions[activeCategory]}
+                  </p>
+                ) : null}
+              </div>
+            )}
+
             {/* Grid de imagens filtradas */}
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
               <AnimatePresence mode="popLayout">
@@ -326,9 +382,14 @@ const GallerySection = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <span className="absolute bottom-2 left-2 right-2 text-xs font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 truncate">
-                      {img.category}
-                    </span>
+                    <div className="absolute bottom-2 left-2 right-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="block text-xs font-medium text-white">{img.category}</span>
+                      {categoryDescriptions[img.category] ? (
+                        <span className="mt-1 block text-[11px] leading-snug text-white/90 line-clamp-3">
+                          {categoryDescriptions[img.category]}
+                        </span>
+                      ) : null}
+                    </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -365,9 +426,18 @@ const GallerySection = () => {
                       alt={filteredImages[dialogLightbox]?.alt}
                       className="max-h-[85vh] w-full rounded-xl object-contain shadow-2xl"
                     />
-                    <p className="mt-3 text-center text-sm text-white/70">
-                      {filteredImages[dialogLightbox]?.category} — {dialogLightbox + 1} de {filteredImages.length}
-                    </p>
+                    <div className="mt-3 space-y-2 text-center">
+                      <p className="text-sm text-white/80">
+                        {filteredImages[dialogLightbox]?.category} — {dialogLightbox + 1} de{" "}
+                        {filteredImages.length}
+                      </p>
+                      {filteredImages[dialogLightbox] &&
+                      categoryDescriptions[filteredImages[dialogLightbox].category] ? (
+                        <p className="mx-auto max-w-2xl text-xs leading-relaxed text-white/65">
+                          {categoryDescriptions[filteredImages[dialogLightbox].category]}
+                        </p>
+                      ) : null}
+                    </div>
                   </motion.div>
 
                   <button
