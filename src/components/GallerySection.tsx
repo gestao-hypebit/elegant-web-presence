@@ -53,9 +53,10 @@ import galeria41 from "@/assets/galeria/galeria41.jpeg";
 import galeria42 from "@/assets/galeria/galeria42.jpeg";
 import galeria43 from "@/assets/galeria/galeria43.jpeg";
 import galeria44 from "@/assets/galeria/galeria44.jpeg";
+import galeria45 from "@/assets/galeria/galeria45.jpeg";
 
 
-type Category = "Todas" | "Obras" | "Data Centers" | "Energia Contínua (Nobreak)" | "Infraestrutura Hidráulica" | "Cabines Primárias e Distribuição de Energia" | "Infraestrutura em Implantação" | "Execução Técnica em Altura" | "Equipe Técnica Especializada" | "Ambientes Corporativos";
+type Category = "Todas" | "Obras" | "Data Centers" | "Energia Contínua (Nobreak)" | "Infraestrutura Hidráulica" | "Cabines Primárias e Distribuição de Energia" | "Infraestrutura em Implantação" | "Execução Técnica em Altura" | "Equipe Técnica Especializada" | "Ambientes Corporativos" | "Ambientes Comerciais";
 
 interface GalleryImage {
   src: string;
@@ -102,9 +103,13 @@ const galleryImages: GalleryImage[] = [
   { src: galeria12, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
   { src: galeria14, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
   { src: galeria44, category: "Equipe Técnica Especializada", alt: "Finalização de obra" },
+  { src: galeria3, category: "Ambientes Comerciais", alt: "Finalização de obra" },
+  { src: galeria29, category: "Ambientes Comerciais", alt: "Finalização de obra" },
+  { src: galeria30, category: "Ambientes Comerciais", alt: "Finalização de obra" },
+  { src: galeria45, category: "Ambientes Comerciais", alt: "Finalização de obra" },
 ];
 
-const categories: Category[] = ["Todas", "Ambientes Corporativos", "Cabines Primárias e Distribuição de Energia", "Data Centers", "Infraestrutura em Implantação", "Energia Contínua (Nobreak)", "Infraestrutura Hidráulica", "Execução Técnica em Altura", "Equipe Técnica Especializada"];
+const categories: Category[] = ["Todas", "Ambientes Corporativos", "Cabines Primárias e Distribuição de Energia", "Data Centers", "Infraestrutura em Implantação", "Energia Contínua (Nobreak)", "Infraestrutura Hidráulica", "Execução Técnica em Altura", "Equipe Técnica Especializada", "Ambientes Comerciais"];
 
 /** Texto exibido abaixo do título da categoria na galeria completa e no lightbox */
 const categoryDescriptions: Record<Exclude<Category, "Todas">, string> = {
@@ -124,6 +129,8 @@ const categoryDescriptions: Record<Exclude<Category, "Todas">, string> = {
     "Operações técnicas em altura realizadas com planejamento, equipamentos adequados e foco total em segurança e qualidade na execução.",
   "Equipe Técnica Especializada":
     "Profissionais qualificados atuando com padrão técnico, organização e responsabilidade em cada etapa da execução.",
+  "Ambientes Comerciais":
+  "Infraestrutura técnica aplicada a ambientes comerciais, garantindo organização, eficiência e funcionamento adequado das operações.",
   Obras: "",
 };
 
