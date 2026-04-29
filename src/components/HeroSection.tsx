@@ -95,7 +95,7 @@ const HeroSection = () => {
                 href="#contato"
                 className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-gold text-white text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity shadow-gold"
               >
-                Solicitar Orçamento
+                Falar com especialista
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
