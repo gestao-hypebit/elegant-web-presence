@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Clock, Users, ClipboardCheck } from "lucide-react";
-import aboutBg from "@/assets/sobreimg.jpeg";
+import video1 from "@/assets/videos/video1.mp4";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -18,11 +18,13 @@ const AboutSection = () => {
             className="order-2 lg:order-1"
           >
             <div className="relative h-full min-h-[280px] overflow-hidden rounded-2xl shadow-elevated ring-1 ring-border/60 lg:min-h-[420px]">
-              <img
-                src={aboutBg}
-                alt="Equipe e operações Luminous"
+              <video
+                src={video1}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover"
-                loading="lazy"
               />
               <div
                 className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"

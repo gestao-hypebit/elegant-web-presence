@@ -112,13 +112,15 @@ export const segmentosTitulo = "Onde atuamos";
 
 export const segmentosIntro = "Soluções adaptadas ao perfil de cada operação:";
 
-export const segmentosServicos = [
-  { titulo: "Condomínios", texto: "Conforto, segurança e valorização patrimonial." },
-  { titulo: "Empresas e escritórios", texto: "Ambiente produtivo e em conformidade." },
-  { titulo: "Indústrias", texto: "Disponibilidade de linhas e equipamentos críticos." },
-  { titulo: "Saúde", texto: "Continuidade de sistemas vitais." },
-  { titulo: "Data centers", texto: "Resiliência elétrica e hidráulica da infraestrutura." },
-  { titulo: "Shoppings e varejo", texto: "Fluxo, conforto e segurança para operação e público." },
+export type SegmentoIcon = "condominios" | "empresas" | "industrias" | "saude" | "data-centers" | "retail-logistica";
+
+export const segmentosServicos: { titulo: string; texto: string; icon: SegmentoIcon }[] = [
+  { titulo: "Condomínios", texto: "Conforto, segurança e valorização patrimonial.", icon: "condominios" },
+  { titulo: "Empresas e escritórios", texto: "Ambiente produtivo e em conformidade.", icon: "empresas" },
+  { titulo: "Indústrias", texto: "Disponibilidade de linhas e equipamentos críticos.", icon: "industrias" },
+  { titulo: "Saúde", texto: "Continuidade de sistemas vitais.", icon: "saude" },
+  { titulo: "Data centers", texto: "Resiliência elétrica e hidráulica da infraestrutura.", icon: "data-centers" },
+  { titulo: "Shoppings e varejo", texto: "Fluxo, conforto e segurança para operação e público.", icon: "retail-logistica" },
 ];
 
 export const compromissoTitulo = "Fale com a Luminous";

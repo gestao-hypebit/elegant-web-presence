@@ -10,6 +10,8 @@ import {
   Instagram,
   ArrowUpRight,
 } from "lucide-react";
+import footer3 from "@/assets/footer3.jpeg";
+import footer4 from "@/assets/footer4.jpeg";
 
 const CONTACT = {
   phone: "(11) 92533-3021",
@@ -39,11 +41,37 @@ const linksSite = [
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-white/10 bg-black text-white">
+    <footer className="relative border-t border-white/10 bg-black text-white overflow-hidden">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"
         aria-hidden
       />
+
+      {/* Marca d'água — footer3 ancorada à esquerda/baixo */}
+      <div
+        className="pointer-events-none absolute -bottom-8 -left-12 w-[480px] select-none"
+        aria-hidden
+      >
+        <img
+          src={footer3}
+          alt=""
+          className="h-full w-full object-cover opacity-[0.07] mix-blend-luminosity"
+          style={{ maskImage: "radial-gradient(ellipse 80% 70% at 20% 80%, black 30%, transparent 100%)" }}
+        />
+      </div>
+
+      {/* Marca d'água — footer4 ancorada à direita/cima */}
+      <div
+        className="pointer-events-none absolute -right-10 -top-6 w-[400px] select-none"
+        aria-hidden
+      >
+        <img
+          src={footer4}
+          alt=""
+          className="h-full w-full object-cover opacity-[0.08] mix-blend-luminosity"
+          style={{ maskImage: "radial-gradient(ellipse 80% 70% at 80% 20%, black 30%, transparent 100%)" }}
+        />
+      </div>
 
       <div className="">
         <div className=" container mx-auto grid gap-10 py-12 sm:gap-12 sm:py-14 lg:grid-cols-12 lg:gap-10 lg:py-16">

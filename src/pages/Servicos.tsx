@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import { HashLink } from "@/components/HashLink";
 import {
+  type LucideIcon,
   ArrowRight,
   MessageCircle,
   Zap,
@@ -14,11 +15,16 @@ import {
   Wrench,
   CalendarCheck,
   FileText,
-  Building2,
   MapPin,
   Sparkles,
   HardHat,
   ClipboardList,
+  Home,
+  Briefcase,
+  Factory,
+  HeartPulse,
+  Server,
+  Warehouse,
 } from "lucide-react";
 import {
   Accordion,
@@ -26,6 +32,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import type { SegmentoIcon } from "@/content/servicosInstitucional";
 import {
   introParagrafos,
   introDestaques,
@@ -73,6 +80,15 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "instalacoes-eletricas-e-hidraulicas": Wrench,
   "manutencao-preventiva-e-corretiva": CalendarCheck,
   "contratos-recorrentes": FileText,
+};
+
+const SEGMENTO_ICONS: Record<SegmentoIcon, LucideIcon> = {
+  condominios: Home,
+  empresas: Briefcase,
+  industrias: Factory,
+  saude: HeartPulse,
+  "data-centers": Server,
+  "retail-logistica": Warehouse,
 };
 
 const entregaDiferenciais = [
@@ -506,18 +522,21 @@ const Servicos = () => {
                 </h2>
                 <p className="mx-auto mt-3 max-w-2xl text-muted-foreground md:mx-0">{segmentosIntro}</p>
               </Reveal>
-              <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {segmentosServicos.map((s, i) => (
-                  <Reveal key={s.titulo} delay={i * 0.03}>
-                    <div className="flex h-full gap-3 rounded-2xl border border-[hsl(193_57%_29%)]/12 bg-gradient-to-br from-muted/80 to-white p-4 sm:p-5">
-                      <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-[hsl(193_57%_29%)]" />
-                      <div>
-                        <h3 className="font-display text-base font-bold text-foreground">{s.titulo}</h3>
-                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.texto}</p>
+              <div className=" grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {segmentosServicos.map((s, i) => {
+                  const Icon = SEGMENTO_ICONS[s.icon];
+                  return (
+                    <Reveal key={s.titulo} delay={i * 0.03}>
+                      <div className="flex h-full gap-3 rounded-2xl border border-[hsl(193_57%_29%)]/12 bg-gradient-to-br from-muted/80 to-white p-4 sm:p-5">
+                        <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[hsl(193_57%_29%)]" />
+                        <div>
+                          <h3 className="font-display text-base font-bold text-foreground">{s.titulo}</h3>
+                          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.texto}</p>
+                        </div>
                       </div>
-                    </div>
-                  </Reveal>
-                ))}
+                    </Reveal>
+                  );
+                })}
               </div>
             </div>
           </section>

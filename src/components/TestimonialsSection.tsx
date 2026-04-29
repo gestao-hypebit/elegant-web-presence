@@ -116,7 +116,7 @@ const TestimonialsSection = () => {
               O que nossos clientes dizem sobre nós
             </h2>
             <p className="mt-4 sm:mt-5 max-w-sm text-sm leading-relaxed md:text-base">
-              Mais de 350 clientes atendidos e centenas de projetos concluídos.
+            Atuação recorrente em condomínios, empresas e operações prediais.
             </p>
           </div>
 
