@@ -55,7 +55,7 @@ const Footer = () => {
         <img
           src={footer3}
           alt=""
-          className="h-full w-full object-cover opacity-[0.07] mix-blend-luminosity"
+          className="h-full w-full object-cover opacity-[0.25] mix-blend-luminosity"
           style={{ maskImage: "radial-gradient(ellipse 80% 70% at 20% 80%, black 30%, transparent 100%)" }}
         />
       </div>
@@ -68,7 +68,7 @@ const Footer = () => {
         <img
           src={footer4}
           alt=""
-          className="h-full w-full object-cover opacity-[0.08] mix-blend-luminosity"
+          className="h-full w-full object-cover opacity-[0.25] mix-blend-luminosity"
           style={{ maskImage: "radial-gradient(ellipse 80% 70% at 80% 20%, black 30%, transparent 100%)" }}
         />
       </div>
