@@ -54,6 +54,9 @@ import galeria42 from "@/assets/galeria/galeria42.jpeg";
 import galeria43 from "@/assets/galeria/galeria43.jpeg";
 import galeria44 from "@/assets/galeria/galeria44.jpeg";
 import galeria45 from "@/assets/galeria/galeria45.jpeg";
+import galeria46 from "@/assets/galeria/galeria46.jpeg";
+import galeria47 from "@/assets/galeria/galeria47.jpeg";
+import galeria48 from "@/assets/galeria/galeria48.jpeg";
 
 
 type Category = "Todas" | "Obras" | "Data Centers" | "Energia Contínua (Nobreak)" | "Infraestrutura Hidráulica" | "Cabines Primárias e Distribuição de Energia" | "Infraestrutura em Implantação" | "Execução Técnica em Altura" | "Equipe Técnica Especializada" | "Ambientes Corporativos" | "Ambientes Comerciais";
@@ -107,6 +110,9 @@ const galleryImages: GalleryImage[] = [
   { src: galeria29, category: "Ambientes Comerciais", alt: "Finalização de obra" },
   { src: galeria30, category: "Ambientes Comerciais", alt: "Finalização de obra" },
   { src: galeria45, category: "Ambientes Comerciais", alt: "Finalização de obra" },
+  { src: galeria46, category: "Infraestrutura em Implantação", alt: "Finalização de obra" },
+  { src: galeria47, category: "Infraestrutura em Implantação", alt: "Finalização de obra" },
+  { src: galeria48, category: "Infraestrutura em Implantação", alt: "Finalização de obra" },
 ];
 
 const categories: Category[] = ["Todas", "Ambientes Corporativos", "Cabines Primárias e Distribuição de Energia", "Data Centers", "Infraestrutura em Implantação", "Energia Contínua (Nobreak)", "Infraestrutura Hidráulica", "Execução Técnica em Altura", "Equipe Técnica Especializada", "Ambientes Comerciais"];
