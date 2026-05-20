@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import footer3 from "@/assets/footer3.jpeg";
 import footer4 from "@/assets/footer4.jpeg";
+import logoWhite from "@/assets/logos/1.svg";
 
 const CONTACT = {
   phone: "(11) 92533-3021",
@@ -81,7 +82,7 @@ const Footer = () => {
               className="relative block w-48 h-14 rounded-lg outline-none ring-offset-black transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold/50"
             >
               <img
-                src="src/assets/logos/1.svg"
+                src={logoWhite}
                 alt="Luminous"
                 className="absolute top-1/2 -translate-y-1/2 -left-[70px] h-72 w-auto max-w-none"
               />

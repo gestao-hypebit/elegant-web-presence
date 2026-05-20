@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "@/components/HashLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Phone, Mail, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import logoWhite from "@/assets/logos/1.svg";
+import logoDark from "@/assets/logos/3.svg";
 
 const CONTACT = {
   phone: "(11) 92533-3021",
@@ -138,7 +140,7 @@ const Header = () => {
         <HashLink to="/#inicio" className="relative block w-44 h-10 shrink-0">
           <img
             className="absolute top-[42%] -translate-y-[42%] -left-16 h-72 w-auto max-w-none"
-            src={showSolid ? "src/assets/logos/3.svg" : "src/assets/logos/1.svg"}
+            src={showSolid ? logoDark : logoWhite}
             alt="Luminous"
           />
         </HashLink>
