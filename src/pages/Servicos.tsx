@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import SEO from "@/components/SEO";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Header from "@/components/Header";
@@ -143,6 +144,11 @@ const Servicos = () => {
 
   return (
     <div className="min-h-screen bg-muted/40">
+      <SEO
+        title="Serviços de Engenharia Elétrica e Hidráulica"
+        description="Conheça todos os serviços da Luminous: manutenção elétrica e hidráulica predial, contratos com SLA, projetos e adequação às normas NBR 5410 e NR-10 em São Paulo."
+        path="/servicos"
+      />
       <div
         className="pointer-events-none fixed inset-0 z-0 h-[100dvh] w-full"
         aria-hidden

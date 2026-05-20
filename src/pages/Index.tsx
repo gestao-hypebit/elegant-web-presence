@@ -15,10 +15,16 @@ import ContactSection from "@/components/ContactSection";
 import TrabalheConoscoSection from "@/components/TrabalheConoscoSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Engenharia Elétrica, Hidráulica e Manutenção Predial em SP"
+        description="Luminous Engenharia & Infraestrutura — instalações elétricas, hidráulicas e manutenção predial com SLA em São Paulo. Projetos e contratos técnicos conforme NBR 5410 e NR-10."
+        path="/"
+      />
       <ScrollToHash />
       <Header />
       <HeroSection />

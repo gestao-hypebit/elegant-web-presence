@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Check, Shield } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -13,10 +14,6 @@ const ServiceDetail = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    if (service) document.title = `${service.title} — Luminous`;
-    return () => {
-      document.title = "Luminous";
-    };
   }, [service]);
 
   if (!service) {
@@ -34,6 +31,11 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={service.title}
+        description={service.shortDescription}
+        path={`/servico/${service.slug}`}
+      />
       <Header />
 
       <main className="container mx-auto pt-24 sm:pt-28 lg:pt-36 pb-12 sm:pb-20">

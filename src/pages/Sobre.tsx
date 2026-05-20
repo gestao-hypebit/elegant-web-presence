@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import SEO from "@/components/SEO";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -92,6 +93,11 @@ function Reveal({
 const Sobre = () => {
   return (
     <div className="min-h-screen bg-muted/40">
+      <SEO
+        title="Sobre a Luminous"
+        description="Conheça a Luminous Engenharia & Infraestrutura — missão, valores e trajetória de quem entrega instalações elétricas e hidráulicas com segurança, normas e previsibilidade em São Paulo."
+        path="/sobre"
+      />
       <div className="pointer-events-none fixed inset-0 z-0 h-[100dvh] w-full" aria-hidden>
         <img
           src={heroBg}
