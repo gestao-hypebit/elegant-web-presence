@@ -220,7 +220,7 @@ const Footer = () => {
             </p>
             <div className="text-center text-[11px] leading-relaxed text-white/50 sm:text-right sm:text-xs">
               <p>
-                CNPJ 00.000.000/0001-00 · Engenharia e manutenção predial · São Paulo/SP
+                CNPJ 55.775.180/0001-75 · Engenharia e manutenção predial · São Paulo/SP
               </p>
               <p className="mt-1 opacity-90">
                 Execução em conformidade com NBR 5410, NR-10 e demais normas aplicáveis às instalações do
