@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { HashLink } from "@/components/HashLink";
 import {
-  Zap,
   Phone,
   Mail,
   MapPin,
@@ -79,19 +78,13 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <HashLink
               to="/#inicio"
-              className="inline-flex items-center gap-3 rounded-lg outline-none ring-offset-black transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold/50"
+              className="relative block w-48 h-14 rounded-lg outline-none ring-offset-black transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold/50"
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-gold shadow-md shadow-gold/20">
-                <Zap className="h-5 w-5 text-primary-foreground" aria-hidden />
-              </div>
-              <div>
-                <span className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
-                  Luminous
-                </span>
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-                  Luminous Engenharia & Infraestrutura
-                </span>
-              </div>
+              <img
+                src="src/assets/logos/1.svg"
+                alt="Luminous"
+                className="absolute top-1/2 -translate-y-1/2 -left-[70px] h-72 w-auto max-w-none"
+              />
             </HashLink>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               Engenharia de instalações elétricas e hidráulicas, manutenção predial e contratos técnicos

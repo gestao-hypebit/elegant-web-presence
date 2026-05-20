@@ -135,26 +135,12 @@ const Header = () => {
       </div>
 
       <div className="container mx-auto py-3 sm:py-4 flex items-center justify-between gap-3">
-        <HashLink to="/#inicio" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center shadow-lg shadow-black/10">
-            <Zap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div>
-            <span
-              className={`font-display text-base sm:text-lg font-bold transition-colors ${
-                showSolid ? "text-foreground" : "text-white"
-              }`}
-            >
-              Luminous
-            </span>
-            <span
-              className={`block text-[10px] tracking-[0.2em] uppercase -mt-1 transition-colors ${
-                showSolid ? "text-muted-foreground" : "text-white/65"
-              }`}
-            >
-              Luminous Engenharia & Infraestrutura
-            </span>
-          </div>
+        <HashLink to="/#inicio" className="relative block w-44 h-10 shrink-0">
+          <img
+            className="absolute top-[42%] -translate-y-[42%] -left-16 h-72 w-auto max-w-none"
+            src={showSolid ? "src/assets/logos/3.svg" : "src/assets/logos/1.svg"}
+            alt="Luminous"
+          />
         </HashLink>
 
         <nav className="hidden lg:flex items-center gap-8">
