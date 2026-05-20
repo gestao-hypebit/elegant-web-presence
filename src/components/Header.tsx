@@ -139,7 +139,7 @@ const Header = () => {
       <div className="container mx-auto py-3 sm:py-4 flex items-center justify-between gap-3">
         <HashLink to="/#inicio" className="relative block w-44 h-10 shrink-0">
           <img
-            className="absolute top-[42%] -translate-y-[42%] -left-16 h-72 w-auto max-w-none"
+            className="absolute top-[42%] -translate-y-[42%] -left-24 h-96 w-auto max-w-none"
             src={showSolid ? logoDark : logoWhite}
             alt="Luminous"
           />

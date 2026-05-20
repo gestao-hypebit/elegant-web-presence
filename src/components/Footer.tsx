@@ -84,7 +84,7 @@ const Footer = () => {
               <img
                 src={logoWhite}
                 alt="Luminous"
-                className="absolute top-1/2 -translate-y-1/2 -left-[70px] h-72 w-auto max-w-none"
+                className="absolute top-1/2 -translate-y-1/2 -left-[100px] h-96 w-auto max-w-none"
               />
             </HashLink>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
