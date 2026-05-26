@@ -21,7 +21,7 @@ const navItems = [
   { label: "Serviços", href: "/servicos" },
   { label: "Diferenciais", href: "/#diferenciais" },
   { label: "Planos", href: "/#planos" },
-  { label: "Depoimentos", href: "/#depoimentos" },
+  // { label: "Depoimentos", href: "/#depoimentos" },
   { label: "FAQ", href: "/duvidas" },
   { label: "Contato", href: "/#contato" },
 ];
