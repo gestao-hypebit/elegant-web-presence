@@ -35,7 +35,7 @@ const linksSite = [
   { label: "Planos e contratos", href: "/#planos" },
   { label: "Conformidade e normas", href: "/#conformidade" },
   { label: "Galeria de obras", href: "/#galeria" },
-  { label: "Depoimentos", href: "/#depoimentos" },
+  // { label: "Depoimentos", href: "/#depoimentos" },
   { label: "Trabalhe conosco", href: "/#trabalhe-conosco" },
 ];
 
