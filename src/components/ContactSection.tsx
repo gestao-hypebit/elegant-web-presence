@@ -3,20 +3,56 @@ import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+const SHEETS_URL =
+  "https://script.google.com/macros/s/AKfycbyF90b9YtxrSQvV56lWKTdScSdBmaF6tJ5_legJF3FH33_zrS5HpZpoMh8ByXDreGkU/exec";
+
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      variant: "success",
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const body = new URLSearchParams();
+      body.append("nome", formData.name);
+      body.append("email", formData.email);
+      body.append("telefone", formData.phone);
+      body.append("necessidade", formData.message);
+
+      const response = await fetch(SHEETS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+
+      if (response.ok) {
+        toast({
+          variant: "success",
+          title: "Mensagem enviada!",
+          description: "Entraremos em contato em breve.",
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Erro ao enviar",
+          description: "Tente novamente.",
+        });
+      }
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Erro ao enviar",
+        description: "Verifique sua conexão e tente novamente.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,9 +140,10 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-gold text-primary-foreground font-semibold hover:opacity-90 transition-opacity shadow-gold"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-gold text-primary-foreground font-semibold hover:opacity-90 transition-opacity shadow-gold disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Enviar Mensagem
+              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
               <Send className="w-4 h-4" />
             </button>
           </motion.form>
